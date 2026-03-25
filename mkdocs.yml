@@ -41,16 +41,16 @@ nav:
   - Graph problems involving vertex and edge selection: 02-graph-vertex-edge.md
   - 'Graph problems involving paths and circuits: TSP variants, Hamiltonian cycles/paths, longest paths, and postman problems': 03-graph-path-circuit.md
   - Graph problems involving connectivity, cuts, and feedback sets: 04-graph-connectivity-cut.md
-  - Network flow problems with integrality and routing constraints: 05-network-flow.md
-  - Packing, partitioning, and subset selection problems: 06-knapsack-partition.md
-  - Machine scheduling and sequencing problems: 07-scheduling.md
-  - Set covering, packing, and selection problems: 08-set-problems.md
-  - Sequence and string optimization problems: 09-sequence-string.md
-  - Integer and combinatorial optimization formulations: 10-mathematical-programming.md
-  - Lattice problems and number-theoretic hard problems: 11-lattice-number-theory.md
-  - Database design and query optimization problems: 12-database-relational.md
-  - Statistical mechanics optimization problems: 13-physics-statistical-mechanics.md
-  - Vehicle routing and arc routing problems including capacitated, time-windowed, and pickup-delivery variants: 14-vehicle-routing.md
-  - Facility location and network design problems: 15-facility-location.md
-  - Constraint satisfaction and timetabling problems: 16-constraint-satisfaction.md
-  - Graph isomorphism, subgraph matching, and graph similarity problems: 17-graph-matching.md
+  - Graph isomorphism, subgraph matching, and graph similarity problems: 05-graph-matching.md
+  - Network flow problems with integrality and routing constraints: 06-network-flow.md
+  - Packing, partitioning, and subset selection problems: 07-knapsack-partition.md
+  - Machine scheduling and sequencing problems: 08-scheduling.md
+  - Set covering, packing, and selection problems: 09-set-problems.md
+  - Sequence and string optimization problems: 10-sequence-string.md
+  - Integer and combinatorial optimization formulations: 11-mathematical-programming.md
+  - Lattice problems and number-theoretic hard problems: 12-lattice-number-theory.md
+  - Database design and query optimization problems: 13-database-relational.md
+  - Statistical mechanics optimization problems: 14-physics-statistical-mechanics.md
+  - Vehicle routing and arc routing problems including capacitated, time-windowed, and pickup-delivery variants: 15-vehicle-routing.md
+  - Facility location and network design problems: 16-facility-location.md
+  - Constraint satisfaction and timetabling problems: 17-constraint-satisfaction.md
