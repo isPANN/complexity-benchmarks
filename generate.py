@@ -2,11 +2,13 @@
 """Generate MkDocs site pages from YAML registry files."""
 
 import os
+import shutil
 import yaml
 from pathlib import Path
 
 REGISTRY_DIR = Path("registry")
 DOCS_DIR = Path("site_docs")
+STATIC_DIR = Path("static")
 
 
 def load_registries():
@@ -123,9 +125,7 @@ def generate_index(registries):
     lines.append("# Benchmark Datasets for Computationally Hard Problems\n")
     lines.append(
         "A structured registry of publicly available benchmark datasets for "
-        "NP-hard and computationally hard problems, organized by problem category. "
-        "Cross-referenced with the [`pred`](https://github.com/) reduction framework "
-        "(112 problem types, 76 reductions).\n"
+        "NP-hard and computationally hard problems, organized by problem category.\n"
     )
 
     # Stats
@@ -184,6 +184,14 @@ def main():
 
     # Clean and create docs dir
     DOCS_DIR.mkdir(exist_ok=True)
+
+    # Copy static assets
+    if STATIC_DIR.exists():
+        for src in STATIC_DIR.rglob("*"):
+            if src.is_file():
+                dest = DOCS_DIR / src.relative_to(STATIC_DIR)
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(src, dest)
 
     # Generate index
     index_content = generate_index(registries)
