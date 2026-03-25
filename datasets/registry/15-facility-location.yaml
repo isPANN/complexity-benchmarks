@@ -1,0 +1,234 @@
+category: "facility-location"
+description: "Facility location and network design problems"
+problems:
+  - name: "Uncapacitated Facility Location"
+    aliases: ["UFL", "Simple Plant Location", "UFLP", "SPLP"]
+    datasets:
+      - name: "UflLib Benchmark Collection"
+        url: "https://resources.mpi-inf.mpg.de/departments/d1/projects/benchmarks/UflLib/"
+        format: "UflLib text format (facilities, customers, opening costs, connection costs)"
+        instance_count: 645
+        scale:
+          facilities: "10-750"
+          customers: "10-750"
+        has_optimal_solution: true
+        usage: "Standard comprehensive benchmark for uncapacitated facility location"
+        reference: "Multiple contributors; hosted by MPI Informatik"
+        notes: >
+          Contains 14 benchmark packages: Bilde-Krarup (220), Chessboard (30),
+          Euclidean (30), Finite Projective Planes k=11 (30) and k=17 (30),
+          Galvao-Raggi (50), Koerkel-Ghosh Symmetric (45), Koerkel-Ghosh
+          Asymmetric (45), K-median (18), Large Duality Gap A/B/C (90), M* (22),
+          ORLIB (15), Perfect Codes (32), and Uniform (30). Mirror available at
+          https://algo.cs.uni-frankfurt.de/ufllib/. Koerkel-Ghosh instances
+          (m=n in {250, 500, 750}) remain partially unsolved and are considered
+          among the hardest UFL benchmarks.
+
+      - name: "OR-Library Uncapacitated Warehouse Location"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/uncapinfo.html"
+        format: "OR-Library text (warehouses, customers, capacities, fixed costs, demands, allocation costs)"
+        instance_count: 15
+        scale:
+          facilities: "16-100"
+          customers: "50-1000"
+        has_optimal_solution: true
+        usage: "Classical benchmark for uncapacitated warehouse/facility location"
+        reference: "Beasley, 1993. Lagrangean heuristics for location problems. European Journal of Operational Research 65:383-399."
+        notes: >
+          Derived from test sets VII (cap71-cap74), X (cap101-cap104),
+          XIII (cap131-cap134), and A-C (capa, capb, capc). Capacity and demand
+          figures should be ignored when solving as uncapacitated problems.
+          Optimal solutions provided in uncapopt file.
+
+      - name: "Kochetov Hard UFL Instances"
+        url: "https://www.academia.edu/4646193/Benchmark_library_Discrete_Location_Problems"
+        format: "Custom text"
+        has_optimal_solution: true
+        usage: "Computationally difficult instances for testing metaheuristics and branch-and-bound"
+        reference: "Kochetov & Ivanenko, 2005. Computationally Difficult Instances for the Uncapacitated Facility Location Problem. Metaheuristics: Progress as Real Problem Solvers, pp. 351-367."
+        notes: >
+          Several classes of hard instances from the Sobolev Institute of Mathematics.
+          Includes Gap-C instances with large integrality gap, finite projective
+          plane instances with exponentially many strong local optima, and classes
+          that are most difficult for both metaheuristics and exact methods.
+          Part of the benchmark library "Discrete Location Problems".
+
+  - name: "Capacitated Facility Location"
+    aliases: ["CFLP", "Capacitated Warehouse Location"]
+    datasets:
+      - name: "OR-Library Capacitated Warehouse Location"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/capinfo.html"
+        format: "OR-Library text (warehouses, customers, capacities, fixed costs, demands, allocation costs)"
+        instance_count: 40
+        scale:
+          facilities: "16-100"
+          customers: "50-1000"
+        has_optimal_solution: true
+        usage: "Standard benchmark for capacitated facility/warehouse location"
+        reference: "Beasley, 1988. An algorithm for solving large capacitated warehouse location problems. European Journal of Operational Research 33:314-325."
+        notes: >
+          Thirteen problem sets (IV-XIII and A-C). Sets A, B, C use a single
+          file each representing four test problems with varying capacity values.
+          Builds upon the standard Akinc and Khumawala test problems. Optimal
+          solutions provided in capopt file.
+
+      - name: "Holmberg SSCFLP Instances"
+        url: "https://or-brescia.unibs.it/instances/instances_sscflp"
+        format: "Custom text"
+        instance_count: 71
+        scale:
+          facilities: "10-30"
+          customers: "50-200"
+        has_optimal_solution: true
+        usage: "Standard benchmark for single-source capacitated facility location"
+        reference: "Holmberg, Ronnqvist & Yuan, 1999. An exact algorithm for the capacitated facility location problems with single sourcing. European Journal of Operational Research 113:544-559."
+        notes: >
+          Four subsets: Set I (p1-p24), Set II (p25-p40), Set III (p41-p55),
+          Set IV (p56-p71). Subsets differ in input distributions and problem
+          sizes. Widely used for evaluating SSCFLP heuristics and exact methods.
+
+      - name: "CommaLAB CFLP Instances"
+        url: "https://commalab.di.unipi.it/datasets/mex/"
+        format: "Multiple formats"
+        has_optimal_solution: true
+        usage: "Large-scale capacitated facility location benchmarks"
+        reference: "Various authors; maintained by CommaLAB, University of Pisa"
+        notes: >
+          Collection of capacitated facility location instances from multiple
+          sources including OR-Library variants and independently generated
+          large-scale instances for testing exact and heuristic methods.
+
+  - name: "p-Median"
+    aliases: ["k-Median", "Minimum Sum Multicenter"]
+    pred_names: ["MinimumSumMulticenter"]
+    datasets:
+      - name: "OR-Library p-Median Instances"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/pmedinfo.html"
+        format: "OR-Library text (vertices, edges, p; edge list with costs)"
+        instance_count: 40
+        scale:
+          vertices: "100-900"
+          p: "5-200"
+        has_optimal_solution: true
+        usage: "Standard benchmark for p-median problem"
+        reference: "Beasley, 1985. A note on solving large p-median problems. European Journal of Operational Research 21:270-273."
+        notes: >
+          Files pmed1-pmed40 on random undirected graphs. Floyd's algorithm
+          must be applied to the edge cost data to obtain the complete
+          allocation cost matrix. Optimal solutions in pmedopt file.
+          Also widely used for p-center experiments.
+
+      - name: "TSPLIB-derived p-Median Instances"
+        url: "http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/"
+        format: "TSPLIB coordinate format (Euclidean distances)"
+        instance_count: 98
+        scale:
+          vertices: "up to 3038"
+        has_optimal_solution: true
+        usage: "Large-scale p-median benchmarks derived from TSP instances"
+        reference: "Reinelt, 1991. TSPLIB - A traveling salesman problem library. ORSA Journal on Computing 3(4):376-384."
+        notes: >
+          Euclidean TSP instances adapted for p-median by computing pairwise
+          distances from city coordinates. Distances typically rounded to
+          nearest integer. Used in combination with OR-Library instances
+          for comprehensive p-median algorithm evaluation.
+
+  - name: "p-Center"
+    aliases: ["k-Center", "Minimax Multicenter", "Vertex Center"]
+    pred_names: ["MinMaxMulticenter"]
+    datasets:
+      - name: "OR-Library p-Center Instances (pmed)"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/pmedinfo.html"
+        format: "OR-Library text (vertices, edges, p; edge list with costs)"
+        instance_count: 40
+        scale:
+          vertices: "100-900"
+          p: "5-200"
+        has_optimal_solution: true
+        usage: "Standard benchmark for p-center problem"
+        reference: "Beasley, 1985. A note on solving large p-median problems. European Journal of Operational Research 21:270-273."
+        notes: >
+          Same graph instances as p-median (pmed1-pmed40) but solved with
+          minimax objective. All 40 instances have been solved to proven
+          optimality. Floyd's algorithm required to compute full distance matrix.
+
+      - name: "TSPLIB-derived p-Center Instances"
+        url: "https://msinnl.github.io/pages/pcenter.html"
+        format: "TSPLIB coordinate format (Euclidean distances, rounded to integer)"
+        scale:
+          vertices: "up to 3038"
+        has_optimal_solution: true
+        usage: "Large-scale p-center benchmarks"
+        reference: "Gaar & Sinnl. A scaleable projection-based branch-and-cut algorithm for the p-center problem."
+        notes: >
+          TSPLIB instances used for p-center evaluation with distances
+          rounded to next integer following standard literature convention.
+          Complements the OR-Library pmed instances for testing scalability
+          of p-center algorithms.
+
+  - name: "Hub Location"
+    aliases: ["p-Hub Median", "Hub-and-Spoke", "Hub Network Design"]
+    datasets:
+      - name: "OR-Library AP Hub Location Dataset"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/phubinfo.html"
+        format: "OR-Library text (coordinates, flows, costs)"
+        instance_count: 3
+        scale:
+          nodes: "up to 200"
+        has_optimal_solution: true
+        usage: "Standard benchmark for p-hub median and capacitated hub location"
+        reference: "Ernst & Krishnamoorthy, 1996. Efficient algorithms for the uncapacitated single allocation p-hub median problem. Location Science 4(3):139-154."
+        notes: >
+          Australia Post (AP) dataset in files phub1-phub3. Full 200-node
+          problem with 8 hubs. Includes C program for generating smaller
+          subsets (10-80 nodes). Distances derived from coordinates should
+          be divided by 1000 for correct solutions.
+
+      - name: "OR-Library CAB Hub Location Dataset"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/phubinfo.html"
+        format: "OR-Library text (coordinates, flows, costs)"
+        instance_count: 1
+        scale:
+          nodes: "25"
+        has_optimal_solution: true
+        usage: "Classic benchmark for hub-and-spoke network models"
+        reference: "O'Kelly, M.E. Hub facility location with fixed costs."
+        notes: >
+          Civil Aeronautics Board (CAB) 25-node dataset in file phub4.
+          Contributed by M.E. O'Kelly. Smaller subsets created by taking
+          first n nodes (n=10,15,20). Transfer cost discount factor
+          typically varied from 0.2 to 1.0 in steps of 0.2.
+
+      - name: "HLP Survey Benchmark Datasets"
+        url: "http://m3nets.de/HLP/"
+        format: "CSV (node file, distance matrix, demand matrix)"
+        scale:
+          nodes: "10-80"
+        has_optimal_solution: true
+        usage: "Reference experimental benchmark for hub location problems"
+        reference: "Ernst et al. Towards a Reference Experimental Benchmark for Solving Hub Location Problems. Transportation Science, 2022."
+        notes: >
+          Standardized benchmark covering AP, CAB, and TR (Turkish postal
+          network) datasets in CSV format. Each instance includes node
+          coordinates, distance matrix, and demand matrix. Over 5000 optimal
+          solutions computed across 12 fundamental hub location problem
+          variants. Available at m3nets.de/HLP/.
+
+  - name: "Warehouse Location"
+    aliases: ["Simple Warehouse Location", "Plant Location"]
+    datasets:
+      - name: "OR-Library Warehouse Location Instances"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/capinfo.html"
+        format: "OR-Library text (warehouses, customers, capacities, fixed costs, demands, allocation costs)"
+        instance_count: 40
+        scale:
+          facilities: "16-100"
+          customers: "50-1000"
+        has_optimal_solution: true
+        usage: "Classical capacitated warehouse location benchmark"
+        reference: "Beasley, 1988. An algorithm for solving large capacitated warehouse location problems. European Journal of Operational Research 33:314-325."
+        notes: >
+          Same instances as OR-Library capacitated facility location (cap
+          files). The warehouse location problem is equivalent to CFLP in
+          the discrete optimization literature. Problem sets IV-XIII and A-C
+          with varying numbers of warehouses and customers.

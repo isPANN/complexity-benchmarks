@@ -1,0 +1,253 @@
+category: "constraint-satisfaction"
+description: "Constraint satisfaction and timetabling problems"
+problems:
+  - name: "Constraint Satisfaction Problem"
+    aliases: ["CSP"]
+    datasets:
+      - name: "CSPLib"
+        url: "https://www.csplib.org/"
+        format: "Natural language specifications with model files"
+        instance_count: 97
+        has_optimal_solution: false
+        usage: "Reference library of constraint problems for solver benchmarking"
+        reference: "Gent et al., 1999"
+        notes: >
+          A library of 97 test problems across 16 categories proposed by 75
+          authors. Problems are specified in natural language to allow users
+          to find good representations. Many entries include example models
+          in various constraint languages. Maintained as an open-source
+          project on GitHub.
+
+      - name: "XCSP3 Competition Benchmarks"
+        url: "https://xcsp.org/instances/"
+        format: "XCSP3 XML"
+        instance_count: 23000
+        has_optimal_solution: false
+        usage: "Annual competition benchmarks for CSP and COP solvers"
+        reference: "Audemard & Lecoutre, XCSP3 Competition series (2017-2025)"
+        notes: >
+          Over 23,000 instances in XCSP3 format covering both CSP (Constraint
+          Satisfaction Problem) and COP (Constrained Optimization Problem).
+          The 2024 competition featured 34 problems spanning mathematics,
+          logistics, and scheduling, with 10-15 instances per problem series.
+          Instances are downloadable from xcsp.org.
+
+      - name: "MiniZinc Challenge Benchmarks"
+        url: "https://github.com/MiniZinc/minizinc-benchmarks"
+        format: "MiniZinc (.mzn + .dzn)"
+        scale:
+          models_per_year: "10-12"
+          instances_per_model: "8-12"
+        has_optimal_solution: false
+        usage: "Annual constraint programming solver competition since 2008"
+        reference: "Stuckey et al., MiniZinc Challenge series (2008-present)"
+        notes: >
+          A suite of MiniZinc benchmarks used in the annual MiniZinc Challenge,
+          held since 2008. Each year approximately 100 instances across 10-12
+          models are selected to cover the breadth of finite-domain constraint
+          solving. Restricted to integer variables. Models and data files are
+          available under the MIT license on GitHub.
+
+  - name: "University Course Timetabling"
+    aliases: ["Course Timetabling", "Curriculum-Based Course Timetabling"]
+    datasets:
+      - name: "ITC 2007 Curriculum-Based Course Timetabling (Track 3)"
+        url: "https://www.unitime.org/itc2007/"
+        format: "Custom text"
+        instance_count: 21
+        scale:
+          source: "University of Udine"
+        has_optimal_solution: false
+        usage: "Standard benchmark for curriculum-based course timetabling"
+        reference: "Di Gaspero et al., 2007"
+        notes: >
+          21 real-world instances from the University of Udine, divided into
+          7 early, 7 late, and 7 hidden instances. All instances have at
+          least one feasible solution. Part of the Second International
+          Timetabling Competition (ITC 2007) Track 3.
+
+      - name: "ITC 2007 Post Enrolment Course Timetabling (Track 2)"
+        url: "https://www.unitime.org/itc2007/"
+        format: "Custom text"
+        has_optimal_solution: false
+        usage: "Benchmark for post-enrolment-based course timetabling"
+        reference: "Lewis et al., 2007"
+        notes: >
+          Post-enrolment-based course timetabling instances where events must
+          be assigned to timeslots and rooms such that all students can attend
+          their requested events. Part of the Second International Timetabling
+          Competition (ITC 2007) Track 2.
+
+      - name: "ITC 2019 University Course Timetabling"
+        url: "https://www.itc2019.org/"
+        format: "XML"
+        instance_count: 30
+        scale:
+          institutions: "Multiple universities across six continents"
+        has_optimal_solution: false
+        usage: "Rich real-world university course timetabling benchmark"
+        reference: "Muller et al., 2018"
+        notes: >
+          30 competition instances (10 early, 10 middle, 10 late) plus 6
+          test instances, all representing real-world problems from
+          universities worldwide. Combines student sectioning with time and
+          room assignment of events. Fourth International Timetabling
+          Competition.
+
+  - name: "Examination Timetabling"
+    aliases: ["Exam Timetabling", "Exam Scheduling"]
+    datasets:
+      - name: "ITC 2007 Examination Timetabling (Track 1)"
+        url: "https://www.unitime.org/itc2007/"
+        format: "Custom text"
+        instance_count: 12
+        scale:
+          exams: "273-1018"
+          students: "4421-16365"
+        has_optimal_solution: false
+        usage: "Standard benchmark for examination timetabling"
+        reference: "McCollum et al., 2007"
+        notes: >
+          12 instances from British universities, released in three phases:
+          4 early, 4 late, and 4 hidden. Instances range from 273 to 1018
+          exams with 4,421 to 16,365 students. Part of the Second
+          International Timetabling Competition (ITC 2007) Track 1.
+
+      - name: "University of Nottingham Exam Timetabling Instances"
+        url: "https://people.cs.nott.ac.uk/pszajp/timetabling/exam/"
+        format: "Custom text"
+        has_optimal_solution: false
+        usage: "Supplementary examination timetabling benchmarks from research literature"
+        reference: "Various (Carter et al., 1996; Qu et al., 2009)"
+        notes: >
+          Collection of examination timetabling benchmark instances maintained
+          at the University of Nottingham, including Carter's benchmark
+          instances and ITC 2007 format instances. Widely cited in the
+          examination timetabling literature.
+
+  - name: "High School Timetabling"
+    aliases: ["School Timetabling", "Secondary School Timetabling"]
+    datasets:
+      - name: "ITC 2011 XHSTT High School Timetabling Archive"
+        url: "https://www.utwente.nl/en/eemcs/dmmp/hstt/itc2011/"
+        format: "XML (XHSTT)"
+        instance_count: 35
+        scale:
+          countries: "10"
+        has_optimal_solution: false
+        usage: "International benchmark for high school timetabling"
+        reference: "Post et al., 2012"
+        notes: >
+          Archive of high school timetabling instances from 10 countries in
+          the XHSTT XML format. Round 1 used XHSTT-2011 with 21 instances
+          from 8 countries. The full competition covered 35 instances. Third
+          International Timetabling Competition. Includes an evaluator for
+          checking instance syntax and solution evaluation.
+
+  - name: "Nurse Rostering"
+    aliases: ["Nurse Scheduling", "NRP"]
+    datasets:
+      - name: "INRC-I (First International Nurse Rostering Competition 2010)"
+        url: "https://nrpcompetition.kuleuven-kulak.be/"
+        format: "Custom text"
+        instance_count: 69
+        has_optimal_solution: false
+        usage: "Standard benchmark for nurse rostering algorithms"
+        reference: "Haspeslagh et al., 2012"
+        notes: >
+          69 real-world instances of varied size and complexity across three
+          tracks: sprint (10s time limit), medium (10min), and long (10h).
+          Instances were released in phases with some hidden for final
+          evaluation. 15 submissions were received in the competition.
+
+      - name: "INRC-II (Second International Nurse Rostering Competition)"
+        url: "https://mobiz.vives.be/inrc2/"
+        format: "Custom text"
+        scale:
+          nurses: "30-120"
+          weeks: "4-8"
+        has_optimal_solution: false
+        usage: "Multi-stage nurse rostering benchmark"
+        reference: "Ceschia et al., 2015"
+        notes: >
+          Multi-stage formulation where competitors solve a sequence of
+          weekly sub-problems covering 4 or 8 consecutive weeks. Scenario
+          files use the naming convention nXXXwY where XXX is the number
+          of nurses and Y the number of weeks. Introduces rolling-horizon
+          decision making not present in INRC-I.
+
+      - name: "NSPLib (Nurse Scheduling Problem Library)"
+        url: "https://www.projectmanagement.ugent.be/research/personnel_scheduling/nsp"
+        format: "Custom text"
+        instance_count: 9210
+        scale:
+          nurses: "25-150"
+          scheduling_period: "7-28 days"
+        has_optimal_solution: false
+        usage: "Large-scale benchmark for nurse scheduling algorithms"
+        reference: "Vanhoucke & Maenhout, 2009"
+        notes: >
+          7,290 instances with one-week scheduling period and 1,920 instances
+          with one-month period. Includes problem generator and best known
+          solutions. Hosted by Ghent University Operations Research group.
+
+      - name: "Scheduling Benchmarks (Employee Scheduling)"
+        url: "https://www.schedulingbenchmarks.org/"
+        format: "XML"
+        has_optimal_solution: false
+        usage: "Diverse employee scheduling benchmark from industrial and academic sources"
+        reference: "Curtois & Qu"
+        notes: >
+          Covers nurse rostering, multi-activity multi-day scheduling, and
+          other employee scheduling problems. Instances from industrial
+          collaborators and scientific publications. Uses XML-based modelling
+          format.
+
+      - name: "KU Leuven Nurse Rostering Benchmarks"
+        url: "https://gent.cs.kuleuven.be/nurserostering.html"
+        format: "Custom text"
+        scale:
+          nurses: "4-46"
+          shift_types: "2-5"
+          scheduling_period: "26-31 days"
+        has_optimal_solution: false
+        usage: "Real-world nurse rostering instances from Belgian hospitals"
+        reference: "Smet et al., 2014"
+        notes: >
+          Instances from six wards in two Belgian hospitals with three
+          scenarios each (normal, overload, absence). Extends the INRC-I
+          competition dataset.
+
+  - name: "Sports Scheduling"
+    aliases: ["Tournament Scheduling", "Sports Timetabling"]
+    datasets:
+      - name: "RobinX Sports Timetabling Repository"
+        url: "https://robinxval.ugent.be/RobinX/index.php"
+        format: "XML (RobinX)"
+        has_optimal_solution: false
+        usage: "Comprehensive benchmark repository for round-robin sports timetabling"
+        reference: "Van Bulck et al., 2020"
+        notes: >
+          Collection of real-life sports timetabling instances from different
+          countries and sports in a unified XML format. Uses a three-field
+          classification notation to describe tournament format, constraints,
+          and objectives. Includes an open-source C++ library for reading,
+          writing, and validating instances. Results are independently
+          validated and publicly tracked.
+
+      - name: "ITC 2021 Sports Timetabling"
+        url: "https://robinxval.ugent.be/ITC2021/index.php"
+        format: "XML (RobinX)"
+        instance_count: 45
+        scale:
+          teams: "16-20"
+        has_optimal_solution: false
+        usage: "Competition benchmark for constrained double round-robin tournament scheduling"
+        reference: "Van Bulck et al., 2022"
+        notes: >
+          45 diverse instances for constructing time-constrained double
+          round-robin tournaments with 16 to 20 teams. Instances were
+          generated using instance space analysis to ensure diversity.
+          Uses the RobinX XML data format. Fifth International Timetabling
+          Competition. Website serves as a permanent repository with
+          validation tools.
