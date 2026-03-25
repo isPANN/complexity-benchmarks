@@ -3,7 +3,7 @@ description: "Lattice problems and number-theoretic hard problems"
 problems:
   - name: "Shortest Vector Problem"
     aliases: ["SVP", "Shortest Lattice Vector"]
-    pred_names: ["ShortestVectorProblem/i32"]
+    # No direct pred equivalent; related to ClosestVectorProblem/i32
     datasets:
       - name: "TU Darmstadt SVP Challenge"
         url: "https://www.latticechallenge.org/svp-challenge/"
@@ -96,7 +96,7 @@ problems:
 
   - name: "Learning With Errors"
     aliases: ["LWE"]
-    pred_names: ["LearningWithErrors"]
+    # No direct pred equivalent; related to lattice problems (CVP/SVP)
     datasets:
       - name: "TU Darmstadt LWE Challenge"
         url: "https://www.latticechallenge.org/lwe_challenge/challenge.php"

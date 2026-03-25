@@ -52,7 +52,7 @@ problems:
 
   - name: "Job Shop Scheduling"
     aliases: ["JSP", "JSSP", "Job Shop Problem"]
-    pred_names: ["JobShopScheduling"]
+    # No direct pred equivalent; related to FlowShopScheduling
     datasets:
       - name: "JSPLIB (Job Shop Problem Library)"
         url: "https://github.com/tamy0612/JSPLIB"
