@@ -67,7 +67,7 @@ def generate_category_page(reg):
 
         # Dataset table
         lines.append(
-            "| Dataset | Format | Instances | Scale | Optimal? | Reference |"
+            "| Dataset | Format | Instances | Scale | Solution | Reference |"
         )
         lines.append(
             "|---------|--------|-----------|-------|----------|-----------|"
@@ -79,13 +79,15 @@ def generate_category_page(reg):
             fmt = ds.get("format", "-")
             count = ds.get("instance_count", "-")
             scale = format_scale(ds.get("scale"))
-            optimal = ds.get("has_optimal_solution")
-            if optimal is True:
-                optimal_str = "Yes"
-            elif optimal is False:
-                optimal_str = "No"
+            solution = ds.get("has_known_solution", ds.get("has_optimal_solution"))
+            if solution is True:
+                solution_str = "Yes"
+            elif solution is False:
+                solution_str = "No"
+            elif isinstance(solution, str):
+                solution_str = solution
             else:
-                optimal_str = "-"
+                solution_str = "-"
             ref = ds.get("reference", "-")
             usage = ds.get("usage", "")
             notes = ds.get("notes", "")
@@ -97,7 +99,7 @@ def generate_category_page(reg):
                 name_cell = ds_name
 
             lines.append(
-                f"| {name_cell} | {fmt} | {count} | {scale} | {optimal_str} | {ref} |"
+                f"| {name_cell} | {fmt} | {count} | {scale} | {solution_str} | {ref} |"
             )
 
         lines.append("")
