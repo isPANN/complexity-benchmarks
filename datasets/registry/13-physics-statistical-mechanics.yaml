@@ -1,0 +1,135 @@
+category: "physics-statistical-mechanics"
+description: "Statistical mechanics optimization problems"
+problems:
+  - name: "Spin Glass"
+    aliases: ["Ising Spin Glass", "Edwards-Anderson Model", "Sherrington-Kirkpatrick Model"]
+    pred_names: ["SpinGlass/SimpleGraph/i32", "SpinGlass/SimpleGraph/f64"]
+    datasets:
+      - name: "Spin Glass Server (University of Bonn)"
+        url: "http://spinglass.uni-bonn.de/"
+        format: "Edge list (spin_i spin_j coupling)"
+        has_optimal_solution: true
+        usage: "Exact ground state computation for Ising spin glasses and partition functions of Potts glasses"
+        reference: "Mallach, S. (continuation of COPhy group, University of Cologne)"
+        notes: >
+          Web-based service computing exact ground states using the Biq Mac algorithm.
+          Supports complete graphs (Sherrington-Kirkpatrick model), 2D planar lattices
+          (free boundary in at least one direction), and general sparse topologies.
+          Spins numbered sequentially layer by layer starting with index 1.
+
+      - name: "Biq Mac Library - Ising Spin Glass Instances"
+        url: "https://biqmac.aau.at/biqmaclib.html"
+        format: "Sparse matrix / adjacency list"
+        instance_count: 50
+        scale:
+          variables: "100-300"
+        has_optimal_solution: true
+        usage: "Standard benchmark for exact Max-Cut and binary quadratic optimization solvers"
+        reference: "Wiegele, A. Biq Mac Library, Alpen-Adria-Universitat Klagenfurt"
+        notes: >
+          Ising spin glass instances (pm1s and pm1d families) embedded in the Biq Mac
+          library alongside Max-Cut and BQP instances. One-dimensional Ising chain
+          instances with dimensions n=100, 150, 200, 250, 300. Available as 9.6 MB
+          tar.gz archive with optimal values documented.
+
+      - name: "Gset Max-Cut / Spin Glass Benchmark"
+        url: "https://web.stanford.edu/~yyye/yyye/Gset/"
+        format: "Sparse adjacency list"
+        instance_count: 71
+        scale:
+          vertices: "800-20000"
+        has_optimal_solution: false
+        usage: "Standard benchmark for Max-Cut and equivalent Ising spin glass ground state optimization"
+        reference: "Ye, Y. Stanford University"
+        notes: >
+          71 instances (G1-G81, some numbers skipped) with graph sizes from 800 to
+          20,000 vertices. Includes unweighted graphs (all weights 1) and graphs with
+          +/-1 weights (bimodal disorder). Computing Max-Cut is equivalent to
+          minimizing Ising energy with antiferromagnetic couplings.
+
+      - name: "DIRAC Spin Glass Benchmark Instances"
+        url: "https://github.com/FFrankyy/DIRAC"
+        format: "Custom lattice files"
+        has_optimal_solution: true
+        usage: "Benchmarking deep reinforcement learning and annealing methods on Edwards-Anderson spin glasses"
+        reference: "Fan et al., Nature Communications 14, 725 (2023)"
+        notes: >
+          Edwards-Anderson spin glass instances on 2D, 3D, and 4D cubic lattices
+          with Gaussian-distributed couplings. Includes ground state energies obtained
+          via the Spin Glass Server. Benchmarked against simulated annealing (SA) and
+          parallel tempering (PT). Dataset hosted on Google Drive.
+
+      - name: "RL4Ising Benchmark Dataset"
+        url: "https://github.com/Open-Finance-Lab/RL4Ising"
+        format: "HuggingFace dataset"
+        instance_count: 190000
+        has_optimal_solution: true
+        usage: "Standardized benchmark for reinforcement learning and MIP solvers on Ising model optimization"
+        reference: "NeurIPS ML4PS Workshop, 2025"
+        notes: >
+          Over 190,000 Ising model instances across five dimensionalities (1D-4D and
+          general graphs) and five types (Classic, Spin-Glass, Ferromagnetic,
+          Anti-Ferromagnetic, Synthetic). Baseline solutions from Gurobi and CPLEX
+          MIP solvers. Hosted at huggingface.co/datasets/SecureFinAI-Lab/Ising_Model_Instances.
+
+      - name: "D-Wave Chimera and Pegasus Spin Glass Instances"
+        url: "https://www.dwavequantum.com/learn/publications/"
+        format: "QUBO / Ising model coefficients"
+        has_optimal_solution: false
+        usage: "Benchmarking quantum annealing hardware against classical solvers on native hardware topologies"
+        reference: "D-Wave Systems"
+        notes: >
+          Spin glass instances defined on D-Wave hardware topologies: Chimera
+          (degree-6, up to ~2048 qubits on D-Wave 2000Q), Pegasus (degree-15, up to
+          5760 qubits on Advantage), and Zephyr (degree-20, Advantage2). Bimodal and
+          Gaussian disorder studied. Chimera spin glasses have only a zero-temperature
+          phase transition, limiting their hardness as benchmarks.
+
+      - name: "Tile-Planted Spin Glass Instances"
+        url: "https://arxiv.org/abs/1907.10809"
+        format: "Square lattice coupling matrices"
+        has_optimal_solution: true
+        usage: "Tunable-hardness benchmarks for quantum and classical annealing algorithms"
+        reference: "Perera et al., Phys. Rev. E 101, 023316 (2020)"
+        notes: >
+          Spin glass instances on square lattices with planted solutions generated by
+          partitioning the graph into edge-disjoint subgraphs with frustrated elementary
+          subproblems sharing a common local ground state. Tunable hardness parameter
+          controls difficulty, with multiple hardness phase transitions identified
+          via population annealing Monte Carlo.
+
+      - name: "Edwards-Anderson Lattice Spin Glass (d=3,...,8)"
+        url: "https://arxiv.org/abs/2407.14646"
+        format: "Lattice coupling configurations"
+        has_optimal_solution: true
+        usage: "Studying ground state properties of high-dimensional Edwards-Anderson spin glasses"
+        reference: "Frontiers in Physics 12, 1466987 (2024)"
+        notes: >
+          Ground state energies and excitations for Edwards-Anderson spin glasses on
+          cubic lattices in dimensions d=3 through d=8. Uses bond-diluted lattices for
+          computational feasibility in higher dimensions. Boundary condition manipulation
+          used to elicit excitations. Instances with Gaussian-distributed couplings
+          and sizes N = L^d.
+
+      - name: "Exploring Quantum Annealing Architectures"
+        url: "https://github.com/GabrielJauma/exploring-QA-spin-glass"
+        format: "Python-generated graph instances"
+        has_optimal_solution: false
+        usage: "Comparing spin glass properties across quantum annealer graph topologies"
+        reference: "Jauma, G. et al."
+        notes: >
+          Graph generator producing spin glass instances on D-Wave hardware topologies
+          (Chimera, Pegasus, Zephyr) and standard lattices. Computes critical
+          temperatures and autocorrelation times via parallel tempering Monte Carlo.
+
+      - name: "Random Field Ising Model (RFIM) Instances"
+        url: "https://chimera.roma1.infn.it/RESEARCH/RFIM.html"
+        format: "Lattice configurations with random fields"
+        has_optimal_solution: true
+        usage: "Studying disorder-driven phase transitions and ground state optimization in random field systems"
+        reference: "Roma group, INFN Roma"
+        notes: >
+          Random Field Ising Model instances on 2D and 3D lattices with tunable
+          disorder strength. Ground states computable via max-flow / min-cut
+          algorithms. Gaussian and bimodal field distributions. System sizes
+          up to L=156 in 3D with large ensembles of disorder realizations.

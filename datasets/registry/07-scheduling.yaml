@@ -1,0 +1,408 @@
+category: "scheduling"
+description: "Machine scheduling and sequencing problems"
+problems:
+  - name: "Flow Shop Scheduling"
+    aliases: ["Permutation Flow Shop", "PFSP"]
+    pred_names: ["FlowShopScheduling"]
+    datasets:
+      - name: "Taillard's Flow Shop Instances"
+        url: "http://mistic.heig-vd.ch/taillard/problemes.dir/ordonnancement.dir/ordonnancement.html"
+        format: "Custom text"
+        instance_count: 120
+        scale:
+          jobs: "20-500"
+          machines: "5-20"
+        has_optimal_solution: true
+        usage: "Standard benchmark for permutation flow shop makespan minimisation"
+        reference: "Taillard, 1993"
+        notes: >
+          Ten instances for each of 12 sizes: 20x5, 20x10, 20x20, 50x5, 50x10,
+          50x20, 100x5, 100x10, 100x20, 200x10, 200x20, 500x20. Processing
+          times drawn from uniform distribution. Best known upper and lower
+          bounds maintained on Taillard's website.
+
+      - name: "OR-Library Flow Shop Instances"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/flowshopinfo.html"
+        format: "Custom text"
+        instance_count: 31
+        scale:
+          jobs: "20-200"
+          machines: "5-20"
+        has_optimal_solution: true
+        usage: "Classic flow shop benchmark from OR-Library"
+        reference: "Beasley, 1990"
+        notes: >
+          Contains 31 commonly cited test instances in the flowshop1 data file.
+          Also includes Taillard's instance generator code (PASCAL and C).
+
+      - name: "VFR Hard Flow Shop Instances"
+        url: "https://www.sciencedirect.com/science/article/abs/pii/S0377221714005992"
+        format: "Custom text"
+        instance_count: 480
+        scale:
+          jobs: "10-800"
+          machines: "5-60"
+        has_optimal_solution: false
+        usage: "Harder flow shop benchmark complementing Taillard's instances"
+        reference: "Vallada, Ruiz & Framinan, 2015"
+        notes: >
+          New hard benchmark for flowshop scheduling problems minimising
+          makespan. Designed to be more challenging than Taillard's instances,
+          especially for modern metaheuristics.
+
+  - name: "Job Shop Scheduling"
+    aliases: ["JSP", "JSSP", "Job Shop Problem"]
+    pred_names: ["JobShopScheduling"]
+    datasets:
+      - name: "JSPLIB (Job Shop Problem Library)"
+        url: "https://github.com/tamy0612/JSPLIB"
+        format: "Standard text with JSON metadata"
+        instance_count: 162
+        scale:
+          jobs: "6-100"
+          machines: "5-20"
+        has_optimal_solution: true
+        usage: "Consolidated collection of classic JSP benchmark instances"
+        reference: "Multiple (Fisher & Thompson; Lawrence; Adams et al.; Taillard; Storer et al.; Applegate & Cook; Yamada & Nakano)"
+        notes: >
+          Aggregates seven standard benchmark sets: FT (3 instances),
+          LA01-40 (40), ABZ5-9 (5), TA01-80 (80), SWV01-20 (20),
+          ORB01-10 (10), YN1-4 (4). Includes best known bounds in
+          instances.json metadata file.
+
+      - name: "Fisher & Thompson Instances (FT)"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/jobshopinfo.html"
+        format: "Custom text"
+        instance_count: 3
+        scale:
+          jobs: "6-20"
+          machines: "6-10"
+        has_optimal_solution: true
+        usage: "Foundational JSP benchmark from 1963"
+        reference: "Fisher & Thompson, 1963"
+        notes: >
+          Three classic instances: FT06 (6x6, optimal makespan 55),
+          FT10 (10x10), and FT20 (20x5). Among the earliest JSP benchmarks;
+          FT10 remained unsolved for over 20 years.
+
+      - name: "Lawrence Instances (LA)"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/jobshopinfo.html"
+        format: "Custom text"
+        instance_count: 40
+        scale:
+          jobs: "10-30"
+          machines: "5-15"
+        has_optimal_solution: true
+        usage: "Widely used mid-size JSP benchmark"
+        reference: "Lawrence, 1984"
+        notes: >
+          40 instances in 8 groups by size: LA01-05 (10x5), LA06-10 (15x5),
+          LA11-15 (20x5), LA16-20 (10x10), LA21-25 (15x10), LA26-30 (20x10),
+          LA31-35 (30x10), LA36-40 (15x15). All optimal solutions now known.
+
+      - name: "Adams, Balas & Zawack Instances (ABZ)"
+        url: "https://github.com/tamy0612/JSPLIB"
+        format: "Custom text"
+        instance_count: 5
+        scale:
+          jobs: "10-20"
+          machines: "10-15"
+        has_optimal_solution: true
+        usage: "Classic JSP benchmark for shifting bottleneck procedure"
+        reference: "Adams, Balas & Zawack, 1988"
+        notes: >
+          Five instances ABZ5-9. Introduced alongside the shifting bottleneck
+          procedure. ABZ9 (20x15) was one of the harder open instances for
+          many years.
+
+      - name: "Taillard's Job Shop Instances (TA)"
+        url: "http://mistic.heig-vd.ch/taillard/problemes.dir/ordonnancement.dir/ordonnancement.html"
+        format: "Custom text"
+        instance_count: 80
+        scale:
+          jobs: "15-100"
+          machines: "15-20"
+        has_optimal_solution: false
+        usage: "Large-scale JSP benchmark; many instances still open"
+        reference: "Taillard, 1993"
+        notes: >
+          80 instances (TA01-80) across sizes 15x15, 20x15, 20x20, 30x15,
+          30x20, 50x15, 50x20, 100x20. Processing times from uniform
+          distribution. Several instances remain unsolved to optimality.
+
+      - name: "Storer, Wu & Vaccari Instances (SWV)"
+        url: "https://github.com/tamy0612/JSPLIB"
+        format: "Custom text"
+        instance_count: 20
+        scale:
+          jobs: "20-50"
+          machines: "10-15"
+        has_optimal_solution: false
+        usage: "Challenging JSP benchmark with open instances"
+        reference: "Storer, Wu & Vaccari, 1992"
+        notes: >
+          20 instances (SWV01-20). Among the most famous JSP benchmark sets.
+          Five instances still lack proven optimal solutions. Includes hard
+          50x10 instances.
+
+      - name: "Demirkol, Mehta & Uzsoy Instances (DMU)"
+        url: "https://optimizizer.com/DMU.php"
+        format: "Custom text"
+        instance_count: 80
+        scale:
+          jobs: "20-100"
+          machines: "15-20"
+        has_optimal_solution: false
+        usage: "Large challenging JSP benchmark; majority of instances still open"
+        reference: "Demirkol, Mehta & Uzsoy, 1998"
+        notes: >
+          80 instances in 8 sizes: 20x15, 20x20, 30x15, 30x20, 50x15, 50x20,
+          and 100x20. Processing time range doubles that of Taillard's instances,
+          making them more challenging. 54 instances still lack proven optimal
+          solutions.
+
+      - name: "OR-Library Job Shop Instances"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/jobshopinfo.html"
+        format: "Custom text"
+        instance_count: 82
+        scale:
+          jobs: "6-30"
+          machines: "5-15"
+        has_optimal_solution: true
+        usage: "Consolidated classic JSP test instances"
+        reference: "Beasley, 1990"
+        notes: >
+          82 test instances in the jobshop1 data file, including FT and LA
+          instances. Also provides Taillard's instance generator code.
+
+      - name: "Large-Scale JSP Benchmarks"
+        url: "https://arxiv.org/abs/2102.08778"
+        format: "Custom text"
+        instance_count: 40
+        scale:
+          jobs: "100-500"
+          machines: "20-100"
+        has_optimal_solution: false
+        usage: "Modern large-scale JSP instances beyond classical benchmarks"
+        reference: "Taillard, 2021"
+        notes: >
+          Extended set of large-scale job shop instances designed to challenge
+          modern algorithms beyond the capabilities of classical benchmark sets.
+
+  - name: "Open Shop Scheduling"
+    aliases: ["Open Shop Problem", "OSP"]
+    pred_names: ["FlowShopScheduling"]
+    datasets:
+      - name: "Taillard's Open Shop Instances"
+        url: "http://mistic.heig-vd.ch/taillard/problemes.dir/ordonnancement.dir/ordonnancement.html"
+        format: "Custom text"
+        instance_count: 60
+        scale:
+          jobs: "4-20"
+          machines: "4-20"
+        has_optimal_solution: true
+        usage: "Standard open shop benchmark"
+        reference: "Taillard, 1993"
+        notes: >
+          60 instances across 6 square sizes: 4x4, 5x5, 7x7, 10x10, 15x15,
+          20x20. Ten instances per size. Processing times from uniform
+          distribution. All optimal solutions now known.
+
+      - name: "Gueret & Prins Open Shop Instances (GP)"
+        url: "https://link.springer.com/chapter/10.1007/978-3-540-32220-7_9"
+        format: "Custom text"
+        instance_count: 80
+        scale:
+          jobs: "3-10"
+          machines: "3-10"
+        has_optimal_solution: true
+        usage: "Harder open shop benchmark where optimal makespan exceeds lower bound"
+        reference: "Gueret & Prins, 1999"
+        notes: >
+          80 instances designed to be more challenging than Taillard's set.
+          The optimal makespan is always strictly greater than the trivial
+          lower bound, making them harder for optimization algorithms.
+
+  - name: "Multiprocessor Scheduling"
+    aliases: ["Parallel Machine Scheduling", "Identical Machines Scheduling"]
+    pred_names: ["MultiprocessorScheduling"]
+    datasets:
+      - name: "OR-Library Parallel Machine Instances"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/info.html"
+        format: "Custom text"
+        has_optimal_solution: true
+        usage: "Benchmark for makespan minimisation on identical parallel machines"
+        reference: "Beasley, 1990"
+        notes: >
+          OR-Library contains test instances for scheduling on identical
+          parallel machines with the objective of minimising makespan.
+
+  - name: "Resource-Constrained Project Scheduling (RCPSP)"
+    aliases: ["RCPSP", "Project Scheduling"]
+    pred_names: ["ResourceConstrainedScheduling"]
+    datasets:
+      - name: "PSPLIB j30 Instances"
+        url: "https://www.om-db.wi.tum.de/psplib/library.html"
+        format: "Custom text"
+        instance_count: 480
+        scale:
+          activities: "30"
+          resource_types: "4"
+        has_optimal_solution: true
+        usage: "Small RCPSP benchmark; all instances solved to optimality"
+        reference: "Kolisch & Sprecher, 1997"
+        notes: >
+          480 single-mode RCPSP instances with 30 non-dummy activities.
+          Generated by ProGen. 48 parameter settings with 10 instances each.
+          All optimal solutions known.
+
+      - name: "PSPLIB j60 Instances"
+        url: "https://www.om-db.wi.tum.de/psplib/library.html"
+        format: "Custom text"
+        instance_count: 480
+        scale:
+          activities: "60"
+          resource_types: "4"
+        has_optimal_solution: false
+        usage: "Medium RCPSP benchmark; many instances still open"
+        reference: "Kolisch & Sprecher, 1997"
+        notes: >
+          480 single-mode RCPSP instances with 60 non-dummy activities.
+          Generated by ProGen. Not all optimal solutions are known.
+
+      - name: "PSPLIB j120 Instances"
+        url: "https://www.om-db.wi.tum.de/psplib/library.html"
+        format: "Custom text"
+        instance_count: 600
+        scale:
+          activities: "120"
+          resource_types: "4"
+        has_optimal_solution: false
+        usage: "Large RCPSP benchmark; challenging for exact methods"
+        reference: "Kolisch & Sprecher, 1997"
+        notes: >
+          600 single-mode RCPSP instances with 120 non-dummy activities.
+          Generated by ProGen. 60 parameter settings with 10 instances each.
+          Very few optimal solutions known; primarily solved with heuristics.
+
+      - name: "PSPLIB Multi-Mode RCPSP Instances"
+        url: "https://www.om-db.wi.tum.de/psplib/library.html"
+        format: "Custom text"
+        scale:
+          activities: "12-30"
+          modes_per_activity: "3"
+        has_optimal_solution: true
+        usage: "Multi-mode RCPSP benchmark with renewable and nonrenewable resources"
+        reference: "Kolisch & Sprecher, 1997"
+        notes: >
+          Multi-mode instances where each activity can be executed in one of
+          several modes, each with different resource requirements and durations.
+          Includes both renewable and nonrenewable resource constraints.
+
+      - name: "MPSPLIB (Multi-Project Scheduling Problem Library)"
+        url: "http://www.mpsplib.com/"
+        format: "Custom text"
+        has_optimal_solution: false
+        usage: "Benchmark for multi-project resource-constrained scheduling"
+        reference: "Homberger, 2007"
+        notes: >
+          Library of benchmark instances for the resource-constrained
+          multi-project scheduling problem, extending PSPLIB to scenarios
+          with multiple concurrent projects sharing resources.
+
+  - name: "Precedence-Constrained Scheduling"
+    aliases: ["Scheduling with Precedence Constraints"]
+    pred_names: ["PrecedenceConstrainedScheduling"]
+    datasets:
+      - name: "PSPLIB RCPSP Instances (as precedence-constrained benchmarks)"
+        url: "https://www.om-db.wi.tum.de/psplib/library.html"
+        format: "Custom text"
+        instance_count: 1560
+        scale:
+          activities: "30-120"
+        has_optimal_solution: false
+        usage: "RCPSP instances used as precedence-constrained scheduling testbed"
+        reference: "Kolisch & Sprecher, 1997"
+        notes: >
+          The j30, j60, and j120 PSPLIB instances encode precedence constraints
+          via activity-on-node networks generated by ProGen. These DAG structures
+          are widely used to study precedence-constrained scheduling on parallel
+          machines.
+
+  - name: "Minimum Tardiness Scheduling"
+    aliases: ["Total Weighted Tardiness", "Single Machine Tardiness"]
+    pred_names: ["MinimumTardinessSequencing"]
+    datasets:
+      - name: "OR-Library Weighted Tardiness Instances"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/wtinfo.html"
+        format: "Custom text"
+        instance_count: 375
+        scale:
+          jobs: "40-100"
+        has_optimal_solution: true
+        usage: "Standard single-machine total weighted tardiness benchmark"
+        reference: "Crauwels, Potts & Van Wassenhove, 1998"
+        notes: >
+          125 instances each for n=40, n=50, n=100. Processing times from
+          U[1,100], weights from U[1,10]. Parameterised by relative due date
+          range (RDD: 0.2-1.0) and tardiness factor (TF: 0.2-1.0). Five
+          instances per 25 parameter combinations. Most n=40 and n=50 instances
+          solved optimally.
+
+      - name: "Cicirello Weighted Tardiness with Sequence-Dependent Setups"
+        url: "https://www.cicirello.org/datasets/wtsds/"
+        format: "Plain text"
+        has_optimal_solution: false
+        usage: "Benchmark for weighted tardiness with sequence-dependent setup times"
+        reference: "Cicirello, 2003"
+        notes: >
+          NP-Hard single-machine scheduling problem with sequence-dependent
+          setup times. Instances vary in due date tightness, due date range,
+          and setup time severity. Licensed under MIT. Available as ZIP download
+          and on GitHub.
+
+  - name: "Staff Scheduling"
+    aliases: ["Nurse Rostering", "Employee Scheduling", "Personnel Scheduling"]
+    pred_names: ["StaffScheduling"]
+    datasets:
+      - name: "NSPLib (Nurse Scheduling Problem Library)"
+        url: "https://www.projectmanagement.ugent.be/research/personnel_scheduling/nsp"
+        format: "Custom text"
+        instance_count: 9210
+        scale:
+          nurses: "25-150"
+          scheduling_period: "7-28 days"
+        has_optimal_solution: false
+        usage: "Large-scale benchmark for nurse scheduling algorithms"
+        reference: "Vanhoucke & Maenhout, 2009"
+        notes: >
+          7,290 instances with one-week scheduling period and 1,920 instances
+          with one-month period. Includes problem generator and best known
+          solutions. Hosted by Ghent University Operations Research group.
+
+      - name: "Shift Scheduling Benchmarks"
+        url: "https://www.schedulingbenchmarks.org/"
+        format: "XML"
+        has_optimal_solution: false
+        usage: "Diverse employee scheduling benchmark from industrial and academic sources"
+        reference: "Staff Roster Solutions"
+        notes: >
+          Covers nurse rostering, multi-activity multi-day scheduling, and
+          other employee scheduling problems. Instances from industrial
+          collaborators and scientific publications. Uses XML-based modelling
+          format.
+
+      - name: "KU Leuven Nurse Rostering Benchmarks"
+        url: "https://gent.cs.kuleuven.be/nurserostering.html"
+        format: "Custom text"
+        scale:
+          nurses: "4-46"
+          shift_types: "2-5"
+          scheduling_period: "26-31 days"
+        has_optimal_solution: false
+        usage: "Real-world nurse rostering instances from Belgian hospitals"
+        reference: "Smet et al., 2014"
+        notes: >
+          Instances from six wards in two Belgian hospitals with three
+          scenarios each (normal, overload, absence). Extends the 2010
+          International Nurse Rostering Competition dataset.

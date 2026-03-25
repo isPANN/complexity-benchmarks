@@ -1,0 +1,177 @@
+category: "lattice-number-theory"
+description: "Lattice problems and number-theoretic hard problems"
+problems:
+  - name: "Shortest Vector Problem"
+    aliases: ["SVP", "Shortest Lattice Vector"]
+    pred_names: ["ShortestVectorProblem/i32"]
+    datasets:
+      - name: "TU Darmstadt SVP Challenge"
+        url: "https://www.latticechallenge.org/svp-challenge/"
+        format: "Text (integer matrix)"
+        scale:
+          dimensions: "140-300"
+        has_optimal_solution: false
+        usage: "Primary benchmark for SVP algorithm evaluation; hall of fame tracks records"
+        reference: "Schneider & Buchmann, 2010"
+        notes: >
+          Random lattices in the sense of Goldstein and Mayer, provided in even
+          dimensions from 140 to 300. Lattice bases are generated from integer
+          seeds using NTL. Submissions must find vectors with Euclidean norm
+          below the Gaussian heuristic. The hall of fame tracks the five highest
+          dimensions solved and the shortest vectors found.
+
+      - name: "TU Darmstadt Ideal Lattice Challenge"
+        url: "https://latticechallenge.org/ideallattice-challenge/"
+        format: "Text (integer matrix, ZIP archives)"
+        scale:
+          dimensions: "52-1024"
+        has_optimal_solution: false
+        usage: "Benchmark for SVP algorithms on structured (ideal) lattices"
+        reference: "Plantard & Schneider, 2013"
+        notes: >
+          Ideal lattices over cyclotomic polynomial rings, with multiple lattices
+          per dimension distinguished by the index of the cyclotomic. Separate
+          halls of fame for exact SVP (vectors shorter than Gaussian heuristic)
+          and approximate SVP. Dimensions up to 1024 are available. Records
+          include solutions in dimensions 656 and 700.
+
+      - name: "G6K (General Sieve Kernel) Test Suite"
+        url: "https://github.com/fplll/g6k"
+        format: "Generated via fplll/fpylll"
+        scale:
+          dimensions: "50-160"
+        has_optimal_solution: false
+        usage: "Benchmarking lattice sieving algorithms; reproducing SVP challenge records"
+        reference: "Albrecht et al., EUROCRYPT 2019"
+        notes: >
+          G6K is a C++ and Python library implementing several sieving algorithms
+          for lattice reduction. Includes scripts to generate and solve SVP
+          challenge instances. Set records on Darmstadt SVP challenges at
+          dimensions 151, 153, and 155.
+
+      - name: "fplll Lattice Reduction Test Instances"
+        url: "https://github.com/fplll/fplll"
+        format: "Generated via built-in generators"
+        has_optimal_solution: false
+        usage: "Testing lattice reduction algorithms (BKZ, LLL, enumeration)"
+        reference: "The FPLLL development team"
+        notes: >
+          The fplll library includes generators for q-ary lattices (SIS/LWE),
+          Goldstein-Mayer lattices, knapsack lattices, and structured
+          lower-triangular lattices. Supports dimensions up to several thousand
+          for LLL and moderate dimensions for BKZ/enumeration. Companion
+          libraries fpylll (Python wrapper) and flatter (fast reduction) use
+          the same instance formats.
+
+  - name: "Closest Vector Problem"
+    aliases: ["CVP"]
+    pred_names: ["ClosestVectorProblem/i32"]
+    datasets:
+      - name: "TU Darmstadt SVP Challenge (adapted for CVP)"
+        url: "https://www.latticechallenge.org/svp-challenge/"
+        format: "Text (integer matrix)"
+        scale:
+          dimensions: "140-300"
+        has_optimal_solution: false
+        usage: "SVP challenge lattices repurposed for CVP algorithm testing"
+        reference: "Schneider & Buchmann, 2010"
+        notes: >
+          No dedicated large-scale CVP challenge exists. Researchers commonly
+          adapt SVP challenge lattices by adding a target vector to test CVP
+          and bounded-distance decoding (BDD) algorithms. The lattices are
+          random in the sense of Goldstein and Mayer.
+
+      - name: "fplll CVP Solver Test Instances"
+        url: "https://github.com/fplll/fplll"
+        format: "Generated via built-in generators"
+        has_optimal_solution: true
+        usage: "Testing CVP and closest-plane algorithms"
+        reference: "The FPLLL development team"
+        notes: >
+          fplll includes a CVP solver (closest_vector) that uses the
+          nearest-plane algorithm. Test instances can be generated from
+          any of fplll's lattice generators combined with a target vector.
+          Commonly used for evaluating Babai's nearest-plane and enumeration-based
+          CVP algorithms.
+
+  - name: "Learning With Errors"
+    aliases: ["LWE"]
+    pred_names: ["LearningWithErrors"]
+    datasets:
+      - name: "TU Darmstadt LWE Challenge"
+        url: "https://www.latticechallenge.org/lwe_challenge/challenge.php"
+        format: "Text (matrix A, vector b)"
+        scale:
+          dimensions: "40-120"
+          relative_error: "0.005-0.070"
+        has_optimal_solution: true
+        usage: "Primary benchmark for LWE solving algorithms; assesses lattice-based crypto security"
+        reference: "Buchmann, Lindner, Rückert, 2008"
+        notes: >
+          Instances generated via multi-party computation protocol between
+          TU Darmstadt, TU Eindhoven, and UC San Diego, ensuring no party
+          knows the solutions. Parameters organized in a grid of dimension n
+          (40-120) and relative error alpha (0.005-0.070). Current record is
+          dimension 95 with alpha=0.005, solved by USTC in 2024.
+
+      - name: "Ring-LWE Challenges"
+        url: "https://web.eecs.umich.edu/~cpeikert/rlwe-challenges/"
+        format: "Custom binary"
+        instance_count: 516
+        has_optimal_solution: true
+        usage: "Benchmarking attacks on Ring-LWE and Ring-LWR over cyclotomic rings"
+        reference: "Crockett & Peikert, 2017"
+        notes: >
+          516 challenges covering a wide variety of Ring-LWE and Ring-LWR
+          instantiations: two-power and non-two-power cyclotomics, moduli of
+          various sizes, small and large sample counts, and error distributions
+          from worst-case hardness theorems. Hardness estimated by Hermite
+          factor and BKZ block size. Challenge integrity verified via
+          non-interactive cut-and-choose protocol using NIST randomness beacon.
+
+  - name: "Integer Factoring"
+    aliases: ["Factoring", "Integer Factorization", "Prime Factorization"]
+    pred_names: ["Factoring"]
+    datasets:
+      - name: "RSA Factoring Challenge"
+        url: "https://en.wikipedia.org/wiki/RSA_Factoring_Challenge"
+        format: "Decimal integer"
+        instance_count: 54
+        scale:
+          digits: "100-617"
+          bits: "330-2048"
+        has_optimal_solution: true
+        usage: "Historical benchmark for integer factoring algorithms; crypto key-size guidance"
+        reference: "RSA Laboratories, 1991"
+        notes: >
+          54 semiprime challenge numbers published by RSA Laboratories from
+          1991 to 2007 (now discontinued). Numbers RSA-100 through RSA-500
+          and RSA-617 labeled by decimal digit count; later numbers RSA-576
+          through RSA-2048 labeled by bit length. As of 2020, RSA-250
+          (829 bits) is the largest factored. RSA-2048 remains open and
+          carries no prize since the challenge ended.
+
+      - name: "Cunningham Project Tables"
+        url: "https://homes.cerias.purdue.edu/~ssw/cun/"
+        format: "Text (factor tables)"
+        has_optimal_solution: true
+        usage: "Oldest ongoing computational number theory project; tracks factoring progress"
+        reference: "Wagstaff, Cunningham & Woodall, 1925-present"
+        notes: >
+          Ongoing collaborative project (since 1925) to factor numbers of the
+          form b^n +/- 1 for small bases b = 2, 3, 5, 6, 7, 10, 11, 12 and
+          large exponents n. Main tables contain over 6800 entries as of 2026.
+          Serves as a historical record of factoring algorithm progress from
+          trial division through GNFS.
+
+      - name: "Alpertron Integer Factorization Records"
+        url: "https://www.alpertron.com.ar/ECM.HTM"
+        format: "Web interface / decimal integer"
+        has_optimal_solution: true
+        usage: "Online factoring tool and reference for ECM factoring records"
+        reference: "Dario Alpern"
+        notes: >
+          Web-based integer factorization calculator implementing ECM,
+          Pollard rho, and other methods. Useful for testing factoring of
+          numbers up to several hundred digits. Also tracks ECM factoring
+          records and provides educational resources.

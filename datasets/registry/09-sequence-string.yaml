@@ -1,0 +1,317 @@
+category: "sequence-string"
+description: "Sequence and string optimization problems"
+problems:
+  - name: "Longest Common Subsequence"
+    aliases: ["LCS"]
+    pred_names: ["LongestCommonSubsequence"]
+    datasets:
+      - name: "BB Benchmark (Blum & Blesa)"
+        url: "https://link.springer.com/chapter/10.1007/978-3-540-74446-7_11"
+        format: "Text (custom)"
+        instance_count: 80
+        scale:
+          strings: "10-200"
+          string_length: "100-1000"
+          alphabet_size: "4-24"
+        has_optimal_solution: false
+        usage: "Standard correlated benchmark for LCS heuristic evaluation"
+        reference: "Blum & Blesa, 2007"
+        notes: >
+          Eight groups of 10 instances each. Input strings are generated
+          from a random base string with probabilistic mutations (deletions
+          and substitutions), producing high similarity between strings.
+          Widely used in metaheuristic and beam search LCS studies.
+
+      - name: "Rat Genome LCS Benchmark"
+        url: "https://link.springer.com/chapter/10.1007/978-3-030-37599-7_14"
+        format: "Text (DNA sequences)"
+        instance_count: 20
+        scale:
+          strings: "10"
+          string_length: "600"
+          alphabet_size: "4"
+        has_optimal_solution: false
+        usage: "Real-world biological LCS benchmark from rat genome sequences"
+        reference: "Djukanovic et al., 2020"
+        notes: >
+          20 instances derived from rat genome DNA sequences with
+          alphabet size 4 (A, C, G, T). Each instance has 10 strings
+          of length 600. Used for evaluating A* and beam search methods.
+
+      - name: "LCS Random Benchmark (Shyu & Tsai)"
+        url: "https://link.springer.com/article/10.1007/s00500-018-3200-3"
+        format: "Text (custom)"
+        scale:
+          strings: "10-200"
+          string_length: "100-1000"
+          alphabet_size: "4-24"
+        has_optimal_solution: false
+        usage: "Uncorrelated random benchmark instances for LCS algorithms"
+        reference: "Shyu & Tsai, 2009"
+        notes: >
+          Three sets of random (uncorrelated) benchmark instances originally
+          used in ACO-based LCS studies. Instances generated with uniform
+          random letter distributions over alphabets of size 4 to 24.
+
+      - name: "Bacteria LCS Benchmark"
+        url: "https://link.springer.com/chapter/10.1007/978-3-540-74446-7_11"
+        format: "Text (DNA sequences)"
+        instance_count: 35
+        scale:
+          alphabet_size: "4"
+        has_optimal_solution: false
+        usage: "Real-world constrained LCS benchmark from bacterial DNA"
+        reference: "Blum & Blesa, 2007"
+        notes: >
+          35 instances derived from real bacterial DNA sequences. Used
+          for evaluating constrained and standard LCS algorithms on
+          biologically meaningful input data.
+
+      - name: "LCS Non-Uniform Distribution Benchmark"
+        url: "https://github.com/milanagrbic/LCSonNuD"
+        format: "Text (custom)"
+        scale:
+          strings: "10-100"
+          string_length: "100-1000"
+          alphabet_size: "4-24"
+        has_optimal_solution: false
+        usage: "Benchmark for LCS with non-uniform letter distributions"
+        reference: "Grbic et al., 2021"
+        notes: >
+          Instances where letter frequencies in input strings follow
+          multinomial distributions with known non-uniform probabilities.
+          Designed to test algorithm robustness to skewed alphabets.
+
+      - name: "BAliBASE (Benchmark Alignment dataBASE)"
+        url: "https://www.lbgi.fr/balibase/"
+        format: "FASTA, MSF"
+        instance_count: 6255
+        scale:
+          sequences: "4-50 per family"
+          sequence_identity: "0-100%"
+        has_optimal_solution: true
+        usage: "Gold-standard benchmark for multiple sequence alignment evaluation"
+        reference: "Thompson et al., 2005"
+        notes: >
+          Manually refined reference alignments based on 3D structural
+          superpositions. Version 3.0 contains 6255 protein sequences across
+          multiple reference sets (RV11-RV50) covering equidistant sequences,
+          orphan sequences, internal insertions, N/C-terminal extensions,
+          and linear motifs. Download at https://www.lbgi.fr/balibase/BalibaseDownload/
+
+      - name: "SABmark (Sequence Alignment Benchmark)"
+        url: "https://bioinformatics.vub.ac.be/databases/databases.html"
+        format: "FASTA, PDB"
+        scale:
+          sequence_identity: "0-50%"
+        has_optimal_solution: true
+        usage: "Benchmark covering entire known fold space for difficult alignments"
+        reference: "Van Walle et al., 2005"
+        notes: >
+          Version 1.65. Two subsets: Twilight Zone (pairwise identity < 25%)
+          and Superfamilies (< 50%), derived from SCOP classification.
+          Systematically covers the entire known protein fold space using
+          high-quality structures with pairwise reference structure alignments.
+
+      - name: "PREFAB (Protein Reference Alignment Benchmark)"
+        url: "https://www.drive5.com/muscle/"
+        format: "FASTA"
+        instance_count: 1682
+        scale:
+          sequences_per_family: "up to 50"
+          folds: "321 SCOP folds"
+        has_optimal_solution: true
+        usage: "Pairwise protein alignment benchmark with structural references"
+        reference: "Edgar, 2004"
+        notes: >
+          1682 families with up to 50 sequences each (median 50). Each set
+          contains two reference sequences with structure-based alignments.
+          49% of sets fall below the twilight zone. Created alongside the
+          MUSCLE alignment program.
+
+      - name: "OXBench"
+        url: "https://www.compbio.dundee.ac.uk/downloads/oxbench/"
+        format: "FASTA, MSF"
+        has_optimal_solution: true
+        usage: "Protein multiple sequence alignment accuracy benchmark"
+        reference: "Raghava et al., 2003"
+        notes: >
+          Reference alignments derived from comparison of protein 3D
+          structures. Includes evaluation measures and scoring software
+          (C and R). Provides both master-slave and multiple alignment
+          test cases for benchmarking alignment algorithms.
+
+      - name: "HomFam Large-Scale Alignment Benchmark"
+        url: "https://academic.oup.com/bioinformatics/article/29/8/989/229582"
+        format: "FASTA"
+        instance_count: 94
+        scale:
+          families: "94"
+          sequences_per_family: "88-93675"
+          reference_sequences: "5-41"
+        has_optimal_solution: true
+        usage: "Large-scale multiple sequence alignment scalability benchmark"
+        reference: "Sievers et al., 2011"
+        notes: >
+          Created by combining Homstrad reference sequences with Pfam
+          non-reference sequences. 94 families with 88 to 93,675 sequences.
+          18 families exceed 10,000 members. Tests how alignment quality
+          degrades as sequence count increases.
+
+  - name: "Shortest Common Supersequence"
+    aliases: ["SCS"]
+    pred_names: ["ShortestCommonSupersequence"]
+    datasets:
+      - name: "SCS Random Benchmark (Blum et al.)"
+        url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7127599/"
+        format: "Text (custom)"
+        instance_count: 25
+        scale:
+          strings: "8"
+          string_length: "40-80"
+          alphabet_size: "2-24"
+        has_optimal_solution: false
+        usage: "Standard random benchmark for SCS algorithm evaluation"
+        reference: "Blum et al., 2007"
+        notes: >
+          25 instances across alphabet sizes 2, 4, 8, 16, and 24.
+          Each instance has 8 strings, four of length 40 and four
+          of length 80. Five instances per alphabet size.
+
+      - name: "SCS DNA Benchmark (SARS Coronavirus)"
+        url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7127599/"
+        format: "Text (DNA sequences)"
+        scale:
+          string_length: "158-1269"
+          alphabet_size: "4"
+        has_optimal_solution: false
+        usage: "Real-world DNA benchmark for SCS algorithms"
+        reference: "Blum et al., 2007"
+        notes: >
+          Derived from SARS Coronavirus genomic sequences of lengths
+          158 and 1269 from the SARS genomic database. Instances
+          generated by removing symbols with probabilities p = 0.1,
+          0.15, and 0.20. Ten instances per sequence.
+
+      - name: "SCS Protein Benchmark (Swiss-Prot)"
+        url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7127599/"
+        format: "Text (protein sequences)"
+        scale:
+          string_length: "125-595"
+          alphabet_size: "20"
+        has_optimal_solution: false
+        usage: "Real-world protein benchmark for SCS algorithms"
+        reference: "Blum et al., 2007"
+        notes: >
+          Three protein families from Swiss-Prot: Oxytocin (length 125),
+          p53 (length 393), and Estrogen (length 595). Alphabet size 20
+          (amino acids). Instances generated by removing symbols with
+          probabilities p = 0.1, 0.15, and 0.20.
+
+      - name: "SCS Biological Benchmark (Ning & Leong)"
+        url: "https://link.springer.com/article/10.1186/1471-2105-7-S4-S12"
+        format: "Text (DNA and protein sequences)"
+        instance_count: 11
+        scale:
+          alphabet_size: "4-20"
+        has_optimal_solution: false
+        usage: "Real-world biological benchmark for SCS heuristics"
+        reference: "Ning & Leong, 2006"
+        notes: >
+          11 instances total: 6 from DNA sequences and 5 from protein
+          sequences. Used in beam search and deposition-reduction algorithm
+          evaluations for SCS.
+
+      - name: "SCS Enhanced Beam Search Benchmark (Mousavi et al.)"
+        url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7127599/"
+        format: "Text (custom)"
+        scale:
+          strings: "5-100"
+          string_length: "10-100"
+          alphabet_size: "2-24"
+        has_optimal_solution: false
+        usage: "Extended benchmark for evaluating SCS beam search algorithms"
+        reference: "Mousavi et al., 2020"
+        notes: >
+          Comprehensive benchmark combining random and biological instances
+          with varying alphabet sizes, string counts, and string lengths.
+          Used to demonstrate that no single SCS approach dominates across
+          all parameter combinations.
+
+  - name: "String-to-String Correction"
+    aliases: ["Edit Distance", "Levenshtein Distance", "String Edit Distance"]
+    pred_names: ["StringToStringCorrection"]
+    datasets:
+      - name: "TREC-5 Confusion Track Corpus"
+        url: "https://trec.nist.gov/data.html"
+        format: "SGML / Text"
+        instance_count: 55600
+        scale:
+          documents: "55600"
+          character_error_rate: "5-20%"
+        has_optimal_solution: true
+        usage: "Standard benchmark for OCR error correction using edit distance"
+        reference: "Kantor & Voorhees, 1997"
+        notes: >
+          US Federal Register documents with two OCR-degraded versions:
+          Deg5 (~5% character error rate from high-resolution scans) and
+          Deg20 (~20% error rate from down-sampled images). 49 known-item
+          retrieval tasks. Widely used for evaluating string correction
+          and approximate matching systems.
+
+      - name: "Norvig Spelling Correction Corpus"
+        url: "https://norvig.com/spell-correct.html"
+        format: "Text"
+        scale:
+          dictionary_size: "29157 unique words"
+          corpus_size: "1.1M words"
+        has_optimal_solution: true
+        usage: "Spelling correction evaluation using edit distance"
+        reference: "Norvig, 2007"
+        notes: >
+          English text corpus (big.txt, 6.18 MB) with 1,105,286 terms
+          and 29,157 unique words. Includes test sets of misspellings.
+          76% of spelling errors are edit distance 1, 98.9% are within
+          edit distance 2. Standard reference for edit-distance-based
+          spell checkers.
+
+      - name: "Birkbeck Spelling Error Corpus"
+        url: "https://www.dcs.bbk.ac.uk/~roger/corpora.html"
+        format: "Text"
+        has_optimal_solution: true
+        usage: "Natural spelling error corpus for edit distance evaluation"
+        reference: "Mitton, 1985"
+        notes: >
+          Collection of files of misspellings gathered from various
+          sources including student essays, typewritten documents, and
+          OCR output. Each misspelling is paired with its correct form.
+          Widely used in computational linguistics for evaluating
+          string correction algorithms.
+
+      - name: "OCR-D Ground Truth Corpus"
+        url: "https://github.com/OCR-D/gt_structure_text"
+        format: "PAGE XML, Text"
+        has_optimal_solution: true
+        usage: "OCR evaluation ground truth for computing edit distance"
+        reference: "OCR-D project, 2015-2017"
+        notes: >
+          Ground truth text and structure corpus for historical documents.
+          Includes page-level annotations of text and structure. Edit
+          distance (character error rate, word error rate) is the primary
+          evaluation metric. Curated and supplemented with metadata.
+
+      - name: "SymSpell Benchmark Corpus"
+        url: "https://github.com/wolfgarbe/SymSpell"
+        format: "Text"
+        scale:
+          dictionary_entries: "82765"
+          test_queries: "1000"
+          max_edit_distance: "1-3"
+        has_optimal_solution: true
+        usage: "Approximate string matching speed and accuracy benchmark"
+        reference: "Garbe, 2012"
+        notes: >
+          Benchmark for symmetric delete spelling correction algorithm.
+          Dictionary of 82,765 English words. Test queries with edit
+          distances 1-3. Demonstrates performance of approximate string
+          matching at scale (1M times faster than standard approaches).

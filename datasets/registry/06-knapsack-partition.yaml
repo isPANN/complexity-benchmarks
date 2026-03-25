@@ -1,0 +1,199 @@
+category: "knapsack-partition"
+description: "Packing, partitioning, and subset selection problems"
+problems:
+  - name: "Knapsack"
+    aliases: ["0-1 Knapsack", "Binary Knapsack"]
+    pred_names: ["Knapsack"]
+    datasets:
+      - name: "Pisinger Hard Knapsack Instances"
+        url: "https://hjemmesider.diku.dk/~pisinger/codes.html"
+        format: "Custom text (id, profit, weight per line)"
+        instance_count: 14000
+        scale:
+          items: "50-10000"
+        has_optimal_solution: true
+        usage: "Standard benchmark for 0-1 knapsack solver evaluation"
+        reference: "Pisinger, 2005"
+        notes: >
+          Fourteen instance types including uncorrelated, weakly correlated,
+          strongly correlated, inverse strongly correlated, almost strongly
+          correlated, subset sum, profit ceiling, circle, and spanner variants.
+          Includes generators (combo, minknap, expknap) and pre-generated instances.
+
+      - name: "Jooken Hard Knapsack Instances"
+        url: "https://github.com/JorikJooken/knapsackProblemInstances"
+        format: "Custom text (id, profit, weight per line)"
+        instance_count: 3240
+        scale:
+          items: "25-200"
+        has_optimal_solution: true
+        usage: "Hard instances requiring supercomputer-level effort to solve"
+        reference: "Jooken, Leyman & De Causmaecker, 2022"
+        notes: >
+          A new class of hard problem instances for the 0-1 knapsack problem.
+          Despite being smaller than Pisinger instances, these take much longer
+          to solve. Required approximately 810 CPU-hours on a supercomputer.
+          Combo was the only algorithm shown to solve many within 2 hours.
+
+      - name: "OR-Library Multidimensional Knapsack (Chu-Beasley)"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/mknapinfo.html"
+        format: "OR-Library text format"
+        instance_count: 270
+        scale:
+          items: "100-500"
+          constraints: "5-30"
+        has_optimal_solution: true
+        usage: "Standard benchmark for multidimensional knapsack problem"
+        reference: "Chu & Beasley, 1998"
+        notes: >
+          Nine groups of problems (mknapcb1-mknapcb9) with constraints m in
+          {5, 10, 30}, variables n in {100, 250, 500}, and tightness ratios
+          alpha in {0.25, 0.50, 0.75}. Each group contains 30 problems.
+
+      - name: "Ortega 0/1 Knapsack Instances"
+        url: "http://artemisa.unicauca.edu.co/~johnyortega/instances_01_KP/"
+        format: "Custom text"
+        has_optimal_solution: true
+        usage: "Large-scale 0-1 knapsack problem instances"
+        reference: "Ortega et al."
+        notes: >
+          Collection of 0-1 knapsack problem instances for testing
+          heuristic and exact algorithms.
+
+      - name: "kplib Test Instances"
+        url: "https://github.com/likr/kplib"
+        format: "Custom text"
+        has_optimal_solution: true
+        usage: "Test instances for various knapsack problem variants"
+        reference: "kplib maintainers"
+        notes: >
+          A library of test instances for knapsack problems, including
+          generators and pre-generated instances for algorithm comparison.
+
+  - name: "Bin Packing"
+    aliases: ["1D Bin Packing", "One-Dimensional Bin Packing"]
+    pred_names: ["BinPacking/i32"]
+    datasets:
+      - name: "BPPLIB (Bin Packing Problem Library)"
+        url: "https://site.unibo.it/operations-research/en/research/bpplib-a-bin-packing-problem-library"
+        format: "Custom text (capacity, number of items, item sizes)"
+        instance_count: 6195
+        scale:
+          items: "50-1000"
+        has_optimal_solution: true
+        usage: "Comprehensive benchmark library for 1D bin packing and cutting stock"
+        reference: "Delorme, Iori & Martello, 2018"
+        notes: >
+          Includes Falkenauer U (uniform, 80 instances, n=120-1000, c=150),
+          Falkenauer T (triplets, 80 instances, n=60-501, c=1000),
+          Scholl 1 (720 instances, c=100-150), Scholl 2 (480 instances, c=1000),
+          Scholl 3 (10 hard instances, c=100000), Schwerin 1 (100 instances,
+          n=100, c=10000), Schwerin 2 (100 instances, n=120, c=10000),
+          Waescher (17 difficult instances), and randomly generated sets.
+          Also available on GitHub at github.com/mdelorme2/BPPLIB.
+
+      - name: "ESICUP Cutting and Packing Datasets"
+        url: "https://github.com/ESICUP/datasets"
+        format: "Various"
+        has_optimal_solution: true
+        usage: "Community-maintained cutting and packing benchmark collection"
+        reference: "ESICUP Working Group"
+        notes: >
+          EURO Special Interest Group on Cutting and Packing datasets.
+          Organized by dimensionality and problem type. Includes 1D, 2D,
+          and 3D packing instances. Previously hosted at euro-online.org,
+          now maintained on GitHub.
+
+      - name: "Assembly Line Balancing BPP Collection"
+        url: "https://assembly-line-balancing.de/further-data-sets/bin-packing-problem-bpp/"
+        format: "Custom text"
+        has_optimal_solution: true
+        usage: "Curated collection of bin packing instances from multiple sources"
+        notes: >
+          Aggregates bin packing instances from Falkenauer, Scholl, Schwerin,
+          Waescher, and other sources in a unified format.
+
+  - name: "Subset Sum"
+    aliases: ["Exact Subset Sum"]
+    pred_names: ["SubsetSum"]
+    datasets:
+      - name: "Pisinger Subset Sum Instances"
+        url: "https://hjemmesider.diku.dk/~pisinger/codes.html"
+        format: "Custom text"
+        has_optimal_solution: true
+        usage: "Hard subset sum instances for algorithm benchmarking"
+        reference: "Pisinger, 2005"
+        notes: >
+          Subset sum is one of the 14 instance types in Pisinger's knapsack
+          generator where profit equals weight for every item. These instances
+          are particularly hard because standard upper bounds return trivial values.
+          Generators available as C source code.
+
+      - name: "FSU Subset Sum Dataset"
+        url: "https://people.sc.fsu.edu/~jburkardt/datasets/subset_sum/subset_sum.html"
+        format: "Custom text (weights and target)"
+        instance_count: 7
+        scale:
+          items: "8-21"
+        has_optimal_solution: true
+        usage: "Small educational benchmark instances"
+        reference: "Burkardt, FSU"
+        notes: >
+          Seven problem instances (P01-P07) of varying size. P01 has 8 weights
+          with target 53; P02 has 10 weights with target 5842; P03 has 21 weights
+          with target 2463098. Useful for algorithm verification rather than
+          performance benchmarking.
+
+  - name: "Partition"
+    aliases: ["Number Partitioning", "Two-Way Partition"]
+    pred_names: ["Partition"]
+    datasets:
+      - name: "Pisinger Even-Odd Partition Instances"
+        url: "https://hjemmesider.diku.dk/~pisinger/codes.html"
+        format: "Custom text"
+        has_optimal_solution: true
+        usage: "Hard partition instances generated via knapsack reductions"
+        reference: "Pisinger, 2005"
+        notes: >
+          Partition is a special case of knapsack and subset sum. Pisinger's
+          generator can produce partition-equivalent instances. The even-odd
+          partition type is known to be especially difficult for branch-and-bound
+          solvers. Available as C source code generators.
+
+      - name: "Mertens Phase Transition Instances"
+        url: "https://arxiv.org/abs/cond-mat/0310317"
+        format: "Generated (random integers)"
+        has_optimal_solution: true
+        usage: "Study of phase transition behavior in number partitioning"
+        reference: "Mertens, 2003"
+        notes: >
+          Random number partitioning instances exploring the phase transition
+          between easy (many perfect partitions, m < n) and hard (unique best
+          partition, m > n) regimes, where n is set size and m is bit-length
+          of numbers. The transition occurs near m/n = 1.
+
+  - name: "Partially Ordered Knapsack"
+    aliases: ["Precedence-Constrained Knapsack", "PCKP"]
+    pred_names: ["PartiallyOrderedKnapsack"]
+    datasets:
+      - name: "MineLib Precedence-Constrained Instances"
+        url: "http://mansci-web.uai.cl/minelib/"
+        format: "Custom text"
+        has_optimal_solution: true
+        usage: "Open pit mine scheduling as precedence-constrained knapsack"
+        reference: "Espinoza et al., 2013"
+        notes: >
+          Library of open-pit mine production scheduling benchmark instances
+          which model precedence-constrained knapsack problems. Used by
+          researchers studying partially ordered knapsack applications.
+
+      - name: "Boyd Precedence-Constrained Knapsack Solver and Instances"
+        url: "https://github.com/rmcgibbo/precedenceConstrainedKnapsack"
+        format: "Custom text"
+        has_optimal_solution: true
+        usage: "Solver and test instances for PCKP"
+        reference: "McGibbon"
+        notes: >
+          Solver implementation with accompanying test instances for
+          precedence-constrained knapsack problems based on dynamic
+          programming with preprocessing.

@@ -1,0 +1,200 @@
+category: "set-problems"
+description: "Set covering, packing, and selection problems"
+problems:
+  - name: "Set Cover"
+    aliases: ["Minimum Set Covering", "Set Covering Problem", "SCP"]
+    pred_names: ["MinimumSetCovering/i32"]
+    datasets:
+      - name: "OR-Library SCP Instances (Beasley)"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/scpinfo.html"
+        format: "Custom text (rows, columns, costs, coverage)"
+        instance_count: 80
+        scale:
+          rows: "200-1000"
+          columns: "1000-10000"
+        has_optimal_solution: true
+        usage: "Standard benchmark for set covering heuristics and exact methods"
+        reference: "Beasley, 1987; Beasley, 1990"
+        notes: >
+          80 randomly generated instances in sets 4-6 (from Balas & Ho) and A-H
+          (from Beasley). Rows range from 200 to 1000, columns from 1000 to 10000.
+          Column costs are random integers in {1,...,100}. Densities vary between
+          2% and 20%. Every column covers at least one row, every row is covered
+          by at least two columns. Optimal solutions are known for sets 4-6 and A-E.
+
+      - name: "OR-Library RAIL Instances"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/scpinfo.html"
+        format: "Custom text (rows, columns, costs, coverage)"
+        instance_count: 7
+        scale:
+          rows: "507-4872"
+          columns: "47311-1092610"
+        has_optimal_solution: false
+        usage: "Large-scale real-world set covering from Italian railway crew scheduling"
+        reference: "Nobili; FASTER competition, 1994"
+        notes: >
+          Seven instances from crew pairing at Ferrovie dello Stato SpA (Italian
+          railways). Instances: rail507 (507x63009), rail516 (516x47311),
+          rail582 (582x55515), rail2536 (2536x1081841), rail2586 (2586x920683),
+          rail4284 (4284x1092610), rail4872 (4872x968672). Column costs are
+          one or two, each column covers at most 12 rows. Largest file ~61 MB.
+
+      - name: "OR-Library Unicost SCP Instances"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/scpinfo.html"
+        format: "Custom text (rows, columns, costs, coverage)"
+        instance_count: 10
+        has_optimal_solution: true
+        usage: "Unicost (unit-cost) set covering benchmarks"
+        reference: "Beasley"
+        notes: >
+          Ten unicost instances in two families: CYC (scpcyc06-scpcyc11,
+          hypercycle covering) and CLR (scpclr10-scpclr13, hypergraph coloring).
+          All column costs are one, making these pure minimum-cardinality
+          set cover problems.
+
+      - name: "Steiner Triple System Covering Instances"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/scpinfo.html"
+        format: "Custom text (rows, columns, costs, coverage)"
+        instance_count: 5
+        has_optimal_solution: true
+        usage: "Highly symmetric set covering instances from combinatorial design"
+        reference: "Fulkerson et al.; Odijk, 1993"
+        notes: >
+          Five instances derived from computing the 1-width of Steiner triple
+          system incidence matrices: stn9 (9 elements, 12 sets), stn15 (15, 35),
+          stn27 (27, 117), stn45 (45, 330), stn81 (81, 1080). Extreme symmetry
+          makes these very challenging for branch-and-bound methods.
+
+      - name: "GECCO 2020 OCP/USCP Benchmark"
+        url: "https://www.mage.fst.uha.fr/brevilliers/gecco-2020-ocp-uscp-competition/"
+        format: "Custom text"
+        instance_count: 69
+        has_optimal_solution: false
+        usage: "Optimal camera placement modeled as unicost set covering"
+        reference: "Brevilliers et al., GECCO 2020"
+        notes: >
+          69 instances from the GECCO 2020 Competition on Optimal Camera
+          Placement. 32 academic instances (rectangular cuboid rooms) and
+          37 real-world instances (urban areas with cameras on building walls).
+          All are unicost set covering problems.
+
+      - name: "PBBS Set Cover Benchmark"
+        url: "https://www.cs.cmu.edu/~pbbs/benchmarks/setCover.html"
+        format: "Adjacency graph (bipartite)"
+        has_optimal_solution: false
+        usage: "Large-scale parallel algorithm benchmarking for approximate set cover"
+        reference: "Shun et al., 2012"
+        notes: >
+          Problem Based Benchmark Suite (PBBS) instances for unweighted set cover.
+          Synthetic instances generated at scale n=10,000,000 using three methods:
+          random local graphs (~5n edges), RMAT graphs (parameters .3/.1/.1/.5),
+          and 3D grids. Designed for evaluating parallel set cover algorithms.
+
+  - name: "Set Packing"
+    aliases: ["Maximum Set Packing"]
+    pred_names: ["MaximumSetPacking/One"]
+    datasets:
+      - name: "MIPLIB 2017"
+        url: "https://miplib.zib.de/"
+        format: "MPS"
+        instance_count: 1065
+        has_optimal_solution: true
+        usage: "Mixed integer programming library containing set packing formulations"
+        reference: "Gleixner et al., 2021"
+        notes: >
+          MIPLIB 2017 contains 1065 instances (240 in benchmark subset), compiled
+          via data-driven selection from 5721 candidates. Includes set packing and
+          set partitioning formulations arising from airline crew scheduling,
+          vehicle routing, and other combinatorial optimization applications.
+          Instances are tagged by problem structure; filter for set packing type.
+
+      - name: "OR-Library SCP Instances (dual as Set Packing)"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/scpinfo.html"
+        format: "Custom text (rows, columns, costs, coverage)"
+        instance_count: 87
+        has_optimal_solution: true
+        usage: "Set covering instances usable for set packing via LP duality"
+        reference: "Beasley, 1987; 1990"
+        notes: >
+          The same OR-Library set covering instances can be used for set packing
+          benchmarking, as set packing is the dual of set covering. The
+          constraint matrix is shared; the objective switches from minimization
+          to maximization of disjoint set selection.
+
+  - name: "Exact Cover by 3-Sets"
+    aliases: ["X3C", "Exact Cover by 3 Sets", "Exact Three Cover"]
+    pred_names: ["ExactCoverBy3Sets"]
+    datasets:
+      - name: "Steiner Triple Systems (Exact Cover Instances)"
+        url: "https://en.wikipedia.org/wiki/Steiner_system"
+        format: "Incidence matrix / custom"
+        has_optimal_solution: true
+        usage: "Classic exact cover instances from combinatorial design theory"
+        reference: "Kirkman, 1847; Knuth, 2000"
+        notes: >
+          Steiner triple systems S(2,3,n) exist for n = 1 or 3 (mod 6).
+          Finding a parallel class (resolution) is an exact cover by 3-sets
+          problem. Standard orders include n = 7, 9, 13, 15, 19, 25, 27.
+          Knuth's Dancing Links (DLX) algorithm was demonstrated on these
+          instances. The number of non-isomorphic STS grows rapidly: 1 for
+          n=7, 1 for n=9, 2 for n=13, 80 for n=15, 11084874829 for n=19.
+
+      - name: "Pentomino and Polyomino Tiling (Exact Cover)"
+        url: "https://arxiv.org/abs/cs/0011047"
+        format: "Incidence matrix (0-1)"
+        has_optimal_solution: true
+        usage: "Exact cover benchmarks for backtracking and DLX algorithms"
+        reference: "Knuth, 2000"
+        notes: >
+          Polyomino tiling problems are naturally exact cover instances.
+          The standard 12 pentominoes tiling a 6x10 rectangle has 2339
+          solutions. Other configurations (e.g., 8x8 board minus center)
+          serve as benchmarks for Algorithm X with Dancing Links. While
+          not strictly X3C (subsets may differ from size 3), these are
+          the most widely used exact cover benchmarks.
+
+  - name: "Hitting Set"
+    aliases: ["Minimum Hitting Set", "Transversal", "Vertex Cover generalization"]
+    pred_names: ["MinimumHittingSet"]
+    datasets:
+      - name: "PACE 2025 Hitting Set Challenge"
+        url: "https://pacechallenge.org/2025/hs/"
+        format: "HGR (hypergraph, DIMACS-like)"
+        instance_count: 200
+        has_optimal_solution: true
+        usage: "Competition benchmark for exact and heuristic hitting set solvers"
+        reference: "PACE Challenge 2025"
+        notes: >
+          200 instances (100 public, 100 private) for the Parameterized
+          Algorithms and Computational Experiments Challenge. Input is a
+          hypergraph in .hgr format: header line "p hs n m" followed by m
+          lines listing set members. Exact track: 30 min, 16 GB; heuristic
+          track: 5 min, 16 GB. Public instances available at
+          github.com/MarioGrobler/PACE2025-instances.
+
+      - name: "Minimal Hitting Set Algorithm Benchmarks"
+        url: "https://github.com/VeraLiconaResearchGroup/Minimal-Hitting-Set-Algorithms"
+        format: "Custom text"
+        has_optimal_solution: true
+        usage: "Benchmark suite for comparing minimal hitting set enumeration algorithms"
+        reference: "Murakami & Uno; Vera-Licona et al."
+        notes: >
+          Collection of benchmark instances from multiple real-world domains:
+          unique column combinations, cluster vertex deletion, metabolic
+          reaction networks, cell signaling pathways, Connect-4 game states,
+          frequent itemset mining, and ISCAS-85 combinatorial circuits.
+          Used to compare BERGE, BMR, DL, HTCBDD, KS, MMCS, RS, and
+          STACCATO algorithms.
+
+      - name: "OR-Library SCP Instances (dual as Hitting Set)"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/scpinfo.html"
+        format: "Custom text (rows, columns, costs, coverage)"
+        instance_count: 87
+        has_optimal_solution: true
+        usage: "Set covering instances usable as hitting set via transposition"
+        reference: "Beasley, 1987; 1990"
+        notes: >
+          Hitting set is the dual of set cover: transposing the incidence
+          matrix (swapping rows and columns) converts a set cover instance
+          into a hitting set instance. The 87 OR-Library SCP instances
+          thus provide a standard hitting set benchmark suite.

@@ -1,0 +1,179 @@
+category: "mathematical-programming"
+description: "Integer and combinatorial optimization formulations"
+problems:
+  - name: "Integer Linear Programming"
+    aliases: ["ILP", "Integer Programming", "MIP", "Mixed Integer Programming"]
+    pred_names: ["ILP/bool", "ILP/i32"]
+    datasets:
+      - name: "MIPLIB 2017"
+        url: "https://miplib.zib.de/"
+        format: "MPS"
+        instance_count: 1065
+        scale:
+          variables: "2-6000000"
+          constraints: "1-6000000"
+        has_optimal_solution: false
+        usage: "Standard benchmark for mixed-integer programming solver evaluation; 240-instance benchmark subset and 1065-instance collection set"
+        reference: "Gleixner et al., MIPLIB 2017: Data-Driven Compilation of the 6th Mixed-Integer Programming Library, Mathematical Programming Computation, 2021"
+        notes: >
+          Sixth version of MIPLIB, selected from a pool of 5721 submitted instances
+          using a data-driven methodology. The Benchmark Set (240 instances) contains
+          problems solvable by current solvers; the Collection Set (1065 instances)
+          represents a diverse selection. Collaborative effort by ZIB, CPLEX, Gurobi,
+          FICO, MOSEK, SAS, and others.
+
+      - name: "MIPLIB 2010"
+        url: "https://miplib2010.zib.de/"
+        format: "MPS"
+        instance_count: 361
+        has_optimal_solution: false
+        usage: "Fifth edition of the standard MIP benchmark library"
+        reference: "Koch et al., MIPLIB 2010, Mathematical Programming Computation, 2011"
+        notes: >
+          Contains 87 instances in the main benchmark set (solvable by current codes)
+          and 164 instances in the challenge set (many unsolved). Predecessor to
+          MIPLIB 2017.
+
+      - name: "MIPLIB 2003"
+        url: "https://miplib.zib.de/history.html"
+        format: "MPS"
+        instance_count: 60
+        has_optimal_solution: false
+        usage: "Fourth edition of the MIP benchmark library"
+        reference: "Achterberg et al., MIPLIB 2003, Operations Research Letters, 2006"
+        notes: >
+          60 carefully selected instances representing the state of MIP solving
+          in 2003. Widely cited in solver comparison papers.
+
+      - name: "OR-Library (Beasley)"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/info.html"
+        format: "Custom text"
+        has_optimal_solution: true
+        usage: "Classic collection of test data for a variety of OR problems including integer programming, set covering, and knapsack"
+        reference: "Beasley, J.E., OR-Library: Distributing Test Problems by Electronic Mail, Journal of the Operational Research Society, 1990"
+        notes: >
+          One of the earliest and most widely used OR benchmark repositories.
+          Includes instances for set covering, set packing, knapsack, bin packing,
+          capacitated warehouse location, and other integer programming problems.
+          No longer actively maintained but remains a foundational resource.
+
+      - name: "MINLPLib"
+        url: "https://www.minlplib.org/"
+        format: "GAMS, AMPL, OSiL"
+        instance_count: 1534
+        scale:
+          variables: "1-1000000"
+          constraints: "1-1000000"
+        has_optimal_solution: false
+        usage: "Standard test library for mixed-integer nonlinear programming solvers"
+        reference: "Bussieck et al., MINLPLib -- A Collection of Test Models for Mixed-Integer Nonlinear Programming, INFORMS Journal on Computing, 2003"
+        notes: >
+          Contains both MINLP and continuous NLP instances. Primary format is
+          GAMS scalar format with conversions to other formats. The JuMP-based
+          MINLPLib.jl variant provides over 6000 instances for Julia-based solvers.
+
+  - name: "Quadratic Unconstrained Binary Optimization"
+    aliases: ["QUBO", "Unconstrained Binary Quadratic Programming", "UBQP"]
+    pred_names: ["QUBO/f64"]
+    datasets:
+      - name: "MQLib"
+        url: "https://github.com/MQLib/MQLib"
+        format: "Custom sparse matrix"
+        instance_count: 3296
+        scale:
+          variables: "20-53130"
+        has_optimal_solution: false
+        usage: "Comprehensive benchmark library for Max-Cut and QUBO heuristic evaluation"
+        reference: "Dunning et al., What Works Best When? A Systematic Evaluation of Heuristics for Max-Cut and QUBO, INFORMS Journal on Computing, 2018"
+        notes: >
+          Contains 3296 instances from diverse sources including Beasley OR-Library,
+          random graph generators, and real-world applications. Provides best known
+          solutions from 37 tested heuristics. Includes both Max-Cut and QUBO
+          formulations.
+
+      - name: "Beasley ORLIB UBQP Instances"
+        url: "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/bqpinfo.html"
+        format: "Custom text"
+        instance_count: 125
+        scale:
+          variables: "50-2500"
+        has_optimal_solution: true
+        usage: "Standard benchmark for unconstrained binary quadratic programming"
+        reference: "Beasley, J.E., Heuristic Algorithms for the Unconstrained Binary Quadratic Programming Problem, 1998"
+        notes: >
+          Classic QUBO/UBQP benchmark with instances of sizes 50, 100, 250, 500,
+          1000, and 2500 variables. Optimal solutions known for smaller instances;
+          best known solutions provided for larger ones.
+
+      - name: "Palubeckis UBQP Instances"
+        url: "https://github.com/MQLib/MQLib/blob/master/data/README.md"
+        format: "Custom text"
+        scale:
+          variables: "3000-7000"
+        has_optimal_solution: false
+        usage: "Large-scale QUBO benchmark instances"
+        reference: "Palubeckis, G., Multistart Tabu Search Strategies for the Unconstrained Binary Quadratic Optimization Problem, Annals of Operations Research, 2004"
+        notes: >
+          Larger UBQP instances (3000-7000 variables) used to test scalability
+          of QUBO solvers. Available through MQLib collection.
+
+      - name: "QPLIB (Quadratic Programming Library)"
+        url: "https://qplib.zib.de/"
+        format: "QPLIB, AMPL (.mod)"
+        instance_count: 8000
+        scale:
+          variables: "2-1000000"
+          constraints: "0-1000000"
+        has_optimal_solution: false
+        usage: "Comprehensive library for all quadratic programming variants including QUBO, MIQP, QCP, and MIQCP"
+        reference: "Furini et al., QPLIB: A Library of Quadratic Programming Instances, Mathematical Programming Computation, 2019"
+        notes: >
+          Covers continuous and mixed-integer quadratic optimization. Approximately
+          1800 quadratic binary linear (QBL), 2000 quadratic continuous quadratic (QCQ),
+          and 2500 quadratic general quadratic (QGQ) instances. Three-letter
+          classification encodes variable types, objective type, and constraint type.
+
+  - name: "Quadratic Assignment Problem"
+    aliases: ["QAP"]
+    pred_names: ["QuadraticAssignment"]
+    datasets:
+      - name: "QAPLIB"
+        url: "https://qaplib.mgi.polymtl.ca/"
+        format: "Custom text (flow and distance matrices)"
+        instance_count: 136
+        scale:
+          facilities: "5-256"
+        has_optimal_solution: false
+        usage: "Standard benchmark library for quadratic assignment problem solvers"
+        reference: "Burkard et al., QAPLIB -- A Quadratic Assignment Problem Library, Journal of Global Optimization, 1997"
+        notes: >
+          Contains 136 instances and 111 solutions from real-life and random
+          problem generators. Includes backboard wiring, hospital layout,
+          typewriter keyboard, and campus planning instances. Many instances
+          remain unsolved to proven optimality. First published in 1991;
+          mirrors at Lehigh University and Ecole Polytechnique de Montreal.
+
+      - name: "QAPLIB Tai Instances (Taillard)"
+        url: "https://qaplib.mgi.polymtl.ca/"
+        format: "Custom text (flow and distance matrices)"
+        scale:
+          facilities: "12-256"
+        has_optimal_solution: false
+        usage: "Structured and uniform random QAP instances known for difficulty"
+        reference: "Taillard, E.D., Comparison of Iterative Searches for the Quadratic Assignment Problem, Location Science, 1995"
+        notes: >
+          Includes tai*a (uniform random) and tai*b (structured, real-life-like)
+          instance families within QAPLIB. The tai*b instances are among the
+          hardest known QAP instances.
+
+      - name: "Nugent QAP Instances"
+        url: "https://qaplib.mgi.polymtl.ca/"
+        format: "Custom text (flow and distance matrices)"
+        scale:
+          facilities: "12-30"
+        has_optimal_solution: true
+        usage: "Classic small-to-medium QAP benchmark instances with known optima"
+        reference: "Nugent et al., An Experimental Comparison of Techniques for the Assignment of Facilities to Locations, Operations Research, 1968"
+        notes: >
+          One of the earliest QAP benchmark sets. Small enough for exact
+          solution; widely used for verifying solver correctness.

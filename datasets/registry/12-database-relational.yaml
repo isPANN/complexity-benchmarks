@@ -1,0 +1,228 @@
+category: "database-relational"
+description: "Database design and query optimization problems"
+problems:
+  - name: "BCNF Violation"
+    aliases: ["Boyce-Codd Normal Form Violation"]
+    pred_names: ["BoyceCoddNormalFormViolation"]
+    datasets: []
+    notes: >
+      No dedicated benchmark datasets exist for BCNF violation detection as a
+      standalone decision problem. BCNF violation detection reduces to functional
+      dependency discovery followed by checking whether each FD's determinant is
+      a superkey. In practice, researchers use the FD discovery datasets below
+      (from the HPI/Metanome ecosystem) and then check normalization properties
+      on the discovered FDs. Determining whether a 3NF schema violates BCNF is
+      NP-complete (Beeri & Bernstein, 1979).
+
+  - name: "Conjunctive Boolean Query"
+    aliases: ["Conjunctive Query Evaluation", "Boolean Conjunctive Query"]
+    pred_names: ["ConjunctiveBooleanQuery"]
+    datasets:
+      - name: "SPARQL Query Containment Benchmark (CQNoProj)"
+        url: "https://sparql-qc-bench.inrialpes.fr/"
+        format: "SPARQL / RDF (Turtle)"
+        instance_count: 20
+        has_optimal_solution: true
+        usage: "Containment testing for conjunctive queries (basic graph patterns) without projection"
+        reference: "Bikakis et al., INRIA EXMO & TYREX, 2013"
+        notes: >
+          Test suite of 20 query pairs testing containment of basic graph
+          patterns (conjunctive queries without projection). Part of the
+          sparql-qc-bench suite (v1.4). Queries differ in number of
+          conjunctions and variables.
+
+      - name: "SPARQL Query Containment Benchmark (UCQProj)"
+        url: "https://sparql-qc-bench.inrialpes.fr/"
+        format: "SPARQL / RDF (Turtle)"
+        instance_count: 28
+        has_optimal_solution: true
+        usage: "Containment testing for unions of conjunctive queries with projection"
+        reference: "Bikakis et al., INRIA EXMO & TYREX, 2013"
+        notes: >
+          28 queries with distinguished variables (projection) selected by
+          selectivity, number of conjunction/union operators, and size.
+
+      - name: "SQCFramework Generated Benchmarks"
+        url: "https://github.com/dice-group/sqcframework"
+        format: "TTL (Turtle)"
+        has_optimal_solution: true
+        usage: "Customizable SPARQL query containment benchmark generation from real query logs"
+        reference: "Saleem et al., ISWC 2018"
+        notes: >
+          Framework for generating SPARQL containment benchmarks from real-world
+          query logs (e.g., DBpedia). Supports clustering-based query selection
+          (KMeans++, DBSCAN, Agglomerative). Pre-built benchmarks included in
+          the repository. AGPL-3.0 licensed.
+
+    notes: >
+      Conjunctive query evaluation is combined-complexity NP-complete but
+      data-complexity in AC0. Most benchmarks frame containment via SPARQL
+      rather than pure relational conjunctive queries. No widely adopted
+      benchmark exists for the pure relational conjunctive query evaluation
+      decision problem in isolation.
+
+  - name: "Conjunctive Query Foldability"
+    aliases: ["CQ Minimization", "Conjunctive Query Minimization"]
+    pred_names: ["ConjunctiveQueryFoldability"]
+    datasets: []
+    notes: >
+      No known public benchmark datasets exist for conjunctive query foldability
+      (minimization) as a standalone problem. Query minimization is closely
+      related to query containment (a CQ can be folded/minimized iff the
+      minimized query is contained in and contains the original). Researchers
+      typically use synthetic query generators or adapt containment benchmarks.
+
+  - name: "Additional Key"
+    aliases: ["Unique Column Combination", "UCC Discovery"]
+    pred_names: ["AdditionalKey"]
+    datasets:
+      - name: "HPI FD/UCC Benchmark - Iris"
+        url: "https://hpi.de/naumann/projects/repeatability/data-profiling/fds.html"
+        format: "CSV"
+        scale:
+          rows: "150"
+          columns: "5"
+        has_optimal_solution: true
+        usage: "Small-scale UCC and FD discovery benchmark"
+        reference: "Papenbrock et al., VLDB 2015"
+        notes: "UCI Machine Learning Repository dataset. 4 FDs."
+
+      - name: "HPI FD/UCC Benchmark - Adult"
+        url: "https://hpi.de/naumann/projects/repeatability/data-profiling/fds.html"
+        format: "CSV"
+        scale:
+          rows: "48842"
+          columns: "14"
+        has_optimal_solution: true
+        usage: "Medium-scale FD and UCC discovery benchmark"
+        reference: "Papenbrock et al., VLDB 2015"
+        notes: "UCI Machine Learning Repository dataset. 78 FDs."
+
+      - name: "HPI FD/UCC Benchmark - NCVoter"
+        url: "https://hpi.de/naumann/projects/repeatability/data-profiling/fds.html"
+        format: "CSV"
+        scale:
+          rows: "1000"
+          columns: "19"
+        has_optimal_solution: true
+        usage: "FD and UCC discovery benchmark from voter registration data"
+        reference: "Papenbrock et al., VLDB 2015"
+        notes: "North Carolina State Board of Elections public voter data. 758 FDs."
+
+      - name: "HPI FD/UCC Benchmark - Hepatitis"
+        url: "https://hpi.de/naumann/projects/repeatability/data-profiling/fds.html"
+        format: "CSV"
+        scale:
+          rows: "155"
+          columns: "20"
+        has_optimal_solution: true
+        usage: "High-FD-density UCC and FD discovery benchmark"
+        reference: "Papenbrock et al., VLDB 2015"
+        notes: "UCI dataset. 8,250 FDs; dense dependency structure."
+
+      - name: "HPI FD/UCC Benchmark - Horse"
+        url: "https://hpi.de/naumann/projects/repeatability/data-profiling/fds.html"
+        format: "CSV"
+        scale:
+          rows: "300"
+          columns: "27"
+        has_optimal_solution: true
+        usage: "Large-FD-count UCC and FD discovery benchmark"
+        reference: "Papenbrock et al., VLDB 2015"
+        notes: "UCI dataset. 128,726 FDs; stress-tests discovery algorithms."
+
+      - name: "HPI FD/UCC Benchmark - Flight (1K)"
+        url: "https://hpi.de/naumann/projects/repeatability/data-profiling/fds.html"
+        format: "CSV"
+        scale:
+          rows: "1000"
+          columns: "109"
+        has_optimal_solution: true
+        usage: "Wide-table FD and UCC discovery benchmark"
+        reference: "Papenbrock et al., VLDB 2015"
+        notes: "Bureau of Transportation Statistics flight data. 982,631 FDs; very wide schema."
+
+      - name: "HPI FD/UCC Benchmark - Uniprot"
+        url: "https://hpi.de/naumann/projects/repeatability/data-profiling/fds.html"
+        format: "CSV"
+        scale:
+          rows: "1000"
+          columns: "223"
+        has_optimal_solution: true
+        usage: "Ultra-wide-table UCC and FD discovery benchmark"
+        reference: "Papenbrock et al., VLDB 2015"
+        notes: "UniProt protein sequence database extract. 223 columns make this a stress test for column-combination enumeration."
+
+    notes: >
+      The AdditionalKey / UCC discovery problem asks whether a given set of
+      attributes forms a unique column combination (candidate key). The HPI
+      Metanome benchmarks above are the de facto standard for evaluating UCC
+      and FD discovery algorithms. All datasets are available from the HPI
+      repeatability page. The DUCC, HyUCC, and HPIValid algorithms were
+      evaluated on these datasets.
+
+  - name: "Prime Attribute"
+    aliases: ["Prime Attribute Name", "Prime Attribute Identification"]
+    pred_names: ["PrimeAttributeName"]
+    datasets: []
+    notes: >
+      No dedicated benchmark datasets exist for prime attribute identification
+      as an isolated decision problem. A prime attribute is one that belongs to
+      at least one candidate key. Identifying prime attributes requires first
+      discovering all candidate keys (UCCs), making it a derived problem. The
+      HPI FD/UCC benchmark datasets listed under "Additional Key" can be used
+      indirectly: discover all minimal UCCs, then classify each attribute as
+      prime or non-prime.
+
+  - name: "Minimum Key"
+    aliases: ["Minimum Cardinality Key", "Smallest Candidate Key"]
+    pred_names: ["MinimumCardinalityKey"]
+    datasets: []
+    notes: >
+      No dedicated benchmark datasets exist for the minimum cardinality key
+      problem (finding the candidate key with the fewest attributes). This is
+      an NP-hard optimization problem. The HPI FD/UCC benchmark datasets
+      listed under "Additional Key" can serve as indirect benchmarks: discover
+      all minimal UCCs and select the one with minimum cardinality. No
+      standardized ground-truth annotations for minimum keys are published.
+
+  - name: "Functional Dependency Discovery"
+    aliases: ["FD Discovery", "Functional Dependency Detection"]
+    pred_names: []
+    datasets:
+      - name: "HPI FD Benchmark Suite"
+        url: "https://hpi.de/naumann/projects/repeatability/data-profiling/fds.html"
+        format: "CSV"
+        instance_count: 16
+        has_optimal_solution: true
+        usage: "Standard benchmark for evaluating FD discovery algorithms (TANE, FUN, DFD, HyFD, etc.)"
+        reference: "Papenbrock et al., VLDB 2015"
+        notes: >
+          Suite of 16 datasets ranging from 5 to 223 columns and 108 to
+          250,000 rows, with FD counts from 1 to 982,631. Includes UCI
+          datasets (Iris, Balance-scale, Chess, Abalone, Nursery,
+          Breast-cancer, Bridges, Echocardiogram, Adult, Letter, Hepatitis,
+          Horse), public data (NCVoter, Flight), synthetic data
+          (FD-reduced-30), and biological data (Uniprot). Used in the
+          comparative evaluation of seven FD discovery algorithms and
+          subsequent work on HyFD, DynFD, and Pyro.
+
+      - name: "TPC-H Schema"
+        url: "https://www.tpc.org/tpch/"
+        format: "SQL DDL / CSV (generated)"
+        has_optimal_solution: true
+        usage: "Decision-support benchmark with known schema FDs; used for FD-based query optimization research"
+        reference: "TPC Benchmark H Standard Specification"
+        notes: >
+          8-table product-order-supplier schema with well-defined primary and
+          foreign keys. Scale factor parameterized (SF1 to SF10000). While
+          primarily a query performance benchmark, the known FD structure makes
+          it useful for validating FD discovery and normalization algorithms.
+          Used in embedded FD research (Wei et al., VLDB 2019).
+
+    notes: >
+      This entry covers FD discovery as a computational task, which underlies
+      BCNF checking, key discovery, and prime attribute identification. The
+      HPI benchmark suite is the most widely used evaluation corpus. The
+      pred_names field is empty because FD discovery is a supporting task
+      rather than a specific predicate in the complexity classification.
