@@ -15,6 +15,8 @@ def load_registries():
     """Load all YAML registry files, sorted by filename."""
     registries = []
     for f in sorted(REGISTRY_DIR.glob("*.yaml")):
+        if f.stem == "competitions":
+            continue
         with open(f) as fh:
             data = yaml.safe_load(fh)
             data["_filename"] = f.stem
