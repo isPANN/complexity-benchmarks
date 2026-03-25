@@ -60,6 +60,32 @@ NAE-SAT (Not-All-Equal SAT) has no large-scale dedicated benchmark suite; resear
 
 SAT encodings underlie benchmarks in graph coloring (Category 2), circuit verification (this category), and spin glass ground state computation (Category 13). SATLIB itself contains graph coloring and planning instances, bridging to Categories 2 and 3.
 
+
+### Dataset Registry
+
+| Problem | Dataset | Format | Instances | Scale | Optimal? | URL |
+|---------|---------|--------|-----------|-------|----------|-----|
+| SAT | SATLIB Benchmark Suite | DIMACS CNF | 3900 | 20-10000 variables; 91-500000 clauses | Yes | [link](https://www.cs.ubc.ca/~hoos/SATLIB/benchm.html) |
+| SAT | SAT Competition Benchmarks (2002-2024) | DIMACS CNF | 7330 | 10-10000000 variables; 50-50000000 clauses | Yes | [link](https://zenodo.org/records/15125952) |
+| SAT | SAT Competition 2024 | DIMACS CNF | 400 | 100-5000000 variables; 300-30000000 clauses | Yes | [link](https://satcompetition.github.io/2024/) |
+| SAT | GBD Benchmark Database | DIMACS CNF | - | - | - | [link](https://benchmark-database.de/) |
+| 3-SAT | SATLIB Uniform Random 3-SAT | DIMACS CNF | 8000 | 20-250 variables; 91-1065 clauses | Yes | [link](https://www.cs.ubc.ca/~hoos/SATLIB/Benchmarks/SAT/RND3SAT/descr.html) |
+| 3-SAT | SATLIB Controlled Random 3-SAT (CBS) | DIMACS CNF | 36000 | 100 variables; 403-449 clauses | Yes | [link](https://www.cs.ubc.ca/~hoos/SATLIB/benchm.html) |
+| k-SAT | SATLIB Random k-SAT Instances | DIMACS CNF | - | - | Yes | [link](https://www.cs.ubc.ca/~hoos/SATLIB/benchm.html) |
+| Max-SAT | MaxSAT Evaluation Benchmarks | WCNF (Weighted CNF) | 2000 | 10-1000000 variables; 50-5000000 clauses | Yes | [link](https://maxsat-evaluations.github.io/) |
+| Max-SAT | MaxSAT Evaluation 2024 | WCNF | - | - | Yes | [link](https://maxsat-evaluations.github.io/2024/) |
+| Max-SAT | University of Toronto MaxSAT Library | WCNF | - | - | - | [link](http://www.cs.toronto.edu/maxsat-lib/maxsat-instances/ms-evals/) |
+| NAE-SAT | Random NAE-3-SAT Phase Transition Instances | Custom / DIMACS-like | - | - | Yes | [link](https://github.com/dwave-examples/NAE3SAT) |
+| NAE-SAT | SATLIB NAE-SAT Encodings | DIMACS CNF | - | - | - | [link](https://www.cs.ubc.ca/~hoos/SATLIB/benchm.html) |
+| QBF | QBFLIB | QDIMACS | 13000 | - | Yes | [link](https://www.qbflib.org/) |
+| QBF | QBFGallery 2023 | QDIMACS, QCIR, QAIGER | - | - | Yes | [link](https://qbf23.pages.sai.jku.at/gallery/) |
+| Circuit-SAT | ISCAS-85 Combinational Benchmark Circuits | ISCAS netlist, Verilog, AIGER | 10 | 17-7552 gates | Yes | [link](https://filebox.ece.vt.edu/~mhsiao/iscas85.html) |
+| Circuit-SAT | ISCAS-89 Sequential Benchmark Circuits | ISCAS netlist, Verilog | 31 | - | Yes | [link](https://filebox.ece.vt.edu/~mhsiao/iscas89.html) |
+| Circuit-SAT | ITC-99 Benchmark Circuits | Verilog, VHDL | - | - | Yes | [link](https://www.cerc.utexas.edu/itc99-benchmarks/bendoc1.html) |
+| Circuit-SAT | EPFL Combinational Benchmark Suite | Verilog, VHDL, BLIF, AIGER | 23 | - | Yes | [link](https://github.com/ispras/hdl-benchmarks) |
+| Circuit-SAT | SATLIB Circuit Fault Analysis (BF) | DIMACS CNF | - | - | Yes | [link](https://www.cs.ubc.ca/~hoos/SATLIB/benchm.html) |
+| Circuit-SAT | Velev Formal Verification Benchmarks | DIMACS CNF | - | - | Yes | [link](https://www.cs.ubc.ca/~hoos/SATLIB/I-Velev03/index.htm) |
+
 ---
 
 ## 3. Graph Vertex and Edge Problems
@@ -89,6 +115,30 @@ Graph isomorphism and subgraph isomorphism benchmarks are catalogued in Category
 ### Cross-References
 
 BHOSLIB and DIMACS instances appear across MIS, vertex cover, clique, and coloring. The DIMACS 10th Challenge instances (Category 4, graph partitioning) are also used for clique algorithm scalability evaluation. Max clique is equivalent to MIS on the complement graph, and vertex cover equals n minus MIS, so these three problems share all benchmark suites.
+
+
+### Dataset Registry
+
+| Problem | Dataset | Format | Instances | Scale | Optimal? | URL |
+|---------|---------|--------|-----------|-------|----------|-----|
+| Maximum Independent Set | DIMACS 2nd Implementation Challenge (Clique complements) | DIMACS | 37 | 125 to 4,000 vertices; 6,963 to 5,506,380 edges | No | [link](https://iridia.ulb.ac.be/~fmascia/maximum_clique/DIMACS-benchmark) |
+| Maximum Independent Set | BHOSLIB (Benchmarks with Hidden Optimum Solutions) | DIMACS | 40 | 450 to 4,000 vertices; 83,151 to 7,425,226 edges | Yes | [link](https://sites.google.com/view/bhoslib/home) |
+| Maximum Independent Set | SNAP Large Network Collection | TSV edge list | 80 | 4,039 to 226,000,000 vertices; 88,234 to 480,000,000 edges | No | [link](https://snap.stanford.edu/data/) |
+| Maximum Independent Set | Network Repository | MTX, edge list, GML, GraphML | 6659 | tens to millions vertices; tens to hundreds of millions edges | No | [link](https://networkrepository.com/) |
+| Minimum Vertex Cover | PACE 2019 Vertex Cover Challenge | PACE graph format (.hgr) | 200 | small to large (ordered by increasing difficulty) vertices; varies edges | Yes | [link](https://pacechallenge.org/2019/vc/) |
+| Minimum Vertex Cover | BHOSLIB (Benchmarks with Hidden Optimum Solutions) | DIMACS | 40 | 450 to 4,000 vertices; 83,151 to 7,425,226 edges | Yes | [link](https://sites.google.com/view/bhoslib/home) |
+| Minimum Vertex Cover | DIMACS 2nd Implementation Challenge (complement reduction) | DIMACS | 37 | 125 to 4,000 vertices; 6,963 to 5,506,380 edges | No | [link](https://iridia.ulb.ac.be/~fmascia/maximum_clique/DIMACS-benchmark) |
+| Minimum Vertex Cover | Network Repository (large real-world graphs) | MTX, edge list | 6659 | tens to millions vertices; tens to hundreds of millions edges | No | [link](https://networkrepository.com/) |
+| Maximum Clique | DIMACS 2nd Implementation Challenge | DIMACS | 37 | 125 to 4,000 vertices; 6,963 to 5,506,380 edges | No | [link](https://iridia.ulb.ac.be/~fmascia/maximum_clique/DIMACS-benchmark) |
+| Maximum Clique | BHOSLIB (Benchmarks with Hidden Optimum Solutions) | DIMACS (ASCII and binary) | 40 | 450 to 4,000 vertices; 83,151 to 7,425,226 edges | Yes | [link](https://iridia.ulb.ac.be/~fmascia/maximum_clique/BHOSLIB-benchmark) |
+| Maximum Clique | DIMACS 10th Implementation Challenge (Graph Partitioning) | METIS, DIMACS | 100 | thousands to millions vertices; thousands to tens of millions edges | No | [link](https://sites.cc.gatech.edu/dimacs10/) |
+| Graph Coloring | COLOR02/03/04 Instances (DIMACS Graph Coloring) | DIMACS (.col, .col.b) | 119 | 11 to 1,000 vertices; 20 to 307,350 edges | No | [link](https://mat.tepper.cmu.edu/COLOR/instances.html) |
+| Graph Coloring | BHOSLIB Vertex Coloring Instances | DIMACS | 40 | 450 to 4,000 vertices; 83,151 to 7,425,226 edges | Yes | [link](https://sites.google.com/view/bhoslib/home) |
+| Graph Coloring | Graph Coloring Benchmarks (Trick collection) | DIMACS | 50 | 11 to 1,000 vertices; 20 to 245,830 edges | No | [link](https://sites.google.com/site/graphcoloring/vertex-coloring) |
+| Minimum Dominating Set | PACE 2025 Dominating Set Challenge | DIMACS .gr | 200 | varies (planar and structured graphs) vertices; varies edges | Yes | [link](https://pacechallenge.org/2025/ds/) |
+| Minimum Dominating Set | DIMACS 2nd Implementation Challenge (complement-based) | DIMACS | 37 | 125 to 4,000 vertices; 6,963 to 5,506,380 edges | No | [link](https://iridia.ulb.ac.be/~fmascia/maximum_clique/DIMACS-benchmark) |
+| Minimum Dominating Set | SNAP Large Network Collection | TSV edge list | 80 | 4,039 to 226,000,000 vertices; 88,234 to 480,000,000 edges | No | [link](https://snap.stanford.edu/data/) |
+| Minimum Dominating Set | Network Repository | MTX, edge list, GML, GraphML | 6659 | tens to millions vertices; tens to hundreds of millions edges | No | [link](https://networkrepository.com/) |
 
 ---
 
@@ -122,6 +172,27 @@ The asymmetric TSP collection in TSPLIB is small (19 instances, max 443 cities) 
 
 TSPLIB instances are used across TSP, ATSP, bottleneck TSP, and Hamiltonian cycle/path. The FHCP Challenge Set serves both Hamiltonian cycle and path research. TSP is closely related to the vehicle routing problem (Category 14).
 
+
+### Dataset Registry
+
+| Problem | Dataset | Format | Instances | Scale | Optimal? | URL |
+|---------|---------|--------|-----------|-------|----------|-----|
+| Traveling Salesman Problem | TSPLIB (Symmetric TSP) | TSPLIB | 110 | 14-85900 cities | Yes | [link](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/) |
+| Traveling Salesman Problem | VLSI TSP Instances | TSPLIB | 102 | 131-744710 cities | No | [link](https://www.math.uwaterloo.ca/tsp/vlsi/index.html) |
+| Traveling Salesman Problem | National TSP Instances | TSPLIB | 25 | 29-71009 cities | No | [link](https://www.math.uwaterloo.ca/tsp/world/countries.html) |
+| Traveling Salesman Problem | Concorde TSPLIB Benchmarks | TSPLIB | 110 | 14-85900 cities | Yes | [link](https://www.math.uwaterloo.ca/tsp/concorde/benchmarks/bench99.html) |
+| Traveling Salesman Problem | TSP Test Data (Waterloo) | TSPLIB | - | 29-744710 cities | No | [link](https://www.math.uwaterloo.ca/tsp/data/index.html) |
+| Asymmetric Traveling Salesman Problem | TSPLIB (Asymmetric TSP) | TSPLIB | 19 | 17-443 cities | Yes | [link](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/) |
+| Bottleneck Traveling Salesman Problem | TSPLIB (used for Bottleneck TSP) | TSPLIB | 110 | 14-85900 cities | No | [link](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/) |
+| Hamiltonian Circuit | TSPLIB (HCP Instances) | TSPLIB/HCP | 9 | 1000-5000 vertices | Yes | [link](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/) |
+| Hamiltonian Circuit | FHCP Challenge Set | HCP (edge list) | 1001 | 66-9528 vertices | Yes | [link](https://sites.flinders.edu.au/flinders-hamiltonian-cycle-project/fhcp-challenge-set/) |
+| Hamiltonian Circuit | FHCP TSP/HCP Benchmark Set | TSPLIB/HCP | - | 66-9528 vertices | Yes | [link](https://sites.flinders.edu.au/flinders-hamiltonian-cycle-project/tsp-and-hcp-benchmark-set/) |
+| Hamiltonian Path | FHCP Challenge Set (adapted) | HCP (edge list) | 1001 | 66-9528 vertices | Yes | [link](https://sites.flinders.edu.au/flinders-hamiltonian-cycle-project/fhcp-challenge-set/) |
+| Longest Path | Karlsruhe Longest Paths (KaLP) | DIMACS (mazes), METIS (others) | - | 2 categories | Yes | [link](https://karlsruhelongestpaths.github.io/) |
+| Chinese Postman Problem | Corberan Arc Routing Instances (MCPP) | Custom (text) | - | 4 problem_variants | No | [link](https://www.uv.es/corberan/instancias.htm) |
+| Rural Postman Problem | Corberan Arc Routing Instances (RPP) | Custom (text) | 118 | 5 groups | No | [link](https://www.uv.es/corberan/instancias.htm) |
+| Rural Postman Problem | Multi-trip Multi-depot RPP Instances | pkl, net | - | undirected weighted multi-graph graph_type | No | [link](https://ieee-dataport.org/documents/multi-trip-multi-depot-rural-postman-problem-instances) |
+
 ---
 
 ## 5. Graph Connectivity and Cut Problems
@@ -151,6 +222,27 @@ Feedback arc set has no dedicated benchmark; researchers adapt directed FVS inst
 ### Cross-References
 
 Max cut is equivalent to Ising spin glass ground state optimization (Category 13). BiqMac and Gset instances appear in both categories. The DIMACS 10th Challenge instances are also used for maximum clique scalability testing (Category 2). Steiner tree connects to network design problems in Category 5.
+
+
+### Dataset Registry
+
+| Problem | Dataset | Format | Instances | Scale | Optimal? | URL |
+|---------|---------|--------|-----------|-------|----------|-----|
+| Steiner Tree | SteinLib | STP | - | - | - | [link](https://steinlib.zib.de/steinlib.php) |
+| Steiner Tree | SteBen | Custom | - | - | - | [link](https://openreview.net/forum?id=tKif2rXQ6V) |
+| Steiner Tree | Real-World GEO Instances | STP | 23 | - | - | [link](https://ivanaljubic.github.io/portfolio/steiner-tree-problems-in-graph/) |
+| Max Cut | Gset | edge-list | 71 | - | - | [link](https://web.stanford.edu/~yyye/yyye/Gset/) |
+| Max Cut | BiqMac Library | sparse-matrix | - | - | - | [link](https://biqmac.aau.at/biqmaclib.html) |
+| Max Cut | DIMACS 7th Challenge Max-Cut | DIMACS | - | - | - | [link](http://archive.dimacs.rutgers.edu/Challenges/Seventh/Instances/) |
+| Max Cut | Optsicom Max-Cut | Various | - | - | - | [link](https://grafo.etsii.urjc.es/optsicom/maxcut) |
+| Multiway Cut | DIMACS Min-Cut/Max-Flow Instances | DIMACS | - | - | - | [link](https://zenodo.org/records/4905882) |
+| Multiway Cut | DTU Min-Cut/Max-Flow Benchmark | DIMACS | - | - | - | [link](https://data.dtu.dk/articles/dataset/Min-Cut_Max-Flow_Problem_Instances_for_Benchmarking/17091101) |
+| Feedback Vertex Set | PACE 2016 - Feedback Vertex Set | PACE | 130 | - | - | [link](https://pacechallenge.org/2016/feedback-vertex-set/) |
+| Feedback Vertex Set | PACE 2022 - Directed Feedback Vertex Set | PACE | - | - | - | [link](https://pacechallenge.org/2022/directed-fvs/) |
+| Feedback Arc Set | PACE 2022 - Directed FVS (adapted) | PACE | - | - | - | [link](https://pacechallenge.org/2022/directed-fvs/) |
+| Graph Partitioning | Walshaw Graph Partitioning Archive | METIS | 34 | - | - | [link](https://chriswalshaw.co.uk/partition/) |
+| Graph Partitioning | DIMACS 10th Challenge - Graph Partitioning | METIS | - | - | - | [link](https://sites.cc.gatech.edu/dimacs10/downloads.shtml) |
+| Graph Partitioning | METIS Test Graphs | METIS | - | - | - | [link](https://github.com/KarypisLab/METIS) |
 
 ---
 
@@ -183,6 +275,32 @@ Pure single-commodity max-flow/min-cut benchmarking has matured through DIMACS c
 ### Cross-References
 
 SNDlib instances connect to Steiner tree (Category 4) through network design. MIPLIB (Category 10) contains network flow formulations as MIP instances. The PDS instances are also studied as integer programming benchmarks.
+
+
+### Dataset Registry
+
+| Problem | Dataset | Format | Instances | Scale | Optimal? | URL |
+|---------|---------|--------|-----------|-------|----------|-----|
+| Two-Commodity Integral Flow (Directed) | CommaLAB Mnetgen Instances | Mnetgen | 486 | - | - | [link](https://commalab.di.unipi.it/datasets/mmcf/) |
+| Two-Commodity Integral Flow (Directed) | CommaLAB Canad C Instances | Canadian | 32 | - | - | [link](https://commalab.di.unipi.it/datasets/mmcf/) |
+| Two-Commodity Integral Flow (Directed) | SNDlib | SNDlib-native/GML | 830 | - | - | [link](http://sndlib.zib.de/) |
+| Two-Commodity Integral Flow (Undirected) | CommaLAB Vance Instances | JL Origin-Specific | 30 | - | - | [link](https://commalab.di.unipi.it/datasets/mmcf/) |
+| Two-Commodity Integral Flow (Undirected) | CommaLAB Grid Network Instances | Origin-Destination | 15 | - | - | [link](https://commalab.di.unipi.it/datasets/mmcf/) |
+| Integral Flow Bundles | CommaLAB PDS Instances | Mnetgen/MPS | 24 | - | - | [link](https://commalab.di.unipi.it/datasets/mmcf/) |
+| Integral Flow Bundles | DIMACS 1st Challenge Network Flow Instances | DIMACS | - | - | - | [link](http://archive.dimacs.rutgers.edu/pub/netflow/generators/) |
+| Integral Flow Bundles | LEMON Min-Cost Flow Benchmark Data | DIMACS | - | - | - | [link](https://lemon.cs.elte.hu/trac/lemon/wiki/MinCostFlowData) |
+| Integral Flow with Homologous Arcs | CommaLAB Canad R Instances | Canadian | 18 | - | - | [link](https://commalab.di.unipi.it/datasets/mmcf/) |
+| Integral Flow with Homologous Arcs | CommaLAB Canad Bipart and Mulgen Instances | Canadian | 96 | - | - | [link](https://commalab.di.unipi.it/datasets/mmcf/) |
+| Integral Flow with Homologous Arcs | CommaLAB Reserve Instances | Custom | 9 | - | - | [link](https://commalab.di.unipi.it/datasets/mmcf/) |
+| Integral Flow with Multipliers | CommaLAB Hydrothermal Instances | PPRN | 5 | - | - | [link](https://commalab.di.unipi.it/datasets/mmcf/) |
+| Integral Flow with Multipliers | CommaLAB Genflot Instances | Custom | 22 | - | - | [link](https://commalab.di.unipi.it/datasets/mmcf/) |
+| Integral Flow with Multipliers | MIPLIB 2017 Network Instances | MPS | 1065 | - | - | [link](https://miplib.zib.de/) |
+| Path-Constrained Network Flow | CommaLAB Unsplittable Flow (GARR) Instances | XML/Mnetgen | 10 | - | - | [link](https://commalab.di.unipi.it/datasets/mmcf/) |
+| Path-Constrained Network Flow | CommaLAB Unsplittable Flow (SNDlib) Instances | Mnetgen | 23 | - | - | [link](https://commalab.di.unipi.it/datasets/mmcf/) |
+| Path-Constrained Network Flow | CommaLAB Unsplittable Flow (Waxman) Instances | Mnetgen | 2 | - | - | [link](https://commalab.di.unipi.it/datasets/mmcf/) |
+| Path-Constrained Network Flow | CommaLAB Mingozzi Instances | Custom | 10 | - | - | [link](https://commalab.di.unipi.it/datasets/mmcf/) |
+| Path-Constrained Network Flow | SNDlib Single-Path Routing Instances | SNDlib-native | - | - | - | [link](http://sndlib.zib.de/) |
+| Path-Constrained Network Flow | DIMACS 13th Challenge: Network Flows 2.0 | DIMACS | - | - | - | [link](https://coral.ise.lehigh.edu/flow-challenge-2-0/) |
 
 ---
 
@@ -218,6 +336,26 @@ Partition has surprisingly few dedicated benchmark suites given its role as the 
 
 Subset sum is a special case of knapsack and connects to lattice problems (Category 11) through the knapsack lattice construction. Bin packing relates to scheduling (Category 7) through machine load balancing. OR-Library instances appear across multiple categories.
 
+
+### Dataset Registry
+
+| Problem | Dataset | Format | Instances | Scale | Optimal? | URL |
+|---------|---------|--------|-----------|-------|----------|-----|
+| Knapsack | Pisinger Hard Knapsack Instances | Custom text (id, profit, weight per line) | 14000 | 50-10000 items | Yes | [link](https://hjemmesider.diku.dk/~pisinger/codes.html) |
+| Knapsack | Jooken Hard Knapsack Instances | Custom text (id, profit, weight per line) | 3240 | 25-200 items | Yes | [link](https://github.com/JorikJooken/knapsackProblemInstances) |
+| Knapsack | OR-Library Multidimensional Knapsack (Chu-Beasley) | OR-Library text format | 270 | 100-500 items; 5-30 constraints | Yes | [link](https://people.brunel.ac.uk/~mastjjb/jeb/orlib/mknapinfo.html) |
+| Knapsack | Ortega 0/1 Knapsack Instances | Custom text | - | - | Yes | [link](http://artemisa.unicauca.edu.co/~johnyortega/instances_01_KP/) |
+| Knapsack | kplib Test Instances | Custom text | - | - | Yes | [link](https://github.com/likr/kplib) |
+| Bin Packing | BPPLIB (Bin Packing Problem Library) | Custom text (capacity, number of items, item sizes) | 6195 | 50-1000 items | Yes | [link](https://site.unibo.it/operations-research/en/research/bpplib-a-bin-packing-problem-library) |
+| Bin Packing | ESICUP Cutting and Packing Datasets | Various | - | - | Yes | [link](https://github.com/ESICUP/datasets) |
+| Bin Packing | Assembly Line Balancing BPP Collection | Custom text | - | - | Yes | [link](https://assembly-line-balancing.de/further-data-sets/bin-packing-problem-bpp/) |
+| Subset Sum | Pisinger Subset Sum Instances | Custom text | - | - | Yes | [link](https://hjemmesider.diku.dk/~pisinger/codes.html) |
+| Subset Sum | FSU Subset Sum Dataset | Custom text (weights and target) | 7 | 8-21 items | Yes | [link](https://people.sc.fsu.edu/~jburkardt/datasets/subset_sum/subset_sum.html) |
+| Partition | Pisinger Even-Odd Partition Instances | Custom text | - | - | Yes | [link](https://hjemmesider.diku.dk/~pisinger/codes.html) |
+| Partition | Mertens Phase Transition Instances | Generated (random integers) | - | - | Yes | [link](https://arxiv.org/abs/cond-mat/0310317) |
+| Partially Ordered Knapsack | MineLib Precedence-Constrained Instances | Custom text | - | - | Yes | [link](http://mansci-web.uai.cl/minelib/) |
+| Partially Ordered Knapsack | Boyd Precedence-Constrained Knapsack Solver and Instances | Custom text | - | - | Yes | [link](https://github.com/rmcgibbo/precedenceConstrainedKnapsack) |
+
 ---
 
 ## 8. Scheduling
@@ -252,6 +390,38 @@ The open shop problem is relatively under-benchmarked compared to flow shop and 
 
 Taillard's website serves as a unified portal for flow shop, job shop, open shop, and QAP instances. OR-Library instances appear here and in Categories 7, 8, and 10. RCPSP precedence structures connect to precedence-constrained scheduling and DAG-based problems.
 
+
+### Dataset Registry
+
+| Problem | Dataset | Format | Instances | Scale | Optimal? | URL |
+|---------|---------|--------|-----------|-------|----------|-----|
+| Flow Shop Scheduling | Taillard's Flow Shop Instances | Custom text | 120 | 20-500 jobs; 5-20 machines | Yes | [link](http://mistic.heig-vd.ch/taillard/problemes.dir/ordonnancement.dir/ordonnancement.html) |
+| Flow Shop Scheduling | OR-Library Flow Shop Instances | Custom text | 31 | 20-200 jobs; 5-20 machines | Yes | [link](https://people.brunel.ac.uk/~mastjjb/jeb/orlib/flowshopinfo.html) |
+| Flow Shop Scheduling | VFR Hard Flow Shop Instances | Custom text | 480 | 10-800 jobs; 5-60 machines | No | [link](https://www.sciencedirect.com/science/article/abs/pii/S0377221714005992) |
+| Job Shop Scheduling | JSPLIB (Job Shop Problem Library) | Standard text with JSON metadata | 162 | 6-100 jobs; 5-20 machines | Yes | [link](https://github.com/tamy0612/JSPLIB) |
+| Job Shop Scheduling | Fisher & Thompson Instances (FT) | Custom text | 3 | 6-20 jobs; 6-10 machines | Yes | [link](https://people.brunel.ac.uk/~mastjjb/jeb/orlib/jobshopinfo.html) |
+| Job Shop Scheduling | Lawrence Instances (LA) | Custom text | 40 | 10-30 jobs; 5-15 machines | Yes | [link](https://people.brunel.ac.uk/~mastjjb/jeb/orlib/jobshopinfo.html) |
+| Job Shop Scheduling | Adams, Balas & Zawack Instances (ABZ) | Custom text | 5 | 10-20 jobs; 10-15 machines | Yes | [link](https://github.com/tamy0612/JSPLIB) |
+| Job Shop Scheduling | Taillard's Job Shop Instances (TA) | Custom text | 80 | 15-100 jobs; 15-20 machines | No | [link](http://mistic.heig-vd.ch/taillard/problemes.dir/ordonnancement.dir/ordonnancement.html) |
+| Job Shop Scheduling | Storer, Wu & Vaccari Instances (SWV) | Custom text | 20 | 20-50 jobs; 10-15 machines | No | [link](https://github.com/tamy0612/JSPLIB) |
+| Job Shop Scheduling | Demirkol, Mehta & Uzsoy Instances (DMU) | Custom text | 80 | 20-100 jobs; 15-20 machines | No | [link](https://optimizizer.com/DMU.php) |
+| Job Shop Scheduling | OR-Library Job Shop Instances | Custom text | 82 | 6-30 jobs; 5-15 machines | Yes | [link](https://people.brunel.ac.uk/~mastjjb/jeb/orlib/jobshopinfo.html) |
+| Job Shop Scheduling | Large-Scale JSP Benchmarks | Custom text | 40 | 100-500 jobs; 20-100 machines | No | [link](https://arxiv.org/abs/2102.08778) |
+| Open Shop Scheduling | Taillard's Open Shop Instances | Custom text | 60 | 4-20 jobs; 4-20 machines | Yes | [link](http://mistic.heig-vd.ch/taillard/problemes.dir/ordonnancement.dir/ordonnancement.html) |
+| Open Shop Scheduling | Gueret & Prins Open Shop Instances (GP) | Custom text | 80 | 3-10 jobs; 3-10 machines | Yes | [link](https://link.springer.com/chapter/10.1007/978-3-540-32220-7_9) |
+| Multiprocessor Scheduling | OR-Library Parallel Machine Instances | Custom text | - | - | Yes | [link](https://people.brunel.ac.uk/~mastjjb/jeb/info.html) |
+| Resource-Constrained Project Scheduling (RCPSP) | PSPLIB j30 Instances | Custom text | 480 | 30 activities | Yes | [link](https://www.om-db.wi.tum.de/psplib/library.html) |
+| Resource-Constrained Project Scheduling (RCPSP) | PSPLIB j60 Instances | Custom text | 480 | 60 activities | No | [link](https://www.om-db.wi.tum.de/psplib/library.html) |
+| Resource-Constrained Project Scheduling (RCPSP) | PSPLIB j120 Instances | Custom text | 600 | 120 activities | No | [link](https://www.om-db.wi.tum.de/psplib/library.html) |
+| Resource-Constrained Project Scheduling (RCPSP) | PSPLIB Multi-Mode RCPSP Instances | Custom text | - | 12-30 activities | Yes | [link](https://www.om-db.wi.tum.de/psplib/library.html) |
+| Resource-Constrained Project Scheduling (RCPSP) | MPSPLIB (Multi-Project Scheduling Problem Library) | Custom text | - | - | No | [link](http://www.mpsplib.com/) |
+| Precedence-Constrained Scheduling | PSPLIB RCPSP Instances (as precedence-constrained benchmarks) | Custom text | 1560 | 30-120 activities | No | [link](https://www.om-db.wi.tum.de/psplib/library.html) |
+| Minimum Tardiness Scheduling | OR-Library Weighted Tardiness Instances | Custom text | 375 | 40-100 jobs | Yes | [link](https://people.brunel.ac.uk/~mastjjb/jeb/orlib/wtinfo.html) |
+| Minimum Tardiness Scheduling | Cicirello Weighted Tardiness with Sequence-Dependent Setups | Plain text | - | - | No | [link](https://www.cicirello.org/datasets/wtsds/) |
+| Staff Scheduling | NSPLib (Nurse Scheduling Problem Library) | Custom text | 9210 | 25-150 nurses | No | [link](https://www.projectmanagement.ugent.be/research/personnel_scheduling/nsp) |
+| Staff Scheduling | Shift Scheduling Benchmarks | XML | - | - | No | [link](https://www.schedulingbenchmarks.org/) |
+| Staff Scheduling | KU Leuven Nurse Rostering Benchmarks | Custom text | - | 4-46 nurses | No | [link](https://gent.cs.kuleuven.be/nurserostering.html) |
+
 ---
 
 ## 9. Set Problems
@@ -284,6 +454,25 @@ Set packing has no dedicated benchmark; researchers use MIPLIB instances filtere
 
 OR-Library SCP instances serve triple duty across set cover, set packing, and hitting set. MIPLIB (Category 10) contains set packing/partitioning formulations from airline and vehicle routing applications. Set cover connects to vertex cover (Category 2) and dominating set through structural reductions.
 
+
+### Dataset Registry
+
+| Problem | Dataset | Format | Instances | Scale | Optimal? | URL |
+|---------|---------|--------|-----------|-------|----------|-----|
+| Set Cover | OR-Library SCP Instances (Beasley) | Custom text (rows, columns, costs, coverage) | 80 | 200-1000 rows; 1000-10000 columns | Yes | [link](https://people.brunel.ac.uk/~mastjjb/jeb/orlib/scpinfo.html) |
+| Set Cover | OR-Library RAIL Instances | Custom text (rows, columns, costs, coverage) | 7 | 507-4872 rows; 47311-1092610 columns | No | [link](https://people.brunel.ac.uk/~mastjjb/jeb/orlib/scpinfo.html) |
+| Set Cover | OR-Library Unicost SCP Instances | Custom text (rows, columns, costs, coverage) | 10 | - | Yes | [link](https://people.brunel.ac.uk/~mastjjb/jeb/orlib/scpinfo.html) |
+| Set Cover | Steiner Triple System Covering Instances | Custom text (rows, columns, costs, coverage) | 5 | - | Yes | [link](https://people.brunel.ac.uk/~mastjjb/jeb/orlib/scpinfo.html) |
+| Set Cover | GECCO 2020 OCP/USCP Benchmark | Custom text | 69 | - | No | [link](https://www.mage.fst.uha.fr/brevilliers/gecco-2020-ocp-uscp-competition/) |
+| Set Cover | PBBS Set Cover Benchmark | Adjacency graph (bipartite) | - | - | No | [link](https://www.cs.cmu.edu/~pbbs/benchmarks/setCover.html) |
+| Set Packing | MIPLIB 2017 | MPS | 1065 | - | Yes | [link](https://miplib.zib.de/) |
+| Set Packing | OR-Library SCP Instances (dual as Set Packing) | Custom text (rows, columns, costs, coverage) | 87 | - | Yes | [link](https://people.brunel.ac.uk/~mastjjb/jeb/orlib/scpinfo.html) |
+| Exact Cover by 3-Sets | Steiner Triple Systems (Exact Cover Instances) | Incidence matrix / custom | - | - | Yes | [link](https://en.wikipedia.org/wiki/Steiner_system) |
+| Exact Cover by 3-Sets | Pentomino and Polyomino Tiling (Exact Cover) | Incidence matrix (0-1) | - | - | Yes | [link](https://arxiv.org/abs/cs/0011047) |
+| Hitting Set | PACE 2025 Hitting Set Challenge | HGR (hypergraph, DIMACS-like) | 200 | - | Yes | [link](https://pacechallenge.org/2025/hs/) |
+| Hitting Set | Minimal Hitting Set Algorithm Benchmarks | Custom text | - | - | Yes | [link](https://github.com/VeraLiconaResearchGroup/Minimal-Hitting-Set-Algorithms) |
+| Hitting Set | OR-Library SCP Instances (dual as Hitting Set) | Custom text (rows, columns, costs, coverage) | 87 | - | Yes | [link](https://people.brunel.ac.uk/~mastjjb/jeb/orlib/scpinfo.html) |
+
 ---
 
 ## 10. Sequence and String Problems
@@ -311,6 +500,32 @@ The edit distance problem is well-studied algorithmically but lacks a single con
 ### Cross-References
 
 LCS and sequence alignment connect directly to computational biology applications. BAliBASE and SABmark are relevant to Category 11 (lattice problems) through sequence analysis in structural biology.
+
+
+### Dataset Registry
+
+| Problem | Dataset | Format | Instances | Scale | Optimal? | URL |
+|---------|---------|--------|-----------|-------|----------|-----|
+| Longest Common Subsequence | BB Benchmark (Blum & Blesa) | Text (custom) | 80 | 10-200 strings; 100-1000 string_length | No | [link](https://link.springer.com/chapter/10.1007/978-3-540-74446-7_11) |
+| Longest Common Subsequence | Rat Genome LCS Benchmark | Text (DNA sequences) | 20 | 10 strings; 600 string_length | No | [link](https://link.springer.com/chapter/10.1007/978-3-030-37599-7_14) |
+| Longest Common Subsequence | LCS Random Benchmark (Shyu & Tsai) | Text (custom) | - | 10-200 strings; 100-1000 string_length | No | [link](https://link.springer.com/article/10.1007/s00500-018-3200-3) |
+| Longest Common Subsequence | Bacteria LCS Benchmark | Text (DNA sequences) | 35 | 4 alphabet_size | No | [link](https://link.springer.com/chapter/10.1007/978-3-540-74446-7_11) |
+| Longest Common Subsequence | LCS Non-Uniform Distribution Benchmark | Text (custom) | - | 10-100 strings; 100-1000 string_length | No | [link](https://github.com/milanagrbic/LCSonNuD) |
+| Longest Common Subsequence | BAliBASE (Benchmark Alignment dataBASE) | FASTA, MSF | 6255 | 4-50 per family sequences | Yes | [link](https://www.lbgi.fr/balibase/) |
+| Longest Common Subsequence | SABmark (Sequence Alignment Benchmark) | FASTA, PDB | - | 0-50% sequence_identity | Yes | [link](https://bioinformatics.vub.ac.be/databases/databases.html) |
+| Longest Common Subsequence | PREFAB (Protein Reference Alignment Benchmark) | FASTA | 1682 | up to 50 sequences_per_family; 321 SCOP folds folds | Yes | [link](https://www.drive5.com/muscle/) |
+| Longest Common Subsequence | OXBench | FASTA, MSF | - | - | Yes | [link](https://www.compbio.dundee.ac.uk/downloads/oxbench/) |
+| Longest Common Subsequence | HomFam Large-Scale Alignment Benchmark | FASTA | 94 | 94 families | Yes | [link](https://academic.oup.com/bioinformatics/article/29/8/989/229582) |
+| Shortest Common Supersequence | SCS Random Benchmark (Blum et al.) | Text (custom) | 25 | 8 strings; 40-80 string_length | No | [link](https://pmc.ncbi.nlm.nih.gov/articles/PMC7127599/) |
+| Shortest Common Supersequence | SCS DNA Benchmark (SARS Coronavirus) | Text (DNA sequences) | - | 158-1269 string_length | No | [link](https://pmc.ncbi.nlm.nih.gov/articles/PMC7127599/) |
+| Shortest Common Supersequence | SCS Protein Benchmark (Swiss-Prot) | Text (protein sequences) | - | 125-595 string_length | No | [link](https://pmc.ncbi.nlm.nih.gov/articles/PMC7127599/) |
+| Shortest Common Supersequence | SCS Biological Benchmark (Ning & Leong) | Text (DNA and protein sequences) | 11 | 4-20 alphabet_size | No | [link](https://link.springer.com/article/10.1186/1471-2105-7-S4-S12) |
+| Shortest Common Supersequence | SCS Enhanced Beam Search Benchmark (Mousavi et al.) | Text (custom) | - | 5-100 strings; 10-100 string_length | No | [link](https://pmc.ncbi.nlm.nih.gov/articles/PMC7127599/) |
+| String-to-String Correction | TREC-5 Confusion Track Corpus | SGML / Text | 55600 | 55600 documents; 5-20% character_error_rate | Yes | [link](https://trec.nist.gov/data.html) |
+| String-to-String Correction | Norvig Spelling Correction Corpus | Text | - | 29157 unique words dictionary_size; 1.1M words corpus_size | Yes | [link](https://norvig.com/spell-correct.html) |
+| String-to-String Correction | Birkbeck Spelling Error Corpus | Text | - | - | Yes | [link](https://www.dcs.bbk.ac.uk/~roger/corpora.html) |
+| String-to-String Correction | OCR-D Ground Truth Corpus | PAGE XML, Text | - | - | Yes | [link](https://github.com/OCR-D/gt_structure_text) |
+| String-to-String Correction | SymSpell Benchmark Corpus | Text | - | 82765 dictionary_entries; 1000 test_queries | Yes | [link](https://github.com/wolfgarbe/SymSpell) |
 
 ---
 
@@ -341,6 +556,24 @@ Stochastic programming and robust optimization benchmarks are not covered. Multi
 ### Cross-References
 
 MIPLIB instances encode problems from nearly every other category (set packing, network flow, scheduling, etc.). OR-Library spans Categories 7, 8, 9, and 10. QUBO is equivalent to max cut (Category 4) and Ising spin glass (Category 13) via standard reductions. QAPLIB's Taillard instances connect to the scheduling benchmarks by the same author.
+
+
+### Dataset Registry
+
+| Problem | Dataset | Format | Instances | Scale | Optimal? | URL |
+|---------|---------|--------|-----------|-------|----------|-----|
+| Integer Linear Programming | MIPLIB 2017 | MPS | 1065 | 2-6000000 variables; 1-6000000 constraints | No | [link](https://miplib.zib.de/) |
+| Integer Linear Programming | MIPLIB 2010 | MPS | 361 | - | No | [link](https://miplib2010.zib.de/) |
+| Integer Linear Programming | MIPLIB 2003 | MPS | 60 | - | No | [link](https://miplib.zib.de/history.html) |
+| Integer Linear Programming | OR-Library (Beasley) | Custom text | - | - | Yes | [link](https://people.brunel.ac.uk/~mastjjb/jeb/info.html) |
+| Integer Linear Programming | MINLPLib | GAMS, AMPL, OSiL | 1534 | 1-1000000 variables; 1-1000000 constraints | No | [link](https://www.minlplib.org/) |
+| Quadratic Unconstrained Binary Optimization | MQLib | Custom sparse matrix | 3296 | 20-53130 variables | No | [link](https://github.com/MQLib/MQLib) |
+| Quadratic Unconstrained Binary Optimization | Beasley ORLIB UBQP Instances | Custom text | 125 | 50-2500 variables | Yes | [link](https://people.brunel.ac.uk/~mastjjb/jeb/orlib/bqpinfo.html) |
+| Quadratic Unconstrained Binary Optimization | Palubeckis UBQP Instances | Custom text | - | 3000-7000 variables | No | [link](https://github.com/MQLib/MQLib/blob/master/data/README.md) |
+| Quadratic Unconstrained Binary Optimization | QPLIB (Quadratic Programming Library) | QPLIB, AMPL (.mod) | 8000 | 2-1000000 variables; 0-1000000 constraints | No | [link](https://qplib.zib.de/) |
+| Quadratic Assignment Problem | QAPLIB | Custom text (flow and distance matrices) | 136 | 5-256 facilities | No | [link](https://qaplib.mgi.polymtl.ca/) |
+| Quadratic Assignment Problem | QAPLIB Tai Instances (Taillard) | Custom text (flow and distance matrices) | - | 12-256 facilities | No | [link](https://qaplib.mgi.polymtl.ca/) |
+| Quadratic Assignment Problem | Nugent QAP Instances | Custom text (flow and distance matrices) | - | 12-30 facilities | Yes | [link](https://qaplib.mgi.polymtl.ca/) |
 
 ---
 
@@ -376,6 +609,23 @@ CVP lacks a dedicated benchmark analogous to the SVP Challenge. Short integer so
 
 Subset sum (Category 7) connects to lattice problems through the knapsack lattice reduction. QUBO (Category 11) and max cut (Category 4) relate through optimization formulations on lattices.
 
+
+### Dataset Registry
+
+| Problem | Dataset | Format | Instances | Scale | Optimal? | URL |
+|---------|---------|--------|-----------|-------|----------|-----|
+| Shortest Vector Problem | TU Darmstadt SVP Challenge | Text (integer matrix) | - | 140-300 dimensions | No | [link](https://www.latticechallenge.org/svp-challenge/) |
+| Shortest Vector Problem | TU Darmstadt Ideal Lattice Challenge | Text (integer matrix, ZIP archives) | - | 52-1024 dimensions | No | [link](https://latticechallenge.org/ideallattice-challenge/) |
+| Shortest Vector Problem | G6K (General Sieve Kernel) Test Suite | Generated via fplll/fpylll | - | 50-160 dimensions | No | [link](https://github.com/fplll/g6k) |
+| Shortest Vector Problem | fplll Lattice Reduction Test Instances | Generated via built-in generators | - | - | No | [link](https://github.com/fplll/fplll) |
+| Closest Vector Problem | TU Darmstadt SVP Challenge (adapted for CVP) | Text (integer matrix) | - | 140-300 dimensions | No | [link](https://www.latticechallenge.org/svp-challenge/) |
+| Closest Vector Problem | fplll CVP Solver Test Instances | Generated via built-in generators | - | - | Yes | [link](https://github.com/fplll/fplll) |
+| Learning With Errors | TU Darmstadt LWE Challenge | Text (matrix A, vector b) | - | 40-120 dimensions | Yes | [link](https://www.latticechallenge.org/lwe_challenge/challenge.php) |
+| Learning With Errors | Ring-LWE Challenges | Custom binary | 516 | - | Yes | [link](https://web.eecs.umich.edu/~cpeikert/rlwe-challenges/) |
+| Integer Factoring | RSA Factoring Challenge | Decimal integer | 54 | 100-617 digits; 330-2048 bits | Yes | [link](https://en.wikipedia.org/wiki/RSA_Factoring_Challenge) |
+| Integer Factoring | Cunningham Project Tables | Text (factor tables) | - | - | Yes | [link](https://homes.cerias.purdue.edu/~ssw/cun/) |
+| Integer Factoring | Alpertron Integer Factorization Records | Web interface / decimal integer | - | - | Yes | [link](https://www.alpertron.com.ar/ECM.HTM) |
+
 ---
 
 ## 13. Database and Relational Problems
@@ -409,6 +659,24 @@ This is the weakest category in the survey. BCNF violation detection, conjunctiv
 ### Cross-References
 
 The HPI datasets (Iris, Adult) originate from the UCI Machine Learning Repository and are used across many fields. Hitting set algorithms (Category 9) are used in UCC discovery (e.g., the DUCC and HyUCC algorithms).
+
+
+### Dataset Registry
+
+| Problem | Dataset | Format | Instances | Scale | Optimal? | URL |
+|---------|---------|--------|-----------|-------|----------|-----|
+| Conjunctive Boolean Query | SPARQL Query Containment Benchmark (CQNoProj) | SPARQL / RDF (Turtle) | 20 | - | Yes | [link](https://sparql-qc-bench.inrialpes.fr/) |
+| Conjunctive Boolean Query | SPARQL Query Containment Benchmark (UCQProj) | SPARQL / RDF (Turtle) | 28 | - | Yes | [link](https://sparql-qc-bench.inrialpes.fr/) |
+| Conjunctive Boolean Query | SQCFramework Generated Benchmarks | TTL (Turtle) | - | - | Yes | [link](https://github.com/dice-group/sqcframework) |
+| Additional Key | HPI FD/UCC Benchmark - Iris | CSV | - | 150 rows; 5 columns | Yes | [link](https://hpi.de/naumann/projects/repeatability/data-profiling/fds.html) |
+| Additional Key | HPI FD/UCC Benchmark - Adult | CSV | - | 48842 rows; 14 columns | Yes | [link](https://hpi.de/naumann/projects/repeatability/data-profiling/fds.html) |
+| Additional Key | HPI FD/UCC Benchmark - NCVoter | CSV | - | 1000 rows; 19 columns | Yes | [link](https://hpi.de/naumann/projects/repeatability/data-profiling/fds.html) |
+| Additional Key | HPI FD/UCC Benchmark - Hepatitis | CSV | - | 155 rows; 20 columns | Yes | [link](https://hpi.de/naumann/projects/repeatability/data-profiling/fds.html) |
+| Additional Key | HPI FD/UCC Benchmark - Horse | CSV | - | 300 rows; 27 columns | Yes | [link](https://hpi.de/naumann/projects/repeatability/data-profiling/fds.html) |
+| Additional Key | HPI FD/UCC Benchmark - Flight (1K) | CSV | - | 1000 rows; 109 columns | Yes | [link](https://hpi.de/naumann/projects/repeatability/data-profiling/fds.html) |
+| Additional Key | HPI FD/UCC Benchmark - Uniprot | CSV | - | 1000 rows; 223 columns | Yes | [link](https://hpi.de/naumann/projects/repeatability/data-profiling/fds.html) |
+| Functional Dependency Discovery | HPI FD Benchmark Suite | CSV | 16 | - | Yes | [link](https://hpi.de/naumann/projects/repeatability/data-profiling/fds.html) |
+| Functional Dependency Discovery | TPC-H Schema | SQL DDL / CSV (generated) | - | - | Yes | [link](https://www.tpc.org/tpch/) |
 
 ---
 
@@ -446,6 +714,22 @@ Potts model and vector spin model benchmarks are sparse. Spin glass benchmarks o
 
 Max cut (Category 4), QUBO (Category 11), and spin glass are three formulations of the same underlying problem. Gset and BiqMac Library instances appear in all three contexts. D-Wave instances connect to QUBO formulations in Category 11.
 
+
+### Dataset Registry
+
+| Problem | Dataset | Format | Instances | Scale | Optimal? | URL |
+|---------|---------|--------|-----------|-------|----------|-----|
+| Spin Glass | Spin Glass Server (University of Bonn) | Edge list (spin_i spin_j coupling) | - | - | Yes | [link](http://spinglass.uni-bonn.de/) |
+| Spin Glass | Biq Mac Library - Ising Spin Glass Instances | Sparse matrix / adjacency list | 50 | 100-300 variables | Yes | [link](https://biqmac.aau.at/biqmaclib.html) |
+| Spin Glass | Gset Max-Cut / Spin Glass Benchmark | Sparse adjacency list | 71 | 800-20000 vertices | No | [link](https://web.stanford.edu/~yyye/yyye/Gset/) |
+| Spin Glass | DIRAC Spin Glass Benchmark Instances | Custom lattice files | - | - | Yes | [link](https://github.com/FFrankyy/DIRAC) |
+| Spin Glass | RL4Ising Benchmark Dataset | HuggingFace dataset | 190000 | - | Yes | [link](https://github.com/Open-Finance-Lab/RL4Ising) |
+| Spin Glass | D-Wave Chimera and Pegasus Spin Glass Instances | QUBO / Ising model coefficients | - | - | No | [link](https://www.dwavequantum.com/learn/publications/) |
+| Spin Glass | Tile-Planted Spin Glass Instances | Square lattice coupling matrices | - | - | Yes | [link](https://arxiv.org/abs/1907.10809) |
+| Spin Glass | Edwards-Anderson Lattice Spin Glass (d=3,...,8) | Lattice coupling configurations | - | - | Yes | [link](https://arxiv.org/abs/2407.14646) |
+| Spin Glass | Exploring Quantum Annealing Architectures | Python-generated graph instances | - | - | No | [link](https://github.com/GabrielJauma/exploring-QA-spin-glass) |
+| Spin Glass | Random Field Ising Model (RFIM) Instances | Lattice configurations with random fields | - | - | Yes | [link](https://chimera.roma1.infn.it/RESEARCH/RFIM.html) |
+
 ---
 
 ## 15. Vehicle Routing
@@ -475,6 +759,33 @@ Multi-depot VRP and heterogeneous fleet VRP have limited dedicated benchmark cov
 ### Cross-References
 
 TSP (Category 3) is the single-vehicle, unconstrained special case of VRP. TSPLIB instances are sometimes used for VRP by adding depot and capacity data. The DIMACS 12th Implementation Challenge covered CVRP, VRPTW, and CARP tracks, connecting to graph path problems. Facility location (Category 15) shares real-world instances with CVRPLIB's Loggi collection.
+
+
+### Dataset Registry
+
+| Problem | Dataset | Format | Instances | Scale | Optimal? | URL |
+|---------|---------|--------|-----------|-------|----------|-----|
+| Capacitated Vehicle Routing Problem | CVRPLIB - Uchoa X Instances | VRPLIB | 100 | 100-1000 customers | No | [link](https://galgos.inf.puc-rio.br/cvrplib/index.php/en/) |
+| Capacitated Vehicle Routing Problem | CVRPLIB - XL Instances | VRPLIB | - | 1000-10000 customers | No | [link](https://galgos.inf.puc-rio.br/cvrplib/index.php/en/) |
+| Capacitated Vehicle Routing Problem | Christofides, Mingozzi & Toth (CMT) Instances | VRPLIB | 14 | 50-199 customers | Yes | [link](https://neo.lcc.uma.es/vrp/vrp-instances/capacitated-vrp-instances/) |
+| Capacitated Vehicle Routing Problem | Augerat Instances (Sets A, B, P) | VRPLIB | 74 | 15-100 customers | Yes | [link](https://neo.lcc.uma.es/vrp/vrp-instances/capacitated-vrp-instances/) |
+| Capacitated Vehicle Routing Problem | Golden, Wasil, Kelly & Chao Instances | VRPLIB | 20 | 200-480 customers | No | [link](https://neo.lcc.uma.es/vrp/vrp-instances/capacitated-vrp-instances/) |
+| Capacitated Vehicle Routing Problem | CVRPLIB - Loggi Real-World Instances | VRPLIB | 6 | 401-1001 customers | No | [link](https://galgos.inf.puc-rio.br/cvrplib/index.php/en/) |
+| Capacitated Vehicle Routing Problem | CVRPLIB - ORTEC Real-World Instances | VRPLIB | 6 | 242-701 customers | No | [link](https://galgos.inf.puc-rio.br/cvrplib/index.php/en/) |
+| Vehicle Routing Problem with Time Windows | Solomon VRPTW Benchmark | Solomon | 56 | 100 customers | Yes | [link](https://www.sintef.no/projectweb/top/vrptw/solomon-benchmark/) |
+| Vehicle Routing Problem with Time Windows | Gehring & Homberger Large-Scale VRPTW | Solomon | 300 | 200-1000 customers | No | [link](https://www.sintef.no/projectweb/top/vrptw/homberger-benchmark/) |
+| Vehicle Routing Problem with Time Windows | DIMACS VRPTW Challenge Instances | Solomon | - | 100-1000 customers | No | [link](http://dimacs.rutgers.edu/programs/challenge/vrp/vrptw/) |
+| Pickup and Delivery Problem with Time Windows | Li & Lim PDPTW Benchmark | Solomon | 354 | 100-1000 tasks | No | [link](https://www.sintef.no/projectweb/top/pdptw/li-lim-benchmark/) |
+| Pickup and Delivery Problem with Time Windows | Sartori & Buriol PDPTW Real-World Instances | custom | - | - | No | [link](https://github.com/cssartori/pdptw-instances) |
+| Capacitated Arc Routing Problem | GDB Instances (Golden, DeArmon & Baker) | CARP | 23 | 7-27 nodes; 11-55 edges | Yes | [link](https://www.uv.es/belengue/carp.html) |
+| Capacitated Arc Routing Problem | BCCM / val Instances (Benavent et al.) | CARP | 34 | 24-50 nodes; 34-97 edges | Yes | [link](https://www.uv.es/belengue/carp.html) |
+| Capacitated Arc Routing Problem | Eglese / Li Instances (Winter Gritting) | CARP | 24 | 77-140 nodes; 98-190 edges | No | [link](https://www.uv.es/belengue/carp.html) |
+| Capacitated Arc Routing Problem | KSHS Instances (Kiuchi et al.) | CARP | 6 | - | Yes | [link](https://www.uv.es/belengue/carp.html) |
+| Capacitated Arc Routing Problem | BHW Instances (Bach, Hasle & Wohlk) | CARP | 20 | - | No | [link](http://dimacs.rutgers.edu/programs/challenge/vrp/carp/) |
+| Vehicle Routing Problem | Christofides & Eilon Instances | VRPLIB | 15 | 13-101 customers | Yes | [link](https://neo.lcc.uma.es/vrp/vrp-instances/capacitated-vrp-instances/) |
+| Vehicle Routing Problem | Taillard CVRP Instances | VRPLIB | 12 | 75-385 customers | No | [link](https://neo.lcc.uma.es/vrp/vrp-instances/capacitated-vrp-instances/) |
+| Vehicle Routing Problem | VRP-REP Repository | XML (VRP-REP) | - | - | No | [link](http://www.vrp-rep.org/) |
+| Vehicle Routing Problem | DIMACS 12th Implementation Challenge | mixed | - | - | No | [link](http://dimacs.rutgers.edu/programs/challenge/vrp/) |
 
 ---
 
@@ -507,6 +818,26 @@ Multi-period and dynamic facility location problems lack dedicated benchmarks. S
 ### Cross-References
 
 OR-Library instances appear across facility location, knapsack (Category 6), set cover (Category 8), and scheduling (Category 7). TSPLIB-derived instances connect to TSP (Category 3) and graph path problems. The p-median problem is structurally related to clustering problems. MIPLIB (Category 10) contains facility location formulations as MIP instances. CVRPLIB's Loggi instances (Category 14) were derived from vehicle routing and facility location data in Brazilian cities.
+
+
+### Dataset Registry
+
+| Problem | Dataset | Format | Instances | Scale | Optimal? | URL |
+|---------|---------|--------|-----------|-------|----------|-----|
+| Uncapacitated Facility Location | UflLib Benchmark Collection | UflLib text format (facilities, customers, opening costs, connection costs) | 645 | 10-750 facilities; 10-750 customers | Yes | [link](https://resources.mpi-inf.mpg.de/departments/d1/projects/benchmarks/UflLib/) |
+| Uncapacitated Facility Location | OR-Library Uncapacitated Warehouse Location | OR-Library text (warehouses, customers, capacities, fixed costs, demands, allocation costs) | 15 | 16-100 facilities; 50-1000 customers | Yes | [link](https://people.brunel.ac.uk/~mastjjb/jeb/orlib/uncapinfo.html) |
+| Uncapacitated Facility Location | Kochetov Hard UFL Instances | Custom text | - | - | Yes | [link](https://www.academia.edu/4646193/Benchmark_library_Discrete_Location_Problems) |
+| Capacitated Facility Location | OR-Library Capacitated Warehouse Location | OR-Library text (warehouses, customers, capacities, fixed costs, demands, allocation costs) | 40 | 16-100 facilities; 50-1000 customers | Yes | [link](https://people.brunel.ac.uk/~mastjjb/jeb/orlib/capinfo.html) |
+| Capacitated Facility Location | Holmberg SSCFLP Instances | Custom text | 71 | 10-30 facilities; 50-200 customers | Yes | [link](https://or-brescia.unibs.it/instances/instances_sscflp) |
+| Capacitated Facility Location | CommaLAB CFLP Instances | Multiple formats | - | - | Yes | [link](https://commalab.di.unipi.it/datasets/mex/) |
+| p-Median | OR-Library p-Median Instances | OR-Library text (vertices, edges, p; edge list with costs) | 40 | 100-900 vertices; 5-200 p | Yes | [link](https://people.brunel.ac.uk/~mastjjb/jeb/orlib/pmedinfo.html) |
+| p-Median | TSPLIB-derived p-Median Instances | TSPLIB coordinate format (Euclidean distances) | 98 | up to 3038 vertices | Yes | [link](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/) |
+| p-Center | OR-Library p-Center Instances (pmed) | OR-Library text (vertices, edges, p; edge list with costs) | 40 | 100-900 vertices; 5-200 p | Yes | [link](https://people.brunel.ac.uk/~mastjjb/jeb/orlib/pmedinfo.html) |
+| p-Center | TSPLIB-derived p-Center Instances | TSPLIB coordinate format (Euclidean distances, rounded to integer) | - | up to 3038 vertices | Yes | [link](https://msinnl.github.io/pages/pcenter.html) |
+| Hub Location | OR-Library AP Hub Location Dataset | OR-Library text (coordinates, flows, costs) | 3 | up to 200 nodes | Yes | [link](https://people.brunel.ac.uk/~mastjjb/jeb/orlib/phubinfo.html) |
+| Hub Location | OR-Library CAB Hub Location Dataset | OR-Library text (coordinates, flows, costs) | 1 | 25 nodes | Yes | [link](https://people.brunel.ac.uk/~mastjjb/jeb/orlib/phubinfo.html) |
+| Hub Location | HLP Survey Benchmark Datasets | CSV (node file, distance matrix, demand matrix) | - | 10-80 nodes | Yes | [link](http://m3nets.de/HLP/) |
+| Warehouse Location | OR-Library Warehouse Location Instances | OR-Library text (warehouses, customers, capacities, fixed costs, demands, allocation costs) | 40 | 16-100 facilities; 50-1000 customers | Yes | [link](https://people.brunel.ac.uk/~mastjjb/jeb/orlib/capinfo.html) |
 
 ---
 
@@ -544,6 +875,28 @@ General CSP random instance generators exist but lack standardized benchmark sui
 
 CSP encodings are closely related to SAT (Category 1), as constraint satisfaction problems can be translated to boolean satisfiability. Nurse rostering connects to staff scheduling in the scheduling category (Category 7). Sports scheduling shares structure with graph coloring (Category 2) through tournament design. Timetabling problems can be formulated as ILP instances (Category 10).
 
+
+### Dataset Registry
+
+| Problem | Dataset | Format | Instances | Scale | Optimal? | URL |
+|---------|---------|--------|-----------|-------|----------|-----|
+| Constraint Satisfaction Problem | CSPLib | Natural language specifications with model files | 97 | - | No | [link](https://www.csplib.org/) |
+| Constraint Satisfaction Problem | XCSP3 Competition Benchmarks | XCSP3 XML | 23000 | - | No | [link](https://xcsp.org/instances/) |
+| Constraint Satisfaction Problem | MiniZinc Challenge Benchmarks | MiniZinc (.mzn + .dzn) | - | 10-12 models_per_year; 8-12 instances_per_model | No | [link](https://github.com/MiniZinc/minizinc-benchmarks) |
+| University Course Timetabling | ITC 2007 Curriculum-Based Course Timetabling (Track 3) | Custom text | 21 | University of Udine source | No | [link](https://www.unitime.org/itc2007/) |
+| University Course Timetabling | ITC 2007 Post Enrolment Course Timetabling (Track 2) | Custom text | - | - | No | [link](https://www.unitime.org/itc2007/) |
+| University Course Timetabling | ITC 2019 University Course Timetabling | XML | 30 | Multiple universities across six continents institutions | No | [link](https://www.itc2019.org/) |
+| Examination Timetabling | ITC 2007 Examination Timetabling (Track 1) | Custom text | 12 | 273-1018 exams; 4421-16365 students | No | [link](https://www.unitime.org/itc2007/) |
+| Examination Timetabling | University of Nottingham Exam Timetabling Instances | Custom text | - | - | No | [link](https://people.cs.nott.ac.uk/pszajp/timetabling/exam/) |
+| High School Timetabling | ITC 2011 XHSTT High School Timetabling Archive | XML (XHSTT) | 35 | 10 countries | No | [link](https://www.utwente.nl/en/eemcs/dmmp/hstt/itc2011/) |
+| Nurse Rostering | INRC-I (First International Nurse Rostering Competition 2010) | Custom text | 69 | - | No | [link](https://nrpcompetition.kuleuven-kulak.be/) |
+| Nurse Rostering | INRC-II (Second International Nurse Rostering Competition) | Custom text | - | 30-120 nurses | No | [link](https://mobiz.vives.be/inrc2/) |
+| Nurse Rostering | NSPLib (Nurse Scheduling Problem Library) | Custom text | 9210 | 25-150 nurses | No | [link](https://www.projectmanagement.ugent.be/research/personnel_scheduling/nsp) |
+| Nurse Rostering | Scheduling Benchmarks (Employee Scheduling) | XML | - | - | No | [link](https://www.schedulingbenchmarks.org/) |
+| Nurse Rostering | KU Leuven Nurse Rostering Benchmarks | Custom text | - | 4-46 nurses | No | [link](https://gent.cs.kuleuven.be/nurserostering.html) |
+| Sports Scheduling | RobinX Sports Timetabling Repository | XML (RobinX) | - | - | No | [link](https://robinxval.ugent.be/RobinX/index.php) |
+| Sports Scheduling | ITC 2021 Sports Timetabling | XML (RobinX) | 45 | 16-20 teams | No | [link](https://robinxval.ugent.be/ITC2021/index.php) |
+
 ---
 
 ## 18. Graph Matching
@@ -575,6 +928,26 @@ Temporal graph matching and dynamic graph isomorphism lack dedicated benchmarks.
 ### Cross-References
 
 SNAP (Category 2) provides large-scale target graphs for pattern matching evaluation. The Stanford GraphBase connects to subgraph isomorphism benchmarks via the LV benchmark in the Solnon suite. Molecular graph benchmarks (IAM, GREYC) connect to applications in computational chemistry. Graph coloring (Category 2) and graph isomorphism share structural concerns about graph symmetry. GED computation relates to string edit distance (Category 9) through analogous dynamic programming formulations.
+
+
+### Dataset Registry
+
+| Problem | Dataset | Format | Instances | Scale | Optimal? | URL |
+|---------|---------|--------|-----------|-------|----------|-----|
+| Subgraph Isomorphism | MIVIA ARG Database | Binary (MIVIA custom) | 143600 | up to 2,000 nodes | Yes | [link](https://mivia.unisa.it/datasets/graph-database/arg-database/) |
+| Subgraph Isomorphism | MIVIA LDGraphs (Large Dense Graphs) | Binary (MIVIA custom) | 6350 | 300 to 10,000 nodes | Yes | [link](https://mivia.unisa.it/datasets/graph-database/mivia2-graph-database/) |
+| Subgraph Isomorphism | Solnon SIP Benchmarks | Text adjacency | 14621 | 10 to 6,671 nodes | Yes | [link](https://perso.liris.cnrs.fr/christine.solnon/SIP.html) |
+| Subgraph Isomorphism | Glasgow Subgraph Solver Test Suite | CSV / LAD | 14621 | varies (pattern and target graph pairs) nodes | Yes | [link](https://github.com/ciaranm/glasgow-subgraph-solver) |
+| Graph Isomorphism | Neuen-Schweitzer Benchmark Graphs | DIMACS-like | - | 400 to 4,000 nodes | Yes | [link](https://doi.org/10.4230/LIPIcs.ESA.2017.60) |
+| Graph Isomorphism | MIVIA ARG Database (Graph Isomorphism pairs) | Binary (MIVIA custom) | 143600 | up to 2,000 nodes | Yes | [link](https://mivia.unisa.it/datasets/graph-database/arg-database/) |
+| Maximum Common Subgraph | MIVIA ARG Database (Labeled Common Subgraph pairs) | Binary (MIVIA custom) | 166000 | up to 2,000 nodes | Yes | [link](https://mivia.unisa.it/datasets/graph-database/arg-database/) |
+| Maximum Common Subgraph | MCS Benchmark (Dilkas collection) | LAD | 73 | varies (pairs typically similar sizes) nodes | Yes | [link](https://dilkas.github.io/pdf/mcs_dissertation.pdf) |
+| Graph Edit Distance | IAM Graph Database | GXL (Graph Exchange Language) | 7000 | varies by dataset (typically 2 to 200) nodes | No | [link](https://fki.tic.heia-fr.ch/databases/iam-graph-database) |
+| Graph Edit Distance | ICPR 2016 Graph Distance Contest | GXL | - | varies by dataset nodes | No | [link](https://gdc2016.greyc.fr/) |
+| Graph Edit Distance | GREYC Chemistry Dataset | CML / GXL | - | typically 2 to 60 atoms per molecule nodes | No | [link](https://brunl01.users.greyc.fr/CHEMISTRY/) |
+| Graph Edit Distance | GEDLIB Benchmark Collection | GXL | - | varies (organized by node-count bins) nodes | No | [link](https://github.com/dbblumenthal/gedlib) |
+| Pattern Matching in Graphs | Stanford GraphBase (LV Benchmark) | Text (SGBformat) | 113 | 10 to 6,671 nodes | Yes | [link](https://www-cs-faculty.stanford.edu/~knuth/sgb.html) |
+| Pattern Matching in Graphs | SNAP Large Network Collection | TSV edge list | 80 | 4,039 to 226,000,000 nodes; 88,234 to 480,000,000 edges | No | [link](https://snap.stanford.edu/data/) |
 
 ---
 
