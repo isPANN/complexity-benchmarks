@@ -1,0 +1,255 @@
+category: "satisfiability"
+description: "Boolean satisfiability and related constraint satisfaction problems"
+problems:
+  - name: "SAT"
+    aliases: ["Satisfiability", "Boolean Satisfiability"]
+    pred_names: ["Satisfiability"]
+    datasets:
+      - name: "SATLIB Benchmark Suite"
+        url: "https://www.cs.ubc.ca/~hoos/SATLIB/benchm.html"
+        format: "DIMACS CNF"
+        instance_count: 3900
+        scale:
+          variables: "20-10000"
+          clauses: "91-500000"
+        has_optimal_solution: true
+        usage: "Academic standard for SAT solver evaluation"
+        reference: "Hoos & Stuetzle, 2000"
+        notes: >
+          Includes uniform random 3-SAT (phase transition region),
+          graph colouring, planning, quasigroup, bounded model checking,
+          and DIMACS challenge instances (AIM, JNH, DUBOIS, PARITY, etc.)
+
+      - name: "SAT Competition Benchmarks (2002-2024)"
+        url: "https://zenodo.org/records/15125952"
+        format: "DIMACS CNF"
+        instance_count: 7330
+        scale:
+          variables: "10-10000000"
+          clauses: "50-50000000"
+        has_optimal_solution: true
+        usage: "Annual competition; industrial, crafted, and combinatorial instances"
+        reference: "SAT Competition series"
+        notes: >
+          Normalized, deduplicated collection covering crafted, combinatorial,
+          industrial, and application benchmarks. Includes main track (2020-2024)
+          and anniversary track (2022). Available as 28.7 GB compressed archive.
+
+      - name: "SAT Competition 2024"
+        url: "https://satcompetition.github.io/2024/"
+        format: "DIMACS CNF"
+        instance_count: 400
+        scale:
+          variables: "100-5000000"
+          clauses: "300-30000000"
+        has_optimal_solution: true
+        usage: "Latest annual SAT solver competition benchmarks"
+        reference: "SAT Competition 2024"
+        notes: >
+          Main track (with CaDiCaL Hack and No-limits subtracks),
+          Parallel track, and Cloud track. Each team submits 20 new instances.
+
+      - name: "GBD Benchmark Database"
+        url: "https://benchmark-database.de/"
+        format: "DIMACS CNF"
+        usage: "Meta-database indexing SAT competition benchmarks with feature metadata"
+        reference: "Iser et al."
+        notes: "Provides hash-based cross-referencing and feature extraction for SAT instances"
+
+  - name: "3-SAT"
+    aliases: ["3-Satisfiability", "Random 3-SAT"]
+    pred_names: ["KSatisfiability/K3"]
+    datasets:
+      - name: "SATLIB Uniform Random 3-SAT"
+        url: "https://www.cs.ubc.ca/~hoos/SATLIB/Benchmarks/SAT/RND3SAT/descr.html"
+        format: "DIMACS CNF"
+        instance_count: 8000
+        scale:
+          variables: "20-250"
+          clauses: "91-1065"
+        has_optimal_solution: true
+        usage: "Phase transition study; standard testbed for SAT solver comparison"
+        reference: "Hoos & Stuetzle, 2000"
+        notes: >
+          Instances at the phase transition ratio (clauses/variables ~ 4.26).
+          Includes satisfiable (uf) and unsatisfiable (uuf) sets of 1000 instances
+          each for variable counts 20, 50, 75, 100, 125, 150, 175, 200, 225, 250.
+
+      - name: "SATLIB Controlled Random 3-SAT (CBS)"
+        url: "https://www.cs.ubc.ca/~hoos/SATLIB/benchm.html"
+        format: "DIMACS CNF"
+        instance_count: 36000
+        scale:
+          variables: "100"
+          clauses: "403-449"
+        has_optimal_solution: true
+        usage: "Systematic study of backbone size effects on solver performance"
+        reference: "Hoos & Stuetzle, 2000"
+        notes: >
+          36 sets of 1000 satisfiable instances each, with controlled backbone
+          sizes ranging from 10 to 90 variables.
+
+  - name: "k-SAT"
+    aliases: ["k-Satisfiability"]
+    pred_names: ["KSatisfiability/KN"]
+    datasets:
+      - name: "SATLIB Random k-SAT Instances"
+        url: "https://www.cs.ubc.ca/~hoos/SATLIB/benchm.html"
+        format: "DIMACS CNF"
+        has_optimal_solution: true
+        usage: "Phase transition study for general k-SAT"
+        notes: >
+          Random k-SAT instances for k >= 4 at and near phase transition.
+          Less extensively studied than 3-SAT but available in SATLIB.
+
+  - name: "Max-SAT"
+    aliases: ["Maximum Satisfiability", "MaxSAT", "MAX-SAT"]
+    pred_names: ["Satisfiability"]
+    datasets:
+      - name: "MaxSAT Evaluation Benchmarks"
+        url: "https://maxsat-evaluations.github.io/"
+        format: "WCNF (Weighted CNF)"
+        instance_count: 2000
+        scale:
+          variables: "10-1000000"
+          clauses: "50-5000000"
+        has_optimal_solution: true
+        usage: "Annual MaxSAT solver evaluation; weighted and unweighted tracks"
+        reference: "MaxSAT Evaluations series"
+        notes: >
+          Running annually since 2006. Tracks include weighted exact,
+          unweighted exact, and anytime (incomplete) solving. Benchmarks
+          from industrial, crafted, and random categories.
+
+      - name: "MaxSAT Evaluation 2024"
+        url: "https://maxsat-evaluations.github.io/2024/"
+        format: "WCNF"
+        has_optimal_solution: true
+        usage: "Latest annual MaxSAT solver evaluation"
+        reference: "MaxSAT Evaluation 2024"
+        notes: >
+          Includes weighted and unweighted exact tracks plus anytime track
+          for incomplete solvers.
+
+      - name: "University of Toronto MaxSAT Library"
+        url: "http://www.cs.toronto.edu/maxsat-lib/maxsat-instances/ms-evals/"
+        format: "WCNF"
+        usage: "Archive of MaxSAT Evaluation instances across all years"
+        notes: "Master collection with separate zip files per evaluation year"
+
+  - name: "NAE-SAT"
+    aliases: ["Not-All-Equal SAT", "NAE-3-SAT", "NAE Satisfiability"]
+    pred_names: ["NAESatisfiability"]
+    datasets:
+      - name: "Random NAE-3-SAT Phase Transition Instances"
+        url: "https://github.com/dwave-examples/NAE3SAT"
+        format: "Custom / DIMACS-like"
+        has_optimal_solution: true
+        usage: "Quantum computing and classical algorithm comparison"
+        reference: "D-Wave Systems"
+        notes: >
+          NAE-3-SAT instances used for comparing Advantage QPU and
+          Advantage2 prototype performance against classical solvers.
+          Phase transition occurs at clause-to-variable ratio ~2.1 for 3-NAE-SAT.
+
+      - name: "SATLIB NAE-SAT Encodings"
+        url: "https://www.cs.ubc.ca/~hoos/SATLIB/benchm.html"
+        format: "DIMACS CNF"
+        usage: "NAE-SAT can be encoded as standard SAT via SATLIB instances"
+        notes: >
+          NAE-SAT is reducible to SAT; standard SATLIB instances can be
+          adapted. No dedicated large-scale NAE-SAT benchmark suite exists
+          independently; instances are typically generated for specific studies.
+
+  - name: "QBF"
+    aliases: ["Quantified Boolean Formulas", "TQBF", "QBF Satisfiability"]
+    pred_names: ["QuantifiedBooleanFormulas"]
+    datasets:
+      - name: "QBFLIB"
+        url: "https://www.qbflib.org/"
+        format: "QDIMACS"
+        instance_count: 13000
+        has_optimal_solution: true
+        usage: "Standard benchmark library for QBF solver evaluation"
+        reference: "QBFLIB maintainers"
+        notes: >
+          Comprehensive collection of over 13,000 QBF instances from model
+          checking, formal verification, synthesis, and AI domains.
+          Serves as the uniform test-bed for empirical QBF solver evaluation.
+
+      - name: "QBFGallery 2023"
+        url: "https://qbf23.pages.sai.jku.at/gallery/"
+        format: "QDIMACS, QCIR, QAIGER"
+        has_optimal_solution: true
+        usage: "Annual QBF solver competition (QBFEVAL series, running since 2004)"
+        reference: "QBFGallery 2023"
+        notes: >
+          Instances selected from QBFLIB submissions and new contributions.
+          Solvers must support QDIMACS and optionally QCIR or QAIGER formats.
+
+  - name: "Circuit-SAT"
+    aliases: ["Circuit Satisfiability", "CSAT"]
+    pred_names: ["CircuitSAT"]
+    datasets:
+      - name: "ISCAS-85 Combinational Benchmark Circuits"
+        url: "https://filebox.ece.vt.edu/~mhsiao/iscas85.html"
+        format: "ISCAS netlist, Verilog, AIGER"
+        instance_count: 10
+        scale:
+          gates: "17-7552"
+        has_optimal_solution: true
+        usage: "Standard benchmark for combinational circuit testing and verification"
+        reference: "Bryan, 1985"
+        notes: >
+          Ten combinational circuits (c17 through c7552) widely used in EDA
+          and hardware verification research since 1985.
+
+      - name: "ISCAS-89 Sequential Benchmark Circuits"
+        url: "https://filebox.ece.vt.edu/~mhsiao/iscas89.html"
+        format: "ISCAS netlist, Verilog"
+        instance_count: 31
+        has_optimal_solution: true
+        usage: "Standard benchmark for sequential circuit testing and verification"
+        reference: "Brglez et al., 1989"
+        notes: >
+          Sequential circuits including s27 through s38584, with flip-flops
+          and feedback. Widely used for ATPG and formal verification.
+
+      - name: "ITC-99 Benchmark Circuits"
+        url: "https://www.cerc.utexas.edu/itc99-benchmarks/bendoc1.html"
+        format: "Verilog, VHDL"
+        has_optimal_solution: true
+        usage: "Circuit testing and design verification benchmarks"
+        reference: "ITC 1999"
+        notes: "Updated benchmark set addressing limitations of ISCAS circuits"
+
+      - name: "EPFL Combinational Benchmark Suite"
+        url: "https://github.com/ispras/hdl-benchmarks"
+        format: "Verilog, VHDL, BLIF, AIGER"
+        instance_count: 23
+        has_optimal_solution: true
+        usage: "Logic synthesis and circuit optimization benchmarks"
+        notes: >
+          23 natively combinational circuits in multiple formats.
+          Includes arithmetic and control-flow circuits.
+
+      - name: "SATLIB Circuit Fault Analysis (BF)"
+        url: "https://www.cs.ubc.ca/~hoos/SATLIB/benchm.html"
+        format: "DIMACS CNF"
+        has_optimal_solution: true
+        usage: "SAT encodings of circuit fault analysis problems"
+        reference: "Hoos & Stuetzle, 2000"
+        notes: >
+          Bridge fault analysis problems from SATLIB, encoding circuit
+          verification tasks as SAT instances in CNF format.
+
+      - name: "Velev Formal Verification Benchmarks"
+        url: "https://www.cs.ubc.ca/~hoos/SATLIB/I-Velev03/index.htm"
+        format: "DIMACS CNF"
+        has_optimal_solution: true
+        usage: "SAT encodings of processor verification problems"
+        reference: "Velev, 2003"
+        notes: >
+          Formal verification of pipelined and superscalar processors
+          encoded as SAT instances. Some of the largest structured
+          SAT instances available.

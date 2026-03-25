@@ -1,0 +1,246 @@
+category: "graph-path-circuit"
+description: "Graph problems involving paths and circuits: TSP variants, Hamiltonian cycles/paths, longest paths, and postman problems"
+
+problems:
+  - name: "Traveling Salesman Problem"
+    aliases: ["TSP", "Symmetric TSP"]
+    pred_names: ["TravelingSalesman/SimpleGraph/i32"]
+    datasets:
+      - name: "TSPLIB (Symmetric TSP)"
+        url: "http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/"
+        mirror_url: "http://elib.zib.de/pub/mp-testdata/tsp/tsplib/tsplib.html"
+        format: "TSPLIB"
+        description: >
+          Gerhard Reinelt's library of symmetric TSP instances, the de facto
+          standard benchmark for TSP research. Contains instances from printed
+          circuit board drilling, VLSI design, and artificial constructions.
+          All 110 instances have been solved to optimality by the Concorde solver.
+        scale:
+          instances: 110
+          cities: "14-85900"
+        has_optimal_solution: true
+        usage: "primary"
+        reference: "Reinelt, G. (1991). TSPLIB - A Traveling Salesman Problem Library. ORSA Journal on Computing, 3(4), 376-384."
+
+      - name: "VLSI TSP Instances"
+        url: "https://www.math.uwaterloo.ca/tsp/vlsi/index.html"
+        format: "TSPLIB"
+        description: >
+          TSP instances derived from VLSI design data from the
+          Forschungsinstitut fuer Diskrete Mathematik, Universitaet Bonn.
+          Euclidean distances rounded to nearest integer.
+        scale:
+          instances: 102
+          cities: "131-744710"
+        has_optimal_solution: false
+        usage: "large-scale"
+
+      - name: "National TSP Instances"
+        url: "https://www.math.uwaterloo.ca/tsp/world/countries.html"
+        format: "TSPLIB"
+        description: >
+          Country-scale TSP instances derived from the National Imagery and
+          Mapping Agency database of geographic feature names. Contains 25
+          instances ranging from Western Sahara (29 cities) to China (71,009
+          cities). Approximately half have been solved to optimality.
+        scale:
+          instances: 25
+          cities: "29-71009"
+        has_optimal_solution: false
+        notes: "Optimal solutions known for ~13 of 25 instances including Finland, Greece, Japan, Sweden, and Vietnam."
+        usage: "large-scale"
+
+      - name: "Concorde TSPLIB Benchmarks"
+        url: "https://www.math.uwaterloo.ca/tsp/concorde/benchmarks/bench99.html"
+        format: "TSPLIB"
+        description: >
+          Performance benchmarks for the Concorde exact TSP solver on all
+          TSPLIB instances. Provides verified optimal tour lengths and
+          computation times. All 110 TSPLIB instances solved to optimality.
+        scale:
+          instances: 110
+          cities: "14-85900"
+        has_optimal_solution: true
+        usage: "solver-benchmarking"
+
+      - name: "TSP Test Data (Waterloo)"
+        url: "https://www.math.uwaterloo.ca/tsp/data/index.html"
+        format: "TSPLIB"
+        description: >
+          Additional TSP test instances curated by the University of Waterloo
+          TSP research group. Complements TSPLIB and includes the VLSI and
+          National instance collections.
+        scale:
+          cities: "29-744710"
+        has_optimal_solution: false
+        usage: "supplementary"
+
+  - name: "Asymmetric Traveling Salesman Problem"
+    aliases: ["ATSP"]
+    pred_names: ["TravelingSalesman/SimpleGraph/i32"]
+    datasets:
+      - name: "TSPLIB (Asymmetric TSP)"
+        url: "http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/"
+        format: "TSPLIB"
+        description: >
+          Asymmetric TSP instances from TSPLIB where the distance from node i
+          to node j may differ from j to i. Includes instances from
+          stacker-crane problems and flow-shop scheduling reductions.
+        scale:
+          instances: 19
+          cities: "17-443"
+        has_optimal_solution: true
+        usage: "primary"
+        reference: "Reinelt, G. (1991). TSPLIB - A Traveling Salesman Problem Library."
+
+  - name: "Bottleneck Traveling Salesman Problem"
+    aliases: ["Bottleneck TSP", "BTSP"]
+    pred_names: ["BottleneckTravelingSalesman"]
+    datasets:
+      - name: "TSPLIB (used for Bottleneck TSP)"
+        url: "http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/"
+        format: "TSPLIB"
+        description: >
+          Standard TSPLIB symmetric instances repurposed for bottleneck TSP
+          evaluation, where the objective is to minimize the longest edge in
+          the tour rather than total tour length.
+        scale:
+          instances: 110
+          cities: "14-85900"
+        has_optimal_solution: false
+        notes: "Optimal solutions for standard TSP are known; bottleneck-optimal solutions may differ."
+        usage: "adapted"
+
+  - name: "Hamiltonian Circuit"
+    aliases: ["Hamiltonian Cycle", "HCP"]
+    pred_names: ["HamiltonianCircuit/SimpleGraph"]
+    datasets:
+      - name: "TSPLIB (HCP Instances)"
+        url: "http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/"
+        format: "TSPLIB/HCP"
+        description: >
+          Hamiltonian cycle problem instances included in the TSPLIB
+          collection. All instances are known to be Hamiltonian.
+        scale:
+          instances: 9
+          vertices: "1000-5000"
+        has_optimal_solution: true
+        usage: "primary"
+
+      - name: "FHCP Challenge Set"
+        url: "https://sites.flinders.edu.au/flinders-hamiltonian-cycle-project/fhcp-challenge-set/"
+        download_url: "http://sites.flinders.edu.au/flinders-hamiltonian-cycle-project/wp-content/uploads/sites/18/2020/01/FHCPCS.7z"
+        format: "HCP (edge list)"
+        description: >
+          The Flinders Hamiltonian Cycle Project Challenge Set: 1001
+          structurally difficult instances. All graphs are Hamiltonian.
+          Includes generalized Petersen graphs, uniquely Hamiltonian graphs,
+          and instances derived from campanology (bell-ringing). The best
+          competition submission solved 985 of 1001 instances.
+        scale:
+          instances: 1001
+          vertices: "66-9528"
+          average_vertices: 3000
+        has_optimal_solution: true
+        notes: "Solutions available separately. Difficulty is structural, not size-based."
+        usage: "primary"
+        reference: "Haythorpe, M. (2019). FHCP Challenge Set: The First Set of Structurally Difficult Instances of the Hamiltonian Cycle Problem. arXiv:1902.10352."
+
+      - name: "FHCP TSP/HCP Benchmark Set"
+        url: "https://sites.flinders.edu.au/flinders-hamiltonian-cycle-project/tsp-and-hcp-benchmark-set/"
+        format: "TSPLIB/HCP"
+        description: >
+          Additional HCP and TSP benchmark instances from the Flinders
+          Hamiltonian Cycle Project, complementing the main FHCP Challenge Set.
+        scale:
+          vertices: "66-9528"
+        has_optimal_solution: true
+        usage: "supplementary"
+
+  - name: "Hamiltonian Path"
+    aliases: ["HPP"]
+    pred_names: ["HamiltonianPath/SimpleGraph"]
+    datasets:
+      - name: "FHCP Challenge Set (adapted)"
+        url: "https://sites.flinders.edu.au/flinders-hamiltonian-cycle-project/fhcp-challenge-set/"
+        format: "HCP (edge list)"
+        description: >
+          The FHCP Challenge Set instances can be adapted for Hamiltonian path
+          testing. Since all 1001 graphs are Hamiltonian, they also contain
+          Hamiltonian paths. Researchers commonly derive path instances by
+          fixing endpoints in known Hamiltonian graphs.
+        scale:
+          instances: 1001
+          vertices: "66-9528"
+        has_optimal_solution: true
+        usage: "adapted"
+
+  - name: "Longest Path"
+    aliases: ["LP"]
+    pred_names: ["LongestPath/SimpleGraph/i32"]
+    datasets:
+      - name: "Karlsruhe Longest Paths (KaLP)"
+        url: "https://karlsruhelongestpaths.github.io/"
+        format: "DIMACS (mazes), METIS (others)"
+        description: >
+          Benchmark instances for the longest path problem organized into two
+          categories. The "mazes" category contains grid-based maze instances
+          generated with varying side lengths and blocked-cell ratios. The
+          "others" category contains subgraphs of publicly available graphs
+          including road networks (New York) and word association graphs.
+        scale:
+          categories: 2
+        has_optimal_solution: true
+        notes: "Instances generated using the KaLP framework with configurable parameters."
+        usage: "primary"
+        reference: "Stern, T. et al. (2017). Optimal Longest Paths by Dynamic Programming. arXiv:1702.04170."
+
+  - name: "Chinese Postman Problem"
+    aliases: ["CPP", "Mixed Chinese Postman", "MCPP"]
+    pred_names: ["MixedChinesePostman/i32"]
+    datasets:
+      - name: "Corberan Arc Routing Instances (MCPP)"
+        url: "https://www.uv.es/corberan/instancias.htm"
+        format: "Custom (text)"
+        description: >
+          Mixed Chinese Postman Problem instances from the University of
+          Valencia arc routing problem repository maintained by Corberan,
+          Plana, Reula, and Sanchis. Covers problems on undirected, directed,
+          mixed, and windy graphs. Includes instance characteristics files
+          and best-known solution values.
+        scale:
+          problem_variants: 4
+        has_optimal_solution: false
+        notes: "Some instances have verified optimal values; others have best-known bounds only. Last updated May 2021."
+        usage: "primary"
+
+  - name: "Rural Postman Problem"
+    aliases: ["RPP"]
+    pred_names: ["RuralPostman/SimpleGraph/i32"]
+    datasets:
+      - name: "Corberan Arc Routing Instances (RPP)"
+        url: "https://www.uv.es/corberan/instancias.htm"
+        format: "Custom (text)"
+        description: >
+          Rural Postman Problem instances from the University of Valencia arc
+          routing repository. Includes the classic RPP benchmark set of 118
+          instances divided into five groups (including ALBAIDAA and ALBAIDAB
+          sets). Covers undirected, mixed, and windy RPP variants.
+        scale:
+          instances: 118
+          groups: 5
+        has_optimal_solution: false
+        notes: "Optimal values known for many instances. Best-known solutions reported in linked files."
+        usage: "primary"
+
+      - name: "Multi-trip Multi-depot RPP Instances"
+        url: "https://ieee-dataport.org/documents/multi-trip-multi-depot-rural-postman-problem-instances"
+        format: "pkl, net"
+        description: >
+          Instances for the multi-trip multi-depot Rural Postman Problem,
+          generated from literature instances and real-world road networks.
+          Stored as undirected weighted multi-graphs.
+        scale:
+          graph_type: "undirected weighted multi-graph"
+        has_optimal_solution: false
+        usage: "supplementary"

@@ -1,0 +1,222 @@
+category: "graph-connectivity-cut"
+description: "Graph problems involving connectivity, cuts, and feedback sets"
+problems:
+  - name: "Steiner Tree"
+    pred_names:
+      - "SteinerTree/SimpleGraph/i32"
+      - "SteinerTreeInGraphs/SimpleGraph/i32"
+    datasets:
+      - name: "SteinLib"
+        url: "https://steinlib.zib.de/steinlib.php"
+        download_url: "https://steinlib.zib.de/download.php"
+        format: "STP"
+        description: >
+          Comprehensive library of Steiner tree problem instances in graphs.
+          Contains test sets (B, C, D, E, I080, I160, I320, I640, and many more)
+          with instances arising from random graphs, grid graphs, VLSI design,
+          and real-world applications. Maintained by ZIB (Zuse Institute Berlin).
+        instance_groups:
+          - name: "B"
+            description: "Random complete graphs with edge weights 1-10"
+          - name: "C"
+            description: "Random complete graphs, larger instances"
+          - name: "D"
+            description: "Random graphs with degree constraints"
+          - name: "E"
+            description: "Randomly generated sparse graphs with edge weights 1-10"
+          - name: "I080/I160/I320/I640"
+            description: "Incidence-based instances of increasing size"
+        license: "Free for academic use"
+        reference: "Koch, Martin, Voigt. SteinLib: An Updated Library on Steiner Tree Problems in Graphs. 2001."
+
+      - name: "SteBen"
+        url: "https://openreview.net/forum?id=tKif2rXQ6V"
+        format: "Custom"
+        description: >
+          Steiner Tree Problem Benchmark for Neural Combinatorial Optimization
+          on graphs. Designed for evaluating learned heuristics and neural
+          solvers on Steiner tree instances.
+        license: "Unknown"
+        reference: "SteBen: Steiner Tree Problem Benchmark for Neural Combinatorial Optimization on Graphs. 2024."
+
+      - name: "Real-World GEO Instances"
+        url: "https://ivanaljubic.github.io/portfolio/steiner-tree-problems-in-graph/"
+        format: "STP"
+        description: >
+          23 real-world instances originating from an Austrian city, with
+          different deployment areas and terminal densities. Useful for
+          evaluating Steiner tree algorithms on practical network design problems.
+        num_instances: 23
+        license: "Free for academic use"
+
+  - name: "Max Cut"
+    pred_names:
+      - "MaxCut/SimpleGraph/i32"
+    datasets:
+      - name: "Gset"
+        url: "https://web.stanford.edu/~yyye/yyye/Gset/"
+        format: "edge-list"
+        description: >
+          Classic Max-Cut benchmark containing 71 instances (G1-G81, some numbers
+          skipped) with graph sizes ranging from 800 to 20,000 vertices. Graphs
+          include both unweighted (all weights 1) and weighted (+1/-1 weights)
+          variants. Remains a cornerstone benchmark with new best-known solutions
+          still being discovered.
+        num_instances: 71
+        vertex_range: "800-20000"
+        license: "Free"
+        reference: "Ye, Y. Gset benchmark graphs."
+
+      - name: "BiqMac Library"
+        url: "https://biqmac.aau.at/biqmaclib.html"
+        format: "sparse-matrix"
+        description: >
+          Collection of Max-Cut and binary quadratic programming instances of
+          medium size (20-500 vertices). Includes Beasley (bqp), GKA, and
+          Ising chain instances with varying densities. Instances available in
+          both full matrix and sparse element-list formats.
+        instance_groups:
+          - name: "bqp"
+            description: "Beasley instances: n=50 (density 0.1) and n=500 (density 0.1), 10 each"
+          - name: "gka"
+            description: "GKA instances: n=20-125 with varying densities"
+          - name: "ising"
+            description: "One-dimensional Ising chain instances: n=100-300"
+        vertex_range: "20-500"
+        license: "Free for academic use"
+        reference: "Rendl, Rinaldi, Wiegele. Solving Max-Cut to optimality by intersecting semidefinite and polyhedral relaxations. 2010."
+
+      - name: "DIMACS 7th Challenge Max-Cut"
+        url: "http://archive.dimacs.rutgers.edu/Challenges/Seventh/Instances/"
+        format: "DIMACS"
+        description: >
+          Max-Cut instances from the DIMACS 7th Implementation Challenge,
+          including Ising model spin glass instances on torus graphs. Available
+          as gzip-compressed tar archive.
+        license: "Free"
+        reference: "DIMACS 7th Implementation Challenge: Semidefinite and Related Relaxations."
+
+      - name: "Optsicom Max-Cut"
+        url: "https://grafo.etsii.urjc.es/optsicom/maxcut"
+        format: "Various"
+        description: >
+          Comprehensive compilation of Max-Cut benchmark problem instances
+          with descriptions of origin and characteristics of each problem group.
+          Used for computational experiments on the MaxCut problem.
+        license: "Free"
+
+  - name: "Multiway Cut"
+    pred_names:
+      - "MinimumMultiwayCut/SimpleGraph/i32"
+    datasets:
+      - name: "DIMACS Min-Cut/Max-Flow Instances"
+        url: "https://zenodo.org/records/4905882"
+        format: "DIMACS"
+        description: >
+          Collection of min-cut/max-flow problem instances for benchmarking,
+          released with the paper on serial and parallel min-cut/max-flow
+          algorithms for computer vision. Instances collected from a wide
+          selection of sources. Available in DIMACS (.max) and custom binary
+          formats.
+        license: "CC BY 4.0"
+        reference: "Jorgensen et al. Review of Serial and Parallel Min-Cut/Max-Flow Algorithms for Computer Vision."
+
+      - name: "DTU Min-Cut/Max-Flow Benchmark"
+        url: "https://data.dtu.dk/articles/dataset/Min-Cut_Max-Flow_Problem_Instances_for_Benchmarking/17091101"
+        format: "DIMACS"
+        description: >
+          Min-cut/max-flow problem instances for benchmarking from Technical
+          University of Denmark. Collected from multiple sources to be
+          representative of various application domains.
+        license: "CC BY 4.0"
+
+  - name: "Feedback Vertex Set"
+    pred_names:
+      - "MinimumFeedbackVertexSet/i32"
+    datasets:
+      - name: "PACE 2016 - Feedback Vertex Set"
+        url: "https://pacechallenge.org/2016/feedback-vertex-set/"
+        format: "PACE"
+        description: >
+          Benchmark instances from the 1st Parameterized Algorithms and
+          Computational Experiments (PACE) Challenge, Track B. Contains 130
+          instances designed to be challenging for fixed-parameter algorithms.
+          The winning submission solved 41 out of 130 instances within the
+          30-minute time limit per instance.
+        num_instances: 130
+        license: "Free"
+        reference: "Dell et al. The First Parameterized Algorithms and Computational Experiments Challenge. IPEC 2016."
+
+      - name: "PACE 2022 - Directed Feedback Vertex Set"
+        url: "https://pacechallenge.org/2022/directed-fvs/"
+        format: "PACE"
+        description: >
+          Benchmark instances from PACE 2022 for the Directed Feedback Vertex
+          Set problem. Includes both exact track (30-minute time limit) and
+          heuristic track (10-minute time limit) instances. Public and private
+          instance sets available for download as tar.gz archives.
+        tracks:
+          - name: "exact"
+            description: "Optimal solutions required within 30 minutes"
+          - name: "heuristic"
+            description: "Best-effort solutions within 10 minutes"
+        license: "Free"
+        reference: "Dvorak et al. The PACE 2022 Parameterized Algorithms and Computational Experiments Challenge: Directed Feedback Vertex Set. IPEC 2022."
+
+  - name: "Feedback Arc Set"
+    pred_names:
+      - "MinimumFeedbackArcSet/i32"
+    datasets:
+      - name: "PACE 2022 - Directed FVS (adapted)"
+        url: "https://pacechallenge.org/2022/directed-fvs/"
+        format: "PACE"
+        description: >
+          The PACE 2022 Directed Feedback Vertex Set instances on directed
+          graphs can serve as inputs for Feedback Arc Set algorithms, as both
+          problems operate on directed graphs and share structural similarities.
+          The directed graphs from this challenge provide a natural test bed.
+        license: "Free"
+        reference: "Dvorak et al. The PACE 2022 Parameterized Algorithms and Computational Experiments Challenge: Directed Feedback Vertex Set. IPEC 2022."
+
+  - name: "Graph Partitioning"
+    pred_names:
+      - "GraphPartitioning/SimpleGraph"
+    datasets:
+      - name: "Walshaw Graph Partitioning Archive"
+        url: "https://chriswalshaw.co.uk/partition/"
+        format: "METIS"
+        description: >
+          Long-running benchmark archive (since 2000) containing 34 graphs
+          from finite-element applications and VLSI design, with up to 449K
+          nodes. Results collected for k in {2, 4, 8, 16, 32, 64} partitions
+          and balance parameters epsilon in {0, 0.01, 0.03, 0.05}. Includes
+          results from 13 major partitioning methods (METIS, CHACO, JOSTLE,
+          KaHIP, etc.).
+        num_instances: 34
+        max_nodes: 449000
+        partition_sizes: [2, 4, 8, 16, 32, 64]
+        balance_parameters: [0, 0.01, 0.03, 0.05]
+        license: "Free"
+        reference: "Walshaw, C. The Graph Partitioning Archive."
+
+      - name: "DIMACS 10th Challenge - Graph Partitioning"
+        url: "https://sites.cc.gatech.edu/dimacs10/downloads.shtml"
+        format: "METIS"
+        description: >
+          Benchmark instances from the 10th DIMACS Implementation Challenge
+          on Graph Partitioning and Graph Clustering (2012). Contains a large
+          number of synthetic and real-world graphs from diverse applications.
+          Includes the Walshaw archive graphs plus many additional instances.
+        license: "Free"
+        reference: "Bader et al. Graph Partitioning and Graph Clustering. 10th DIMACS Implementation Challenge. AMS, 2013."
+
+      - name: "METIS Test Graphs"
+        url: "https://github.com/KarypisLab/METIS"
+        format: "METIS"
+        description: >
+          Test graphs bundled with the METIS graph partitioning software.
+          METIS implements multilevel recursive bisection, multilevel k-way,
+          and multi-constraint partitioning schemes. Useful as baseline test
+          inputs for graph partitioning algorithms.
+        license: "Apache 2.0"
+        reference: "Karypis, G. and Kumar, V. A Fast and High Quality Multilevel Scheme for Partitioning Irregular Graphs. 1998."

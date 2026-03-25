@@ -1,0 +1,238 @@
+category: "graph-vertex-edge"
+description: "Graph problems involving vertex and edge selection"
+problems:
+  - name: "Maximum Independent Set"
+    aliases: ["MIS"]
+    pred_names: ["MaximumIndependentSet/SimpleGraph/One"]
+    datasets:
+      - name: "DIMACS 2nd Implementation Challenge (Clique complements)"
+        url: "https://iridia.ulb.ac.be/~fmascia/maximum_clique/DIMACS-benchmark"
+        format: "DIMACS"
+        instance_count: 37
+        scale:
+          vertices: "125 to 4,000"
+          edges: "6,963 to 5,506,380"
+        has_optimal_solution: false
+        usage: "Standard benchmark for MIS via complement-graph reduction from Maximum Clique; widely cited since 1993"
+        reference: "Johnson, D.S. and Trick, M.A. (eds), Cliques, Coloring, and Satisfiability: Second DIMACS Implementation Challenge, 1996"
+        notes: "MIS on G is equivalent to Maximum Clique on the complement of G. Some instances have proven optima, many remain open."
+
+      - name: "BHOSLIB (Benchmarks with Hidden Optimum Solutions)"
+        url: "https://sites.google.com/view/bhoslib/home"
+        format: "DIMACS"
+        instance_count: 40
+        scale:
+          vertices: "450 to 4,000"
+          edges: "83,151 to 7,425,226"
+        has_optimal_solution: true
+        usage: "Hard instances with planted/hidden optimal solutions for MIS, Vertex Cover, and Clique; considered harder than DIMACS suite"
+        reference: "Xu, K., Boussemart, F., Hemery, F., and Lecoutre, C. A simple model to generate hard satisfiable instances, IJCAI 2005"
+        notes: "Instances generated from Model RB forced-satisfiable SAT benchmarks. Graphs are dense (frb series). Known optima range from 30 to 100."
+
+      - name: "SNAP Large Network Collection"
+        url: "https://snap.stanford.edu/data/"
+        format: "TSV edge list"
+        instance_count: 80
+        scale:
+          vertices: "4,039 to 226,000,000"
+          edges: "88,234 to 480,000,000"
+        has_optimal_solution: false
+        usage: "Real-world social, web, and information networks used for large-scale MIS algorithm evaluation"
+        reference: "Leskovec, J. and Krevl, A. SNAP Datasets: Stanford Large Network Dataset Collection, 2014"
+        notes: "Includes social networks (Facebook, LiveJournal), web graphs (Google, Stanford), citation networks, and road networks."
+
+      - name: "Network Repository"
+        url: "https://networkrepository.com/"
+        format: "MTX, edge list, GML, GraphML"
+        instance_count: 6659
+        scale:
+          vertices: "tens to millions"
+          edges: "tens to hundreds of millions"
+        has_optimal_solution: false
+        usage: "Largest interactive network data repository; widely used for benchmarking MIS and other graph optimization algorithms"
+        reference: "Rossi, R.A. and Ahmed, N.K. The Network Data Repository with Interactive Graph Analytics and Visualization, AAAI 2015"
+        notes: "Covers 30+ domains including biological, social, infrastructure, and technological networks. Provides interactive visualization and analytics."
+
+  - name: "Minimum Vertex Cover"
+    aliases: ["Vertex Cover", "MVC"]
+    pred_names: ["MinimumVertexCover/SimpleGraph/i32"]
+    datasets:
+      - name: "PACE 2019 Vertex Cover Challenge"
+        url: "https://pacechallenge.org/2019/vc/"
+        format: "PACE graph format (.hgr)"
+        instance_count: 200
+        scale:
+          vertices: "small to large (ordered by increasing difficulty)"
+          edges: "varies"
+        has_optimal_solution: true
+        usage: "Official competition benchmark for exact and heuristic vertex cover solvers"
+        reference: "Dzulfikar, M.A., Fichte, J.K., and Hecher, M. The PACE 2019 Parameterized Algorithms and Computational Experiments Challenge, IPEC 2019"
+        notes: "200 instances (100 public, 100 private). Instances ordered by non-decreasing (n, m). Winning solver (WeGotYouCovered) solved 87 of 100 exact instances within the time limit."
+
+      - name: "BHOSLIB (Benchmarks with Hidden Optimum Solutions)"
+        url: "https://sites.google.com/view/bhoslib/home"
+        format: "DIMACS"
+        instance_count: 40
+        scale:
+          vertices: "450 to 4,000"
+          edges: "83,151 to 7,425,226"
+        has_optimal_solution: true
+        usage: "Hard instances with known optimal vertex cover (complement of MIS); used for evaluating exact and heuristic VC solvers"
+        reference: "Xu, K. et al. A simple model to generate hard satisfiable instances, IJCAI 2005"
+        notes: "Vertex Cover = n - MIS. Since optimal MIS is known, optimal VC is also known for all instances."
+
+      - name: "DIMACS 2nd Implementation Challenge (complement reduction)"
+        url: "https://iridia.ulb.ac.be/~fmascia/maximum_clique/DIMACS-benchmark"
+        format: "DIMACS"
+        instance_count: 37
+        scale:
+          vertices: "125 to 4,000"
+          edges: "6,963 to 5,506,380"
+        has_optimal_solution: false
+        usage: "Classic benchmark; Vertex Cover = n - MIS, so clique/MIS benchmarks are directly applicable"
+        reference: "Johnson, D.S. and Trick, M.A. (eds), Cliques, Coloring, and Satisfiability, DIMACS Series Vol. 26, 1996"
+        notes: "Originally designed for Maximum Clique but widely used for Vertex Cover evaluation via complement reduction."
+
+      - name: "Network Repository (large real-world graphs)"
+        url: "https://networkrepository.com/"
+        format: "MTX, edge list"
+        instance_count: 6659
+        scale:
+          vertices: "tens to millions"
+          edges: "tens to hundreds of millions"
+        has_optimal_solution: false
+        usage: "Large-scale real-world benchmark for local search and heuristic MVC solvers"
+        reference: "Rossi, R.A. and Ahmed, N.K. The Network Data Repository with Interactive Graph Analytics and Visualization, AAAI 2015"
+        notes: "Used extensively in research on large-scale MVC (e.g., NuMVC, FastVC solvers). Includes 72+ large instances commonly used for MVC benchmarking."
+
+  - name: "Maximum Clique"
+    aliases: ["Clique", "Max Clique"]
+    pred_names: ["KClique/SimpleGraph", "MaximumClique/SimpleGraph/i32"]
+    datasets:
+      - name: "DIMACS 2nd Implementation Challenge"
+        url: "https://iridia.ulb.ac.be/~fmascia/maximum_clique/DIMACS-benchmark"
+        format: "DIMACS"
+        instance_count: 37
+        scale:
+          vertices: "125 to 4,000"
+          edges: "6,963 to 5,506,380"
+        has_optimal_solution: false
+        usage: "The standard benchmark suite for Maximum Clique since 1993; used in virtually all clique algorithm papers"
+        reference: "Johnson, D.S. and Trick, M.A. (eds), Cliques, Coloring, and Satisfiability: Second DIMACS Implementation Challenge, 1996"
+        notes: "Includes random graphs (C-series), Brock graphs, MANN graphs, Hamming graphs, Keller graphs, p_hat graphs, and generator-based instances. Some optimal solutions proven, several remain open after 30+ years."
+
+      - name: "BHOSLIB (Benchmarks with Hidden Optimum Solutions)"
+        url: "https://iridia.ulb.ac.be/~fmascia/maximum_clique/BHOSLIB-benchmark"
+        format: "DIMACS (ASCII and binary)"
+        instance_count: 40
+        scale:
+          vertices: "450 to 4,000"
+          edges: "83,151 to 7,425,226"
+        has_optimal_solution: true
+        usage: "Dense hard instances with known optimal clique sizes; considered significantly harder than DIMACS for modern solvers"
+        reference: "Xu, K. et al. A simple model to generate hard satisfiable instances, IJCAI 2005"
+        notes: "33 frb-series dense graphs with hidden optimal solutions. Optimal clique sizes range from 30 (frb30-15) to ~100 (frb100-40). Generated from Model RB satisfiable SAT instances."
+
+      - name: "DIMACS 10th Implementation Challenge (Graph Partitioning)"
+        url: "https://sites.cc.gatech.edu/dimacs10/"
+        format: "METIS, DIMACS"
+        instance_count: 100
+        scale:
+          vertices: "thousands to millions"
+          edges: "thousands to tens of millions"
+        has_optimal_solution: false
+        usage: "Large sparse real-world and synthetic graphs; used for scalability evaluation of clique algorithms"
+        reference: "Bader, D.A. et al. Graph Partitioning and Graph Clustering, 10th DIMACS Implementation Challenge, AMS 2013"
+        notes: "Originally for graph partitioning and clustering. Categories include social networks, numerical meshes, random geometric, and Erdos-Renyi graphs."
+
+  - name: "Graph Coloring"
+    aliases: ["Chromatic Number", "k-Coloring"]
+    pred_names: ["KColoring/SimpleGraph/KN"]
+    datasets:
+      - name: "COLOR02/03/04 Instances (DIMACS Graph Coloring)"
+        url: "https://mat.tepper.cmu.edu/COLOR/instances.html"
+        format: "DIMACS (.col, .col.b)"
+        instance_count: 119
+        scale:
+          vertices: "11 to 1,000"
+          edges: "20 to 307,350"
+        has_optimal_solution: false
+        usage: "The definitive benchmark suite for graph coloring algorithms; used in the majority of coloring papers"
+        reference: "Johnson, D.S. and Trick, M.A. (eds), Cliques, Coloring, and Satisfiability: Second DIMACS Implementation Challenge, 1996"
+        notes: "Includes random graphs (DSJC), quasi-random flat graphs, register allocation graphs (fpsol, inithx, mulsol, zeroin), Leighton graphs, scheduling graphs, Latin squares, Stanford GraphBase (book, miles, queen), and Mycielski graphs. Chromatic numbers range from 4 to 76; many remain open, especially for random and queen graphs."
+
+      - name: "BHOSLIB Vertex Coloring Instances"
+        url: "https://sites.google.com/view/bhoslib/home"
+        format: "DIMACS"
+        instance_count: 40
+        scale:
+          vertices: "450 to 4,000"
+          edges: "83,151 to 7,425,226"
+        has_optimal_solution: true
+        usage: "Hard coloring instances with known chromatic numbers; complement of MIS formulation"
+        reference: "Xu, K. et al. A simple model to generate hard satisfiable instances, IJCAI 2005"
+        notes: "Chromatic number is known for all instances since the hidden structure is planted during generation."
+
+      - name: "Graph Coloring Benchmarks (Trick collection)"
+        url: "https://sites.google.com/site/graphcoloring/vertex-coloring"
+        format: "DIMACS"
+        instance_count: 50
+        scale:
+          vertices: "11 to 1,000"
+          edges: "20 to 245,830"
+        has_optimal_solution: false
+        usage: "Curated collection with best known bounds; maintained as a community resource for tracking progress"
+        reference: "Trick, M.A. Graph Coloring and its Generalizations, COLOR02/03/04 workshops"
+        notes: "Provides current best known upper and lower bounds for chromatic number. Overlaps significantly with the DIMACS COLOR instances but includes updated results."
+
+  - name: "Minimum Dominating Set"
+    aliases: ["Dominating Set", "MDS"]
+    pred_names: ["MinimumDominatingSet/SimpleGraph/i32"]
+    datasets:
+      - name: "PACE 2025 Dominating Set Challenge"
+        url: "https://pacechallenge.org/2025/ds/"
+        format: "DIMACS .gr"
+        instance_count: 200
+        scale:
+          vertices: "varies (planar and structured graphs)"
+          edges: "varies"
+        has_optimal_solution: true
+        usage: "Official PACE competition benchmark for exact and heuristic dominating set solvers"
+        reference: "PACE 2025 Challenge Committee, The PACE 2025 Parameterized Algorithms and Computational Experiments Challenge, IPEC 2025"
+        notes: "100 public + 100 private instances. Includes planar graphs, bounded treewidth/cliquewidth graphs, social network-derived graphs (e.g., Facebook), and composite instances. Time limits: 30 min (exact), 5 min (heuristic). Memory limit: 16 GB."
+
+      - name: "DIMACS 2nd Implementation Challenge (complement-based)"
+        url: "https://iridia.ulb.ac.be/~fmascia/maximum_clique/DIMACS-benchmark"
+        format: "DIMACS"
+        instance_count: 37
+        scale:
+          vertices: "125 to 4,000"
+          edges: "6,963 to 5,506,380"
+        has_optimal_solution: false
+        usage: "Classic graph instances repurposed for dominating set evaluation"
+        reference: "Johnson, D.S. and Trick, M.A. (eds), Cliques, Coloring, and Satisfiability, DIMACS Series Vol. 26, 1996"
+        notes: "While originally for clique/coloring, these structured graphs are commonly used to evaluate dominating set heuristics."
+
+      - name: "SNAP Large Network Collection"
+        url: "https://snap.stanford.edu/data/"
+        format: "TSV edge list"
+        instance_count: 80
+        scale:
+          vertices: "4,039 to 226,000,000"
+          edges: "88,234 to 480,000,000"
+        has_optimal_solution: false
+        usage: "Real-world networks for large-scale dominating set algorithm evaluation"
+        reference: "Leskovec, J. and Krevl, A. SNAP Datasets: Stanford Large Network Dataset Collection, 2014"
+        notes: "Social and information networks where finding small dominating sets is practically relevant (e.g., influence maximization, network monitoring)."
+
+      - name: "Network Repository"
+        url: "https://networkrepository.com/"
+        format: "MTX, edge list, GML, GraphML"
+        instance_count: 6659
+        scale:
+          vertices: "tens to millions"
+          edges: "tens to hundreds of millions"
+        has_optimal_solution: false
+        usage: "Diverse real-world graph collection for benchmarking dominating set algorithms across domains"
+        reference: "Rossi, R.A. and Ahmed, N.K. The Network Data Repository with Interactive Graph Analytics and Visualization, AAAI 2015"
+        notes: "Useful for evaluating dominating set algorithms on biological networks, infrastructure graphs, and social networks where domination problems arise naturally."
