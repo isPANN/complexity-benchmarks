@@ -144,7 +144,7 @@ problems:
         reference: "Jorgensen et al. Review of Serial and Parallel Min-Cut/Max-Flow Algorithms for Computer Vision."
 
       - name: "DTU Min-Cut/Max-Flow Benchmark"
-        url: "https://data.dtu.dk/articles/dataset/Min-Cut_Max-Flow_Problem_Instances_for_Benchmarking/17091101"
+        url: "https://data.dtu.dk/articles/dataset/Min-Cut_Max-Flow_Problem_Instances_for_Benchmarking/17091101/1"
         format: "DIMACS"
         description: >
           Min-cut/max-flow problem instances for benchmarking from Technical

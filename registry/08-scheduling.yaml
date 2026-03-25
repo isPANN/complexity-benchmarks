@@ -7,7 +7,7 @@ problems:
     pred_names: ["FlowShopScheduling"]
     datasets:
       - name: "Taillard's Flow Shop Instances"
-        url: "http://mistic.heig-vd.ch/taillard/problemes.dir/ordonnancement.dir/ordonnancement.html"
+        url: "https://github.com/tamy0612/JSPLIB"
         format: "Custom text"
         instance_count: 120
         scale:
@@ -117,7 +117,7 @@ problems:
           many years.
 
       - name: "Taillard's Job Shop Instances (TA)"
-        url: "http://mistic.heig-vd.ch/taillard/problemes.dir/ordonnancement.dir/ordonnancement.html"
+        url: "https://github.com/tamy0612/JSPLIB"
         format: "Custom text"
         instance_count: 80
         scale:
@@ -195,7 +195,7 @@ problems:
     pred_names: ["FlowShopScheduling"]
     datasets:
       - name: "Taillard's Open Shop Instances"
-        url: "http://mistic.heig-vd.ch/taillard/problemes.dir/ordonnancement.dir/ordonnancement.html"
+        url: "https://github.com/tamy0612/JSPLIB"
         format: "Custom text"
         instance_count: 60
         scale:
@@ -301,7 +301,7 @@ problems:
           Includes both renewable and nonrenewable resource constraints.
 
       - name: "MPSPLIB (Multi-Project Scheduling Problem Library)"
-        url: "http://www.mpsplib.com/"
+        url: "https://www.projectmanagement.ugent.be/research/project_scheduling/RCMPSP"
         format: "Custom text"
         has_optimal_solution: false
         usage: "Benchmark for multi-project resource-constrained scheduling"
@@ -310,6 +310,8 @@ problems:
           Library of benchmark instances for the resource-constrained
           multi-project scheduling problem, extending PSPLIB to scenarios
           with multiple concurrent projects sharing resources.
+          Formerly hosted at mpsplib.com; instances now available via the
+          Ghent University Operations Research & Scheduling Research Group.
 
   - name: "Precedence-Constrained Scheduling"
     aliases: ["Scheduling with Precedence Constraints"]

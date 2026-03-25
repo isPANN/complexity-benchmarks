@@ -131,7 +131,7 @@ problems:
         notes: "Seven datasets integrated from IAM and GREYC collections: PAH, MAO (GREYC Chemistry), GREC, MUTA (IAM), and monoterpenes (MONOTERP, new). Two challenges: exact/approximate GED computation and graph dissimilarity for classification. 30-second time limit per comparison."
 
       - name: "GREYC Chemistry Dataset"
-        url: "https://brunl01.users.greyc.fr/CHEMISTRY/"
+        url: "https://lucbrun.ensicaen.fr/CHEMISTRY/"
         format: "CML / GXL"
         scale:
           nodes: "typically 2 to 60 atoms per molecule"

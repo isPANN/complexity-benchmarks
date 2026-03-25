@@ -120,7 +120,7 @@ problems:
           Also widely used for p-center experiments.
 
       - name: "TSPLIB-derived p-Median Instances"
-        url: "http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/"
+        url: "https://github.com/mastqe/tsplib"
         format: "TSPLIB coordinate format (Euclidean distances)"
         instance_count: 98
         scale:

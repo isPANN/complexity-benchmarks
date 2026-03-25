@@ -98,7 +98,10 @@ problems:
           superpositions. Version 3.0 contains 6255 protein sequences across
           multiple reference sets (RV11-RV50) covering equidistant sequences,
           orphan sequences, internal insertions, N/C-terminal extensions,
-          and linear motifs. Download at https://www.lbgi.fr/balibase/BalibaseDownload/
+          and linear motifs.
+          NOTE: The original URL (lbgi.fr/balibase) is unavailable.
+          Reference Set 9 documentation may be at lbgi.fr/balibase/BAliBASE_R9/.
+          The dataset is described in Thompson et al. (2005), Nucleic Acids Research.
 
       - name: "SABmark (Sequence Alignment Benchmark)"
         url: "https://bioinformatics.vub.ac.be/databases/databases.html"
@@ -113,6 +116,8 @@ problems:
           and Superfamilies (< 50%), derived from SCOP classification.
           Systematically covers the entire known protein fold space using
           high-quality structures with pairwise reference structure alignments.
+          NOTE: The original URL is unavailable. The dataset is described in
+          Van Walle et al. (2005), Bioinformatics 21(7):1267-1268.
 
       - name: "PREFAB (Protein Reference Alignment Benchmark)"
         url: "https://www.drive5.com/muscle/"

@@ -53,7 +53,7 @@ problems:
     aliases: ["ASP"]
     datasets:
       - name: "ASP Competition"
-        url: "https://asparagus.cs.uni-potsdam.de/contest/"
+        url: "https://sites.google.com/view/aspcomp2019/"
         format: "ASP (logic program)"
         has_optimal_solution: false
         usage: "Competition benchmarks for answer set programming solvers"
@@ -61,8 +61,10 @@ problems:
         notes: >
           Benchmark instances from the Answer Set Programming Competition,
           covering a wide range of combinatorial and knowledge representation
-          problems encoded as logic programs. Hosted by the University of
-          Potsdam.
+          problems encoded as logic programs. Previous editions hosted at
+          aspcomp2017.dibris.unige.it and mat.unical.it/aspcomp2014.
+          The original Asparagus repository (asparagus.cs.uni-potsdam.de)
+          is no longer available.
 
   - name: "AI Planning"
     aliases: ["Automated Planning", "PDDL Planning"]

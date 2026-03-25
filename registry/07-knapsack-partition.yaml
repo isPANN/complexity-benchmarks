@@ -60,6 +60,8 @@ problems:
         notes: >
           Collection of 0-1 knapsack problem instances for testing
           heuristic and exact algorithms.
+          NOTE: The original URL is unavailable. No known mirror exists.
+          Instances may be found cited in related publications.
 
       - name: "kplib Test Instances"
         url: "https://github.com/likr/kplib"
@@ -210,6 +212,9 @@ problems:
           Library of open-pit mine production scheduling benchmark instances
           which model precedence-constrained knapsack problems. Used by
           researchers studying partially ordered knapsack applications.
+          NOTE: The original URL is unavailable. The library is described in
+          the paper "MineLib: a library of open pit mining problems" (Annals
+          of Operations Research, 2013, DOI:10.1007/s10479-012-1258-3).
 
       - name: "Boyd Precedence-Constrained Knapsack Solver and Instances"
         url: "https://github.com/rmcgibbo/precedenceConstrainedKnapsack"

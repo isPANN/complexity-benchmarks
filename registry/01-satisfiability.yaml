@@ -193,7 +193,7 @@ problems:
     pred_names: ["CircuitSAT"]
     datasets:
       - name: "ISCAS-85 Combinational Benchmark Circuits"
-        url: "https://filebox.ece.vt.edu/~mhsiao/iscas85.html"
+        url: "https://github.com/lsils/benchmarks"
         format: "ISCAS netlist, Verilog, AIGER"
         instance_count: 10
         scale:
@@ -206,7 +206,7 @@ problems:
           and hardware verification research since 1985.
 
       - name: "ISCAS-89 Sequential Benchmark Circuits"
-        url: "https://filebox.ece.vt.edu/~mhsiao/iscas89.html"
+        url: "https://github.com/lsils/benchmarks"
         format: "ISCAS netlist, Verilog"
         instance_count: 31
         has_optimal_solution: true

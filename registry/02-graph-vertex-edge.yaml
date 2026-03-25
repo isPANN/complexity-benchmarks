@@ -19,7 +19,7 @@ problems:
         notes: "MIS on G is equivalent to Maximum Clique on the complement of G. Some instances have proven optima, many remain open."
 
       - name: "BHOSLIB (Benchmarks with Hidden Optimum Solutions)"
-        url: "https://sites.google.com/view/bhoslib/home"
+        url: "https://iridia.ulb.ac.be/~fmascia/maximum_clique/BHOSLIB-benchmark"
         format: "DIMACS"
         instance_count: 40
         scale:
@@ -83,7 +83,7 @@ problems:
         notes: "200 instances (100 public, 100 private). Instances ordered by non-decreasing (n, m). Winning solver (WeGotYouCovered) solved 87 of 100 exact instances within the time limit."
 
       - name: "BHOSLIB (Benchmarks with Hidden Optimum Solutions)"
-        url: "https://sites.google.com/view/bhoslib/home"
+        url: "https://iridia.ulb.ac.be/~fmascia/maximum_clique/BHOSLIB-benchmark"
         format: "DIMACS"
         instance_count: 40
         scale:
@@ -187,7 +187,7 @@ problems:
         notes: "Includes random graphs (DSJC), quasi-random flat graphs, register allocation graphs (fpsol, inithx, mulsol, zeroin), Leighton graphs, scheduling graphs, Latin squares, Stanford GraphBase (book, miles, queen), and Mycielski graphs. Chromatic numbers range from 4 to 76; many remain open, especially for random and queen graphs."
 
       - name: "BHOSLIB Vertex Coloring Instances"
-        url: "https://sites.google.com/view/bhoslib/home"
+        url: "https://iridia.ulb.ac.be/~fmascia/maximum_clique/BHOSLIB-benchmark"
         format: "DIMACS"
         instance_count: 40
         scale:

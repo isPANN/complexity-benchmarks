@@ -8,7 +8,7 @@ problems:
     pred_names: ["TravelingSalesman"]
     datasets:
       - name: "TSPLIB (Symmetric TSP)"
-        url: "http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/"
+        url: "https://github.com/mastqe/tsplib"
         mirror_url: "http://elib.zib.de/pub/mp-testdata/tsp/tsplib/tsplib.html"
         format: "TSPLIB"
         description: >
@@ -81,7 +81,7 @@ problems:
     pred_names: ["TravelingSalesman"]
     datasets:
       - name: "TSPLIB (Asymmetric TSP)"
-        url: "http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/"
+        url: "https://github.com/mastqe/tsplib"
         format: "TSPLIB"
         description: >
           Asymmetric TSP instances from TSPLIB where the distance from node i
@@ -99,7 +99,7 @@ problems:
     pred_names: ["BottleneckTravelingSalesman"]
     datasets:
       - name: "TSPLIB (used for Bottleneck TSP)"
-        url: "http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/"
+        url: "https://github.com/mastqe/tsplib"
         format: "TSPLIB"
         description: >
           Standard TSPLIB symmetric instances repurposed for bottleneck TSP
@@ -117,7 +117,7 @@ problems:
     pred_names: ["HamiltonianCircuit"]
     datasets:
       - name: "TSPLIB (HCP Instances)"
-        url: "http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/"
+        url: "https://github.com/mastqe/tsplib"
         format: "TSPLIB/HCP"
         description: >
           Hamiltonian cycle problem instances included in the TSPLIB
