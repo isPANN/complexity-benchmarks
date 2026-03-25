@@ -51,18 +51,6 @@ problems:
           {5, 10, 30}, variables n in {100, 250, 500}, and tightness ratios
           alpha in {0.25, 0.50, 0.75}. Each group contains 30 problems.
 
-      - name: "Ortega 0/1 Knapsack Instances"
-        url: "http://artemisa.unicauca.edu.co/~johnyortega/instances_01_KP/"
-        format: "Custom text"
-        has_optimal_solution: true
-        usage: "Large-scale 0-1 knapsack problem instances"
-        reference: "Ortega et al."
-        notes: >
-          Collection of 0-1 knapsack problem instances for testing
-          heuristic and exact algorithms.
-          NOTE: The original URL is unavailable. No known mirror exists.
-          Instances may be found cited in related publications.
-
       - name: "kplib Test Instances"
         url: "https://github.com/likr/kplib"
         format: "Custom text"
@@ -202,20 +190,6 @@ problems:
     aliases: ["Precedence-Constrained Knapsack", "PCKP"]
     pred_names: ["PartiallyOrderedKnapsack"]
     datasets:
-      - name: "MineLib Precedence-Constrained Instances"
-        url: "http://mansci-web.uai.cl/minelib/"
-        format: "Custom text"
-        has_optimal_solution: true
-        usage: "Open pit mine scheduling as precedence-constrained knapsack"
-        reference: "Espinoza et al., 2013"
-        notes: >
-          Library of open-pit mine production scheduling benchmark instances
-          which model precedence-constrained knapsack problems. Used by
-          researchers studying partially ordered knapsack applications.
-          NOTE: The original URL is unavailable. The library is described in
-          the paper "MineLib: a library of open pit mining problems" (Annals
-          of Operations Research, 2013, DOI:10.1007/s10479-012-1258-3).
-
       - name: "Boyd Precedence-Constrained Knapsack Solver and Instances"
         url: "https://github.com/rmcgibbo/precedenceConstrainedKnapsack"
         format: "Custom text"

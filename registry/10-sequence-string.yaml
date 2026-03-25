@@ -83,42 +83,6 @@ problems:
           multinomial distributions with known non-uniform probabilities.
           Designed to test algorithm robustness to skewed alphabets.
 
-      - name: "BAliBASE (Benchmark Alignment dataBASE)"
-        url: "https://www.lbgi.fr/balibase/"
-        format: "FASTA, MSF"
-        instance_count: 6255
-        scale:
-          sequences: "4-50 per family"
-          sequence_identity: "0-100%"
-        has_optimal_solution: true
-        usage: "Gold-standard benchmark for multiple sequence alignment evaluation"
-        reference: "Thompson et al., 2005"
-        notes: >
-          Manually refined reference alignments based on 3D structural
-          superpositions. Version 3.0 contains 6255 protein sequences across
-          multiple reference sets (RV11-RV50) covering equidistant sequences,
-          orphan sequences, internal insertions, N/C-terminal extensions,
-          and linear motifs.
-          NOTE: The original URL (lbgi.fr/balibase) is unavailable.
-          Reference Set 9 documentation may be at lbgi.fr/balibase/BAliBASE_R9/.
-          The dataset is described in Thompson et al. (2005), Nucleic Acids Research.
-
-      - name: "SABmark (Sequence Alignment Benchmark)"
-        url: "https://bioinformatics.vub.ac.be/databases/databases.html"
-        format: "FASTA, PDB"
-        scale:
-          sequence_identity: "0-50%"
-        has_optimal_solution: true
-        usage: "Benchmark covering entire known fold space for difficult alignments"
-        reference: "Van Walle et al., 2005"
-        notes: >
-          Version 1.65. Two subsets: Twilight Zone (pairwise identity < 25%)
-          and Superfamilies (< 50%), derived from SCOP classification.
-          Systematically covers the entire known protein fold space using
-          high-quality structures with pairwise reference structure alignments.
-          NOTE: The original URL is unavailable. The dataset is described in
-          Van Walle et al. (2005), Bioinformatics 21(7):1267-1268.
-
       - name: "PREFAB (Protein Reference Alignment Benchmark)"
         url: "https://www.drive5.com/muscle/"
         format: "FASTA"
