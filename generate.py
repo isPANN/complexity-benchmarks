@@ -181,6 +181,73 @@ def generate_index(registries):
     return "\n".join(lines)
 
 
+def generate_competitions_page(data):
+    """Generate a markdown page for competitions."""
+    lines = []
+    lines.append("# Competitions & Challenges\n")
+    lines.append(
+        "Algorithm competitions and optimization challenges that produce "
+        "benchmark datasets. Organized by domain.\n"
+    )
+
+    competitions = data.get("competitions", [])
+
+    # Group by section (detect from comments in YAML — use a simple heuristic based on order)
+    lines.append(
+        "| Competition | Years | Frequency | Problems | Benchmarks | URL |"
+    )
+    lines.append(
+        "|-------------|-------|-----------|----------|------------|-----|"
+    )
+
+    for comp in competitions:
+        name = comp["name"]
+        url = comp.get("url", "")
+        years = comp.get("years", "-")
+        freq = comp.get("frequency", "-")
+        problems = comp.get("problems", [])
+        if isinstance(problems, list):
+            prob_str = ", ".join(p if len(p) < 40 else p[:37] + "..." for p in problems[:3])
+            if len(problems) > 3:
+                prob_str += f" +{len(problems) - 3} more"
+        else:
+            prob_str = str(problems)
+        public = "Yes" if comp.get("benchmarks_public") else "No"
+        link = f"[link]({url})" if url else "-"
+
+        lines.append(
+            f"| **{name}** | {years} | {freq} | {prob_str} | {public} | {link} |"
+        )
+
+    lines.append("")
+
+    # Detailed sections
+    lines.append("## Details\n")
+    for comp in competitions:
+        name = comp["name"]
+        url = comp.get("url", "")
+        years = comp.get("years", "-")
+        freq = comp.get("frequency", "-")
+        problems = comp.get("problems", [])
+        notes = comp.get("notes", "")
+
+        lines.append(f"### {name}\n")
+        if url:
+            lines.append(f"**URL:** [{url}]({url})\n")
+        lines.append(f"**Years:** {years} | **Frequency:** {freq}\n")
+
+        if isinstance(problems, list) and problems:
+            lines.append("**Problems:**\n")
+            for p in problems:
+                lines.append(f"- {p}")
+            lines.append("")
+
+        if notes:
+            lines.append(f"{notes}\n")
+
+    return "\n".join(lines)
+
+
 def main():
     registries = load_registries()
 
@@ -210,6 +277,15 @@ def main():
         categories.append({cat_title: f"{fname}.md"})
 
     nav_items.append({"Categories": categories})
+
+    # Generate competitions page
+    comp_file = REGISTRY_DIR / "competitions.yaml"
+    if comp_file.exists():
+        with open(comp_file) as fh:
+            comp_data = yaml.safe_load(fh)
+        comp_content = generate_competitions_page(comp_data)
+        (DOCS_DIR / "competitions.md").write_text(comp_content)
+        nav_items.append({"Competitions": "competitions.md"})
 
     # Write mkdocs.yml
     mkdocs_config = {

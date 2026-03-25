@@ -1,0 +1,301 @@
+title: "Competitions & Challenges"
+description: "Algorithm competitions and optimization challenges that produce benchmark datasets"
+competitions:
+
+  # === Logic & Verification ===
+
+  - name: "SAT Competition"
+    url: "https://satcompetition.github.io/"
+    years: "2002-present"
+    frequency: "Annual"
+    problems: ["SAT"]
+    benchmarks_public: true
+    notes: "Premier SAT solver competition. Industrial, crafted, random tracks. Full archive on Zenodo."
+
+  - name: "MaxSAT Evaluation"
+    url: "https://maxsat-evaluations.github.io/"
+    years: "2006-present"
+    frequency: "Annual"
+    problems: ["Max-SAT"]
+    benchmarks_public: true
+    notes: "Weighted, unweighted, partial tracks. Archive at cs.toronto.edu/maxsat-lib."
+
+  - name: "SMT-COMP"
+    url: "https://smt-comp.github.io/"
+    years: "2005-present"
+    frequency: "Annual"
+    problems: ["SMT"]
+    benchmarks_public: true
+    notes: "Uses SMT-LIB benchmark library (93,000+ benchmarks)."
+
+  - name: "QBF Gallery / QBFEVAL"
+    url: "https://www.qbflib.org/index_eval.php"
+    years: "2004-present"
+    frequency: "Irregular"
+    problems: ["QBF"]
+    benchmarks_public: true
+    notes: "Alternates between competitive (QBFEVAL) and non-competitive (Gallery) editions."
+
+  - name: "Pseudo-Boolean Competition"
+    url: "http://www.cril.univ-artois.fr/PB25/"
+    years: "2005-2016, 2024-present"
+    frequency: "Annual (with gap)"
+    problems: ["Pseudo-Boolean Optimization"]
+    benchmarks_public: true
+    notes: "15,000+ instances. Resumed in 2024 after 8-year hiatus."
+
+  - name: "Model Counting Competition"
+    url: "https://mccompetition.org/"
+    years: "2020-present"
+    frequency: "Annual"
+    problems: ["#SAT", "Weighted Model Counting"]
+    benchmarks_public: true
+    notes: "Tracks: MC, WMC, Projected MC, Projected WMC."
+
+  - name: "CASC (ATP System Competition)"
+    url: "https://tptp.org/CASC/"
+    years: "1996-present"
+    frequency: "Annual"
+    problems: ["Automated Theorem Proving"]
+    benchmarks_public: true
+    notes: "Uses TPTP library. Alternates between CADE and IJCAR conferences."
+
+  - name: "HWMCC (Hardware Model Checking)"
+    url: "https://hwmcc.github.io/"
+    years: "2007-present"
+    frequency: "Roughly annual"
+    problems: ["Hardware Model Checking"]
+    benchmarks_public: true
+    notes: "AIGER (bit-level) and BTOR2 (word-level) formats."
+
+  - name: "SV-COMP (Software Verification)"
+    url: "https://sv-comp.sosy-lab.org/"
+    years: "2012-present"
+    frequency: "Annual"
+    problems: ["Software Verification"]
+    benchmarks_public: true
+    notes: "33,353 verification tasks (C) + 674 (Java). GitHub: sosy-lab/sv-benchmarks."
+
+  - name: "CHC-COMP"
+    url: "https://chc-comp.github.io/"
+    years: "2018-present"
+    frequency: "Annual"
+    problems: ["Constrained Horn Clauses"]
+    benchmarks_public: true
+    notes: "Verification, invariant inference, model checking."
+
+  - name: "SYNTCOMP (Reactive Synthesis)"
+    url: "https://www.syntcomp.org/"
+    years: "2014-present"
+    frequency: "Annual"
+    problems: ["Reactive Synthesis"]
+    benchmarks_public: true
+    notes: "2,500+ instances. Safety/AIGER and LTL/TLSF tracks."
+
+  - name: "Termination Competition"
+    url: "https://termcomp.github.io/"
+    years: "2004-present"
+    frequency: "Annual"
+    problems: ["Termination Analysis", "Complexity Analysis"]
+    benchmarks_public: true
+    notes: "Uses TPDB (Termination Problems Data Base)."
+
+  # === Graph & Combinatorics ===
+
+  - name: "PACE Challenge"
+    url: "https://pacechallenge.org/past/"
+    years: "2016-present"
+    frequency: "Annual"
+    problems:
+      - "Treewidth (2016, 2017)"
+      - "Feedback Vertex Set (2016)"
+      - "Minimum Fill-In (2017)"
+      - "Steiner Tree (2018)"
+      - "Vertex Cover (2019)"
+      - "Hypertree Width (2019)"
+      - "Treedepth (2020)"
+      - "Cluster Editing (2021)"
+      - "Directed FVS (2022)"
+      - "Twinwidth (2023)"
+      - "Crossing Minimization (2024)"
+      - "Dominating Set (2025)"
+      - "Hitting Set (2025)"
+    benchmarks_public: true
+    notes: "Exact and heuristic tracks. Instances on GitHub (PACE-challenge org)."
+
+  - name: "DIMACS Implementation Challenges"
+    url: "http://dimacs.rutgers.edu/programs/challenge/"
+    years: "1990-present"
+    frequency: "Irregular"
+    problems:
+      - "1st: Network Flows & Matching (1990)"
+      - "2nd: Clique, Coloring, SAT (1992)"
+      - "5th: Priority Queues (1995)"
+      - "6th: Near-Neighbor Searches (1998)"
+      - "7th: Semidefinite Optimization (2000)"
+      - "8th: TSP (2001)"
+      - "9th: Shortest Paths (2005)"
+      - "10th: Graph Partitioning (2012)"
+      - "11th: Steiner Tree (2014)"
+      - "12th: Vehicle Routing (2020)"
+      - "13th: Network Flows (2025)"
+    benchmarks_public: true
+    notes: "Established standard benchmark formats (DIMACS graph format). Long-running series."
+
+  - name: "FHCP Challenge"
+    url: "https://sites.flinders.edu.au/flinders-hamiltonian-cycle-project/fhcp-challenge-set/"
+    years: "2015-2016"
+    frequency: "One-time"
+    problems: ["Hamiltonian Cycle"]
+    benchmarks_public: true
+    notes: "1,001 structurally difficult instances (66-9,528 vertices). All Hamiltonian."
+
+  # === Constraint Satisfaction & Scheduling ===
+
+  - name: "MiniZinc Challenge"
+    url: "https://www.minizinc.org/challenge/"
+    years: "2008-present"
+    frequency: "Annual"
+    problems: ["Constraint Satisfaction", "Constraint Optimization"]
+    benchmarks_public: true
+    notes: "~20 problems × 5 instances per year. Google OR-Tools CP-SAT dominates recent years."
+
+  - name: "XCSP3 Competition"
+    url: "https://xcsp.org/"
+    years: "2018-present"
+    frequency: "Annual"
+    problems: ["CSP", "COP"]
+    benchmarks_public: true
+    notes: "23,000+ instances on Zenodo. XML-based XCSP3 format."
+
+  - name: "International Timetabling Competition"
+    url: "https://www.itc2021.com/"
+    years: "2002, 2007, 2011, 2019, 2021"
+    frequency: "Irregular"
+    problems: ["Course Timetabling", "Exam Timetabling", "High School Timetabling", "Sports Scheduling"]
+    benchmarks_public: true
+    notes: "Real-world instances from universities worldwide."
+
+  - name: "Nurse Rostering Competition (INRC)"
+    url: "https://mobiz.vives.be/inrc2/"
+    years: "2010, 2014-2015"
+    frequency: "Irregular"
+    problems: ["Nurse Rostering"]
+    benchmarks_public: true
+    notes: "INRC-I (69 instances), INRC-II (multi-stage formulation)."
+
+  - name: "ASP Competition"
+    url: "https://sites.google.com/view/aspcomp2019/"
+    years: "2007-present"
+    frequency: "Biennial"
+    problems: ["Answer Set Programming"]
+    benchmarks_public: true
+    notes: "Combinatorial problems in ASP-Core-2 language."
+
+  - name: "International Planning Competition"
+    url: "https://www.icaps-conference.org/competitions/"
+    years: "1998-present"
+    frequency: "Biennial/Triennial"
+    problems: ["AI Planning (PDDL)"]
+    benchmarks_public: true
+    notes: "Classical, probabilistic, temporal, HTN tracks. Instances on GitHub."
+
+  # === Operations Research ===
+
+  - name: "ROADEF/EURO Challenge"
+    url: "https://www.roadef.org/challenge"
+    years: "1999-present"
+    frequency: "Biennial"
+    problems:
+      - "Car Sequencing (1999, 2005)"
+      - "Frequency Assignment (2001)"
+      - "Satellite Scheduling (2003)"
+      - "Technician Scheduling (2007)"
+      - "Airline Disruption (2009)"
+      - "Energy Management (2010)"
+      - "Machine Reassignment (2012)"
+      - "Train Scheduling (2014)"
+      - "Inventory Routing (2016)"
+      - "Cutting Optimization (2018)"
+      - "3D Truck Loading (2022)"
+      - "Flow Optimization (2026)"
+    benchmarks_public: true
+    notes: "Industrial partner sponsors each edition with real-world problem."
+
+  - name: "VeRoLog Solver Challenge"
+    url: "https://verolog.euro-online.org/verolog-solver-challenge/"
+    years: "2014-2019"
+    frequency: "Biennial"
+    problems: ["Vehicle Routing variants"]
+    benchmarks_public: true
+    notes: "EURO Working Group on Vehicle Routing. PTV/industry sponsors."
+
+  - name: "EURO Meets NeurIPS VRP"
+    url: "https://euro-neurips-vrp-2022.challenges.ortec.com/"
+    years: "2022"
+    frequency: "One-time"
+    problems: ["VRPTW (static and dynamic)"]
+    benchmarks_public: true
+    notes: "Bridging OR and ML communities. ORTEC sponsor. 200-1000 customers."
+
+  - name: "Amazon Last Mile Routing Challenge"
+    url: "https://routingchallenge.mit.edu/"
+    years: "2021"
+    frequency: "One-time"
+    problems: ["Last-Mile Delivery Routing"]
+    benchmarks_public: true
+    notes: "9,184 real historical routes from 5 US metro areas. $175K prizes."
+
+  - name: "Google Hash Code"
+    url: "https://github.com/pierreavn/google-hashcode-archive"
+    years: "2014-2022"
+    frequency: "Annual (discontinued)"
+    problems: ["Various optimization (drone delivery, video streaming, traffic, etc.)"]
+    benchmarks_public: true
+    notes: "Full archive on GitHub. 9 editions, 22 rounds."
+
+  - name: "ML4CO (NeurIPS 2021)"
+    url: "https://www.ecole.ai/2021/ml4co-competition/"
+    years: "2021"
+    frequency: "One-time"
+    problems: ["ML for MIP solving"]
+    benchmarks_public: true
+    notes: "Primal, dual, configuration tasks for SCIP solver."
+
+  # === Multi-Agent & Robotics ===
+
+  - name: "League of Robot Runners (MAPF)"
+    url: "https://www.leagueofrobotrunners.org/"
+    years: "2023"
+    frequency: "One-time"
+    problems: ["Multi-Agent Path Finding"]
+    benchmarks_public: true
+    notes: "Up to 10,000 agents. Amazon Robotics sponsor."
+
+  # === Continuous & Evolutionary Optimization ===
+
+  - name: "GECCO / COCO-BBOB"
+    url: "https://github.com/numbbo/coco"
+    years: "2009-present"
+    frequency: "Annual"
+    problems: ["Black-Box Optimization (continuous)"]
+    benchmarks_public: true
+    notes: "24 benchmark functions. bbob, bbob-largescale (up to 640-D), bbob-biobj suites."
+
+  - name: "IEEE CEC Competitions"
+    url: "https://2023.ieee-cec.org/competitions/"
+    years: "1994-present"
+    frequency: "Annual"
+    problems: ["Continuous Optimization", "Large-Scale Optimization", "Constrained Optimization"]
+    benchmarks_public: true
+    notes: "CEC function suites (2005, 2013, 2014, 2017, 2020, 2022) are de facto metaheuristic benchmarks."
+
+  # === Space ===
+
+  - name: "GTOC (Global Trajectory Optimization)"
+    url: "https://sophia.estec.esa.int/gtoc_portal/"
+    years: "2005-present"
+    frequency: "Biennial"
+    problems: ["Interplanetary Trajectory Optimization"]
+    benchmarks_public: true
+    notes: "ESA-started. Each edition is a unique space mission design challenge."
