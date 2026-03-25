@@ -50,6 +50,27 @@ problems:
         num_instances: 23
         license: "Free for academic use"
 
+      - name: "PACE 2018 Steiner Tree Challenge"
+        url: "https://github.com/PACE-challenge/SteinerTree-PACE-2018-instances"
+        format: "STP"
+        description: >
+          Benchmark instances from the PACE 2018 Challenge for the Steiner Tree
+          problem in graphs. Includes exact and heuristic tracks with public and
+          private instances of varying difficulty.
+        license: "Free"
+        reference: "Bonnet, E. et al. The PACE 2018 Parameterized Algorithms and Computational Experiments Challenge, IPEC 2018"
+
+      - name: "11th DIMACS Challenge (Steiner Tree)"
+        url: "https://dimacs11.zib.de/"
+        format: "STP"
+        description: >
+          Steiner tree problem instances from the 11th DIMACS Implementation
+          Challenge on Steiner Tree Problems, organized by ZIB (Zuse Institute
+          Berlin). Includes a comprehensive collection of instances from various
+          application domains.
+        license: "Free for academic use"
+        reference: "11th DIMACS Implementation Challenge: Steiner Tree Problems, ZIB"
+
   - name: "Max Cut"
     pred_names:
       - "MaxCut"
@@ -221,3 +242,24 @@ problems:
           inputs for graph partitioning algorithms.
         license: "Apache 2.0"
         reference: "Karypis, G. and Kumar, V. A Fast and High Quality Multilevel Scheme for Partitioning Irregular Graphs. 1998."
+
+      - name: "Hypergraph Partitioning Archive"
+        url: "https://shaydul.in/hypergraph-partitioning-archive/"
+        format: "hMETIS"
+        description: >
+          Archive of hypergraph partitioning benchmark instances collected from
+          various sources. Contains hypergraphs from VLSI design, SAT instances,
+          and other application domains commonly used for evaluating hypergraph
+          partitioning algorithms.
+        license: "Free"
+        reference: "Shaydulin, R. Hypergraph Partitioning Archive"
+
+      - name: "TILOS Hypergraph Partitioning"
+        url: "https://github.com/TILOS-AI-Institute/HypergraphPartitioning"
+        format: "hMETIS"
+        description: >
+          Hypergraph partitioning benchmark instances from the TILOS AI Institute.
+          Focuses on VLSI/EDA hypergraphs for evaluating modern partitioning
+          algorithms including ML-based approaches.
+        license: "Free"
+        reference: "TILOS AI Institute. HypergraphPartitioning, GitHub repository"

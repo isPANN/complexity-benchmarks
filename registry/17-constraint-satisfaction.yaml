@@ -49,6 +49,36 @@ problems:
           solving. Restricted to integer variables. Models and data files are
           available under the MIT license on GitHub.
 
+  - name: "Answer Set Programming"
+    aliases: ["ASP"]
+    datasets:
+      - name: "ASP Competition"
+        url: "https://asparagus.cs.uni-potsdam.de/contest/"
+        format: "ASP (logic program)"
+        has_optimal_solution: false
+        usage: "Competition benchmarks for answer set programming solvers"
+        reference: "ASP Competition series"
+        notes: >
+          Benchmark instances from the Answer Set Programming Competition,
+          covering a wide range of combinatorial and knowledge representation
+          problems encoded as logic programs. Hosted by the University of
+          Potsdam.
+
+  - name: "AI Planning"
+    aliases: ["Automated Planning", "PDDL Planning"]
+    datasets:
+      - name: "International Planning Competition (IPC)"
+        url: "https://ipc2023.github.io/"
+        format: "PDDL"
+        has_optimal_solution: false
+        usage: "Standard benchmark suite for AI planning algorithms"
+        reference: "IPC series (1998-present)"
+        notes: >
+          Benchmark domains and instances from the International Planning
+          Competition, held biennially since 1998. Problems are specified
+          in PDDL (Planning Domain Definition Language) and cover classical,
+          temporal, probabilistic, and numeric planning tracks.
+
   - name: "University Course Timetabling"
     aliases: ["Course Timetabling", "Curriculum-Based Course Timetabling"]
     datasets:

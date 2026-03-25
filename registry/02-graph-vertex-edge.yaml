@@ -42,6 +42,18 @@ problems:
         reference: "Leskovec, J. and Krevl, A. SNAP Datasets: Stanford Large Network Dataset Collection, 2014"
         notes: "Includes social networks (Facebook, LiveJournal), web graphs (Google, Stanford), citation networks, and road networks."
 
+      - name: "KaMIS (Karlsruhe MIS)"
+        url: "https://karlsruhemis.github.io/"
+        format: "METIS, DIMACS"
+        instance_count: ~
+        scale:
+          vertices: "thousands to millions"
+          edges: "thousands to hundreds of millions"
+        has_optimal_solution: false
+        usage: "Large-scale MIS instances for evaluating exact and heuristic maximum independent set solvers"
+        reference: "Lamm, S., Sanders, P., Schulz, C., Strash, D., and Werneck, R.F. Finding Near-Optimal Independent Sets at Scale, ALENEX 2016"
+        notes: "Includes large sparse graphs from social networks, web graphs, and mesh networks. Part of the KaHIP ecosystem for graph algorithms."
+
       - name: "Network Repository"
         url: "https://networkrepository.com/"
         format: "MTX, edge list, GML, GraphML"
@@ -146,6 +158,18 @@ problems:
         reference: "Bader, D.A. et al. Graph Partitioning and Graph Clustering, 10th DIMACS Implementation Challenge, AMS 2013"
         notes: "Originally for graph partitioning and clustering. Categories include social networks, numerical meshes, random geometric, and Erdos-Renyi graphs."
 
+      - name: "Max-Weight Clique Instances (Trimble)"
+        url: "https://github.com/jamestrimble/max-weight-clique-instances"
+        format: "DIMACS (weighted)"
+        instance_count: ~
+        scale:
+          vertices: "varies"
+          edges: "varies"
+        has_optimal_solution: false
+        usage: "Benchmark instances for maximum weight clique algorithms on weighted DIMACS graphs"
+        reference: "Trimble, J. Max-Weight Clique Instances, GitHub repository"
+        notes: "Collection of weighted DIMACS graph instances for evaluating maximum weight clique solvers. Extends the standard unweighted DIMACS clique benchmarks with vertex weights."
+
   - name: "Graph Coloring"
     aliases: ["Chromatic Number", "k-Coloring"]
     pred_names: ["KColoring"]
@@ -237,3 +261,105 @@ problems:
         usage: "Diverse real-world graph collection for benchmarking dominating set algorithms across domains"
         reference: "Rossi, R.A. and Ahmed, N.K. The Network Data Repository with Interactive Graph Analytics and Visualization, AAAI 2015"
         notes: "Useful for evaluating dominating set algorithms on biological networks, infrastructure graphs, and social networks where domination problems arise naturally."
+
+  - name: "Treewidth"
+    aliases: ["Tree Decomposition", "TW"]
+    datasets:
+      - name: "PACE 2016 Treewidth Challenge"
+        url: "https://pacechallenge.org/2016/treewidth/"
+        format: "PACE graph format (.gr)"
+        instance_count: ~
+        scale:
+          vertices: "varies"
+          edges: "varies"
+        has_optimal_solution: true
+        usage: "Official PACE 2016 competition benchmark for exact and heuristic treewidth computation"
+        reference: "Dell, H. et al. The First Parameterized Algorithms and Computational Experiments Challenge, IPEC 2016"
+        notes: "First PACE challenge track on treewidth. Includes exact and heuristic tracks with public and private instances."
+
+      - name: "PACE 2017 Treewidth Challenge"
+        url: "https://pacechallenge.org/2017/treewidth/"
+        format: "PACE graph format (.gr)"
+        instance_count: ~
+        scale:
+          vertices: "varies"
+          edges: "varies"
+        has_optimal_solution: true
+        usage: "Official PACE 2017 competition benchmark for exact and heuristic treewidth computation"
+        reference: "Dell, H. et al. The PACE 2017 Parameterized Algorithms and Computational Experiments Challenge, IPEC 2017"
+        notes: "Continuation of PACE 2016 treewidth track with new and harder instances."
+
+  - name: "Minimum Fill-In"
+    aliases: ["Minimum Triangulation", "Chordal Completion"]
+    datasets:
+      - name: "PACE 2017 Minimum Fill-In Challenge"
+        url: "https://pacechallenge.org/2017/minimum-fill-in/"
+        format: "PACE graph format (.gr)"
+        instance_count: ~
+        scale:
+          vertices: "varies"
+          edges: "varies"
+        has_optimal_solution: true
+        usage: "Official PACE 2017 competition benchmark for exact and heuristic minimum fill-in computation"
+        reference: "Dell, H. et al. The PACE 2017 Parameterized Algorithms and Computational Experiments Challenge, IPEC 2017"
+        notes: "Minimum fill-in is the problem of adding the fewest edges to make a graph chordal. Related to treewidth computation."
+
+  - name: "Hypertree Width"
+    aliases: ["Hypertree Decomposition", "HTW"]
+    datasets:
+      - name: "PACE 2019 Hypertree Width Challenge"
+        url: "https://pacechallenge.org/2019/htd/index"
+        format: "PACE hypergraph format"
+        instance_count: ~
+        scale:
+          vertices: "varies"
+          edges: "varies"
+        has_optimal_solution: true
+        usage: "Official PACE 2019 competition benchmark for exact and heuristic hypertree decomposition"
+        reference: "Dzulfikar, M.A., Fichte, J.K., and Hecher, M. The PACE 2019 Parameterized Algorithms and Computational Experiments Challenge, IPEC 2019"
+        notes: "Hypertree width generalizes treewidth to hypergraphs. Important for constraint satisfaction and database query optimization."
+
+  - name: "Treedepth"
+    aliases: ["Tree Depth", "TD"]
+    datasets:
+      - name: "PACE 2020 Treedepth Challenge"
+        url: "https://github.com/lkowalik/Treedepth-PACE-2020-instances"
+        format: "PACE graph format (.gr)"
+        instance_count: ~
+        scale:
+          vertices: "varies"
+          edges: "varies"
+        has_optimal_solution: true
+        usage: "Official PACE 2020 competition benchmark for exact and heuristic treedepth computation"
+        reference: "Trimble, J. et al. The PACE 2020 Parameterized Algorithms and Computational Experiments Challenge, IPEC 2020"
+        notes: "Treedepth is a graph invariant related to treewidth but strictly more restrictive. Public and private instances of increasing difficulty."
+
+  - name: "Cluster Editing"
+    aliases: ["Correlation Clustering on Complete Graphs"]
+    datasets:
+      - name: "PACE 2021 Cluster Editing Challenge"
+        url: "https://github.com/PACE-challenge/Cluster-Editing-PACE-2021-instances"
+        format: "PACE graph format (.gr)"
+        instance_count: ~
+        scale:
+          vertices: "varies"
+          edges: "varies"
+        has_optimal_solution: true
+        usage: "Official PACE 2021 competition benchmark for exact and heuristic cluster editing"
+        reference: "Kellerhals, L. et al. The PACE 2021 Parameterized Algorithms and Computational Experiments Challenge, IPEC 2021"
+        notes: "Cluster editing asks for the minimum number of edge insertions and deletions to transform a graph into a disjoint union of cliques."
+
+  - name: "Twin-Width"
+    aliases: ["Twinwidth"]
+    datasets:
+      - name: "PACE 2023 Twin-Width Challenge (Exact Instances)"
+        url: "https://cloudtcs.tcs.uni-luebeck.de/index.php/s/Dm5pZfzxkoP8cL6"
+        format: "PACE graph format (.gr)"
+        instance_count: ~
+        scale:
+          vertices: "varies"
+          edges: "varies"
+        has_optimal_solution: true
+        usage: "Official PACE 2023 competition benchmark for exact twin-width computation"
+        reference: "The PACE 2023 Parameterized Algorithms and Computational Experiments Challenge, IPEC 2023"
+        notes: "Twin-width is a recently introduced graph parameter (Bonnet et al., 2020). The exact track requires computing optimal contraction sequences minimizing twin-width."

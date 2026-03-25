@@ -71,6 +71,29 @@ problems:
           A library of test instances for knapsack problems, including
           generators and pre-generated instances for algorithm comparison.
 
+  - name: "2D Packing"
+    aliases: ["Two-Dimensional Bin Packing", "2D Bin Packing", "2D Strip Packing"]
+    datasets:
+      - name: "2DPackLib"
+        url: "https://site.unibo.it/operations-research/en/research/2dpacklib"
+        format: "Custom text"
+        instance_count: 3000
+        has_optimal_solution: false
+        usage: "Comprehensive benchmark library for two-dimensional packing problems"
+        notes: >
+          Over 3000 instances for two-dimensional bin packing and strip packing
+          problems. Maintained by the University of Bologna Operations Research group.
+
+      - name: "Oscar Oliveira 2D Cutting & Packing"
+        url: "https://oscar-oliveira.github.io/2D-Cutting-and-Packing/pages/datset.htm"
+        format: "Various"
+        has_optimal_solution: false
+        usage: "Collection of 2D cutting and packing benchmark instances"
+        notes: >
+          A curated collection of datasets for two-dimensional cutting and
+          packing problems, aggregating instances from multiple sources in the
+          literature.
+
   - name: "Bin Packing"
     aliases: ["1D Bin Packing", "One-Dimensional Bin Packing"]
     pred_names: ["BinPacking"]

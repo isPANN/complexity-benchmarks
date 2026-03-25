@@ -254,3 +254,72 @@ problems:
           Formal verification of pipelined and superscalar processors
           encoded as SAT instances. Some of the largest structured
           SAT instances available.
+
+  - name: "SMT"
+    aliases: ["Satisfiability Modulo Theories"]
+    datasets:
+      - name: "SMT-LIB"
+        url: "https://smt-lib.org/"
+        format: "SMT-LIB v2"
+        has_optimal_solution: true
+        usage: "Standard benchmark library for SMT solvers across multiple theories"
+        reference: "SMT-LIB Initiative"
+        notes: >
+          Thousands of benchmarks across multiple theories including
+          linear arithmetic, bit-vectors, arrays, strings, and
+          quantified formulas. The standard input format for all
+          major SMT solvers.
+
+      - name: "SMT-COMP"
+        url: "https://smt-comp.github.io/"
+        format: "SMT-LIB v2"
+        has_optimal_solution: true
+        usage: "Annual SMT solver competition since 2005"
+        reference: "SMT-COMP series"
+        notes: >
+          Annual competition running since 2005 evaluating SMT solvers
+          across divisions corresponding to SMT-LIB logics. Includes
+          single-query, incremental, unsat-core, and model-validation tracks.
+
+  - name: "Pseudo-Boolean Optimization"
+    aliases: ["PBO", "Pseudo-Boolean Satisfiability"]
+    datasets:
+      - name: "Pseudo-Boolean Competition (PB25)"
+        url: "http://www.cril.univ-artois.fr/PB25/"
+        format: "OPB"
+        instance_count: 17312
+        has_optimal_solution: true
+        usage: "Standard evaluation for pseudo-Boolean solvers and optimizers"
+        reference: "Pseudo-Boolean Competition series"
+        notes: >
+          17,312+ instances covering decision (satisfiability) and
+          optimization variants with linear pseudo-Boolean constraints.
+
+  - name: "Model Counting"
+    aliases: ["#SAT", "Sharp-SAT"]
+    datasets:
+      - name: "Model Counting Competition"
+        url: "https://mccompetition.org/"
+        format: "DIMACS CNF"
+        instance_count: 2262
+        has_optimal_solution: true
+        usage: "Annual competition for exact and approximate model counters since 2020"
+        reference: "Model Counting Competition series"
+        notes: >
+          2,262 instances for evaluating exact, approximate, and weighted
+          model counting solvers. Running annually since 2020 with tracks
+          for projected and weighted model counting.
+
+  - name: "Automated Theorem Proving"
+    aliases: ["ATP"]
+    datasets:
+      - name: "TPTP Problem Library"
+        url: "https://www.tptp.org/"
+        format: "TPTP (FOF, CNF, TFF, THF)"
+        has_optimal_solution: true
+        usage: "Standard benchmark library for automated theorem provers"
+        reference: "Sutcliffe, TPTP"
+        notes: >
+          Thousands of problems with difficulty ratings spanning propositional,
+          first-order, and higher-order logic. Used by the annual CASC
+          (CADE ATP System Competition) and widely adopted for ATP research.

@@ -165,6 +165,21 @@ problems:
         reference: "Knuth, D.E. The Stanford GraphBase: A Platform for Combinatorial Computing, ACM Press, 1993"
         notes: "Contains 113 graphs with varied properties (connected, biconnected, triconnected, bipartite, planar). Used as the LV benchmark in the Solnon SIP suite by splitting into 50 small pattern graphs and 63 larger target graphs."
 
+  - name: "One-Sided Crossing Minimization"
+    aliases: ["Crossing Number", "OSCM"]
+    datasets:
+      - name: "PACE 2024 One-Sided Crossing Minimization Challenge"
+        url: "https://pacechallenge.org/2024/"
+        format: "PACE graph format (.gr)"
+        instance_count: ~
+        scale:
+          vertices: "varies"
+          edges: "varies"
+        has_optimal_solution: true
+        usage: "Official PACE 2024 competition benchmark for exact and heuristic one-sided crossing minimization on bipartite graphs"
+        reference: "The PACE 2024 Parameterized Algorithms and Computational Experiments Challenge, IPEC 2024"
+        notes: "One-sided crossing minimization asks for an ordering of vertices on one side of a bipartite graph that minimizes edge crossings. Relevant to graph drawing and visualization."
+
       - name: "SNAP Large Network Collection"
         url: "https://snap.stanford.edu/data/"
         format: "TSV edge list"

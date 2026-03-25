@@ -73,6 +73,87 @@ problems:
           GAMS scalar format with conversions to other formats. The JuMP-based
           MINLPLib.jl variant provides over 6000 instances for Julia-based solvers.
 
+  - name: "Semidefinite Programming"
+    aliases: ["SDP"]
+    datasets:
+      - name: "SDPLIB"
+        url: "https://github.com/vsdp/SDPLIB"
+        format: "SDPA sparse format"
+        instance_count: 92
+        has_optimal_solution: true
+        usage: "Standard test library for semidefinite programming solvers"
+        reference: "Borchers, 1999"
+        notes: >
+          92 SDP test problems from various application areas including
+          combinatorial optimization, control theory, and quantum chemistry.
+          Widely used for benchmarking SDP solvers.
+
+  - name: "Nonlinear Optimization"
+    aliases: ["Nonlinear Programming", "NLP"]
+    datasets:
+      - name: "CUTEst"
+        url: "https://github.com/ralna/CUTEst"
+        format: "SIF (Standard Input Format)"
+        instance_count: 1000
+        has_optimal_solution: false
+        usage: "Standard testing environment for nonlinear optimization solvers"
+        reference: "Gould, Orban & Toint, 2015"
+        notes: >
+          Over 1000 nonlinear optimization test problems. Successor to CUTEr
+          and CUTE. Provides a standardized interface for testing optimization
+          software with problems from unconstrained, bound-constrained, and
+          general nonlinear optimization.
+
+      - name: "Mittelmann Benchmarks"
+        url: "https://plato.asu.edu/bench.html"
+        format: "Various (MPS, AMPL, SIF)"
+        has_optimal_solution: false
+        usage: "Continuously updated benchmarks comparing 30+ optimization solvers across 18 benchmark sets"
+        reference: "Mittelmann, H.D."
+        notes: >
+          18 benchmark sets covering LP, MILP, SOCP, SDP, nonlinear, and
+          other optimization problem classes. Compares over 30 commercial
+          and open-source solvers. Results are continuously updated and
+          widely cited for solver performance evaluation.
+
+      - name: "SuiteSparse Matrix Collection"
+        url: "https://sparse.tamu.edu/"
+        format: "Matrix Market, Rutherford-Boeing, MATLAB"
+        has_optimal_solution: false
+        usage: "Large collection of sparse matrices used as LP and graph algorithm benchmarks"
+        reference: "Davis & Hu, 2011"
+        notes: >
+          Formerly the University of Florida Sparse Matrix Collection.
+          Contains thousands of sparse matrices from real applications
+          in structural engineering, fluid dynamics, circuit simulation,
+          optimization, and more. Widely used for benchmarking sparse
+          linear algebra routines, LP solvers, and graph algorithms.
+
+  - name: "Mixed-Integer Programming Instances"
+    aliases: ["MIP Instances"]
+    datasets:
+      - name: "COR@L MIP Instances"
+        url: "https://coral.ise.lehigh.edu/data-sets/mixed-integer-instances/"
+        format: "MPS"
+        has_optimal_solution: false
+        usage: "Collection of mixed-integer programming instances from Lehigh University"
+        reference: "COR@L Lab, Lehigh University"
+        notes: >
+          Mixed-integer programming instances maintained by the Computational
+          Optimization Research at Lehigh (COR@L) laboratory. Complements
+          MIPLIB with additional challenging instances.
+
+      - name: "COR@L Bilevel Library"
+        url: "https://coral.ise.lehigh.edu/data-sets/bilevel-instances/"
+        format: "MPS"
+        has_optimal_solution: false
+        usage: "Benchmark instances for bilevel optimization problems"
+        reference: "COR@L Lab, Lehigh University"
+        notes: >
+          Collection of bilevel optimization instances maintained by the
+          COR@L laboratory at Lehigh University. Used for testing bilevel
+          programming solvers and algorithms.
+
   - name: "Quadratic Unconstrained Binary Optimization"
     aliases: ["QUBO", "Unconstrained Binary Quadratic Programming", "UBQP"]
     pred_names: ["QUBO"]
