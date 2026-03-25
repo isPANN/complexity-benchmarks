@@ -25,17 +25,17 @@ problems:
   - name: "Gate Assignment"
     aliases: ["Airport Gate Assignment Problem", "AGAP"]
     datasets:
-      - name: "Dorndorf Gate Assignment Instances"
-        url: "https://cedric.cnam.fr/~porMDMbc/AGAP/"
-        format: "Custom text"
-        usage: "Assigning flights to airport gates to minimize passenger walking distance"
-        reference: "Dorndorf et al., 2007"
+      - name: "Airport Gate Assignment MILP"
+        url: "https://github.com/marco-cheung/airport-gate-assignment-problem"
+        format: "Python/MILP"
+        usage: "Gate assignment MILP formulation with example instances"
+        reference: "Based on Dorndorf et al., 2007"
 
   - name: "Railway Timetabling"
     aliases: ["Train Scheduling", "Train Timetabling"]
     datasets:
       - name: "RAS Problem Solving Competition"
-        url: "https://www.informs.org/Community/RAS/Problem-Solving-Competition"
+        url: "https://connect.informs.org/railway-applications/new-item3/problem-solving-competition682"
         format: "Various"
         usage: "Annual railway optimization competition by INFORMS Railway Applications Section"
         reference: "INFORMS RAS"
@@ -47,7 +47,7 @@ problems:
         reference: "ROADEF/EURO Challenge 2014"
 
       - name: "Tim Costly Railway Benchmark"
-        url: "https://github.com/potassco/train-scheduling-with-clingo"
+        url: "https://github.com/potassco/train-scheduling-with-clingo-dl"
         format: "ASP/Custom"
         usage: "Railway scheduling instances for ASP solvers"
         reference: "Abels et al., 2019"
@@ -56,7 +56,7 @@ problems:
     aliases: ["DARP"]
     datasets:
       - name: "Cordeau DARP Instances"
-        url: "https://www.bernabe.dorronsoro.es/vrp/Problem_Instances/DARP_Instances.html"
+        url: "http://neumann.hec.ca/chairedistributique/data/darp/"
         format: "Custom text"
         instance_count: 42
         scale:
@@ -80,7 +80,7 @@ problems:
         reference: "Mandl, 1980"
 
       - name: "Mumford Transit Networks"
-        url: "https://users.cs.cf.ac.uk/C.L.Mumford/Research%20Topics/UTRP/"
+        url: "https://github.com/RenatoArbex/TransitNetworkDesign"
         format: "Custom text"
         instance_count: 4
         scale:
