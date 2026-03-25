@@ -72,7 +72,7 @@ problems:
 
   - name: "Bin Packing"
     aliases: ["1D Bin Packing", "One-Dimensional Bin Packing"]
-    pred_names: ["BinPacking/i32"]
+    pred_names: ["BinPacking"]
     datasets:
       - name: "BPPLIB (Bin Packing Problem Library)"
         url: "https://site.unibo.it/operations-research/en/research/bpplib-a-bin-packing-problem-library"

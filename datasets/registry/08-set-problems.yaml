@@ -3,7 +3,7 @@ description: "Set covering, packing, and selection problems"
 problems:
   - name: "Set Cover"
     aliases: ["Minimum Set Covering", "Set Covering Problem", "SCP"]
-    pred_names: ["MinimumSetCovering/i32"]
+    pred_names: ["MinimumSetCovering"]
     datasets:
       - name: "OR-Library SCP Instances (Beasley)"
         url: "https://people.brunel.ac.uk/~mastjjb/jeb/orlib/scpinfo.html"
@@ -92,7 +92,7 @@ problems:
 
   - name: "Set Packing"
     aliases: ["Maximum Set Packing"]
-    pred_names: ["MaximumSetPacking/One"]
+    pred_names: ["MaximumSetPacking"]
     datasets:
       - name: "MIPLIB 2017"
         url: "https://miplib.zib.de/"

@@ -3,7 +3,7 @@ description: "Integer and combinatorial optimization formulations"
 problems:
   - name: "Integer Linear Programming"
     aliases: ["ILP", "Integer Programming", "MIP", "Mixed Integer Programming"]
-    pred_names: ["ILP/bool", "ILP/i32"]
+    pred_names: ["ILP", "ILP"]
     datasets:
       - name: "MIPLIB 2017"
         url: "https://miplib.zib.de/"
@@ -74,7 +74,7 @@ problems:
 
   - name: "Quadratic Unconstrained Binary Optimization"
     aliases: ["QUBO", "Unconstrained Binary Quadratic Programming", "UBQP"]
-    pred_names: ["QUBO/f64"]
+    pred_names: ["QUBO"]
     datasets:
       - name: "MQLib"
         url: "https://github.com/MQLib/MQLib"

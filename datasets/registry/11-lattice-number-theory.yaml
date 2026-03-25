@@ -65,7 +65,7 @@ problems:
 
   - name: "Closest Vector Problem"
     aliases: ["CVP"]
-    pred_names: ["ClosestVectorProblem/i32"]
+    pred_names: ["ClosestVectorProblem"]
     datasets:
       - name: "TU Darmstadt SVP Challenge (adapted for CVP)"
         url: "https://www.latticechallenge.org/svp-challenge/"

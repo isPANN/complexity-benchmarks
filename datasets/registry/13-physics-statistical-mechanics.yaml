@@ -3,7 +3,7 @@ description: "Statistical mechanics optimization problems"
 problems:
   - name: "Spin Glass"
     aliases: ["Ising Spin Glass", "Edwards-Anderson Model", "Sherrington-Kirkpatrick Model"]
-    pred_names: ["SpinGlass/SimpleGraph/i32", "SpinGlass/SimpleGraph/f64"]
+    pred_names: ["SpinGlass", "SpinGlass"]
     datasets:
       - name: "Spin Glass Server (University of Bonn)"
         url: "http://spinglass.uni-bonn.de/"

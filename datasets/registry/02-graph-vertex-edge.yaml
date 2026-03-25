@@ -3,7 +3,7 @@ description: "Graph problems involving vertex and edge selection"
 problems:
   - name: "Maximum Independent Set"
     aliases: ["MIS"]
-    pred_names: ["MaximumIndependentSet/SimpleGraph/One"]
+    pred_names: ["MaximumIndependentSet"]
     datasets:
       - name: "DIMACS 2nd Implementation Challenge (Clique complements)"
         url: "https://iridia.ulb.ac.be/~fmascia/maximum_clique/DIMACS-benchmark"
@@ -55,7 +55,7 @@ problems:
 
   - name: "Minimum Vertex Cover"
     aliases: ["Vertex Cover", "MVC"]
-    pred_names: ["MinimumVertexCover/SimpleGraph/i32"]
+    pred_names: ["MinimumVertexCover"]
     datasets:
       - name: "PACE 2019 Vertex Cover Challenge"
         url: "https://pacechallenge.org/2019/vc/"
@@ -107,7 +107,7 @@ problems:
 
   - name: "Maximum Clique"
     aliases: ["Clique", "Max Clique"]
-    pred_names: ["KClique/SimpleGraph", "MaximumClique/SimpleGraph/i32"]
+    pred_names: ["KClique", "MaximumClique"]
     datasets:
       - name: "DIMACS 2nd Implementation Challenge"
         url: "https://iridia.ulb.ac.be/~fmascia/maximum_clique/DIMACS-benchmark"
@@ -147,7 +147,7 @@ problems:
 
   - name: "Graph Coloring"
     aliases: ["Chromatic Number", "k-Coloring"]
-    pred_names: ["KColoring/SimpleGraph/KN"]
+    pred_names: ["KColoring"]
     datasets:
       - name: "COLOR02/03/04 Instances (DIMACS Graph Coloring)"
         url: "https://mat.tepper.cmu.edu/COLOR/instances.html"
@@ -187,7 +187,7 @@ problems:
 
   - name: "Minimum Dominating Set"
     aliases: ["Dominating Set", "MDS"]
-    pred_names: ["MinimumDominatingSet/SimpleGraph/i32"]
+    pred_names: ["MinimumDominatingSet"]
     datasets:
       - name: "PACE 2025 Dominating Set Challenge"
         url: "https://pacechallenge.org/2025/ds/"

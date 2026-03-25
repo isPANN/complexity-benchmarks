@@ -3,8 +3,8 @@ description: "Graph problems involving connectivity, cuts, and feedback sets"
 problems:
   - name: "Steiner Tree"
     pred_names:
-      - "SteinerTree/SimpleGraph/i32"
-      - "SteinerTreeInGraphs/SimpleGraph/i32"
+      - "SteinerTree"
+      - "SteinerTreeInGraphs"
     datasets:
       - name: "SteinLib"
         url: "https://steinlib.zib.de/steinlib.php"
@@ -51,7 +51,7 @@ problems:
 
   - name: "Max Cut"
     pred_names:
-      - "MaxCut/SimpleGraph/i32"
+      - "MaxCut"
     datasets:
       - name: "Gset"
         url: "https://web.stanford.edu/~yyye/yyye/Gset/"
@@ -107,7 +107,7 @@ problems:
 
   - name: "Multiway Cut"
     pred_names:
-      - "MinimumMultiwayCut/SimpleGraph/i32"
+      - "MinimumMultiwayCut"
     datasets:
       - name: "DIMACS Min-Cut/Max-Flow Instances"
         url: "https://zenodo.org/records/4905882"
@@ -132,7 +132,7 @@ problems:
 
   - name: "Feedback Vertex Set"
     pred_names:
-      - "MinimumFeedbackVertexSet/i32"
+      - "MinimumFeedbackVertexSet"
     datasets:
       - name: "PACE 2016 - Feedback Vertex Set"
         url: "https://pacechallenge.org/2016/feedback-vertex-set/"
@@ -165,7 +165,7 @@ problems:
 
   - name: "Feedback Arc Set"
     pred_names:
-      - "MinimumFeedbackArcSet/i32"
+      - "MinimumFeedbackArcSet"
     datasets:
       - name: "PACE 2022 - Directed FVS (adapted)"
         url: "https://pacechallenge.org/2022/directed-fvs/"
@@ -180,7 +180,7 @@ problems:
 
   - name: "Graph Partitioning"
     pred_names:
-      - "GraphPartitioning/SimpleGraph"
+      - "GraphPartitioning"
     datasets:
       - name: "Walshaw Graph Partitioning Archive"
         url: "https://chriswalshaw.co.uk/partition/"

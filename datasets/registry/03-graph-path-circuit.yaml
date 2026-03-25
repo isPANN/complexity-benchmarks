@@ -4,7 +4,7 @@ description: "Graph problems involving paths and circuits: TSP variants, Hamilto
 problems:
   - name: "Traveling Salesman Problem"
     aliases: ["TSP", "Symmetric TSP"]
-    pred_names: ["TravelingSalesman/SimpleGraph/i32"]
+    pred_names: ["TravelingSalesman"]
     datasets:
       - name: "TSPLIB (Symmetric TSP)"
         url: "http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/"
@@ -77,7 +77,7 @@ problems:
 
   - name: "Asymmetric Traveling Salesman Problem"
     aliases: ["ATSP"]
-    pred_names: ["TravelingSalesman/SimpleGraph/i32"]
+    pred_names: ["TravelingSalesman"]
     datasets:
       - name: "TSPLIB (Asymmetric TSP)"
         url: "http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/"
@@ -113,7 +113,7 @@ problems:
 
   - name: "Hamiltonian Circuit"
     aliases: ["Hamiltonian Cycle", "HCP"]
-    pred_names: ["HamiltonianCircuit/SimpleGraph"]
+    pred_names: ["HamiltonianCircuit"]
     datasets:
       - name: "TSPLIB (HCP Instances)"
         url: "http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/"
@@ -159,7 +159,7 @@ problems:
 
   - name: "Hamiltonian Path"
     aliases: ["HPP"]
-    pred_names: ["HamiltonianPath/SimpleGraph"]
+    pred_names: ["HamiltonianPath"]
     datasets:
       - name: "FHCP Challenge Set (adapted)"
         url: "https://sites.flinders.edu.au/flinders-hamiltonian-cycle-project/fhcp-challenge-set/"
@@ -177,7 +177,7 @@ problems:
 
   - name: "Longest Path"
     aliases: ["LP"]
-    pred_names: ["LongestPath/SimpleGraph/i32"]
+    pred_names: ["LongestPath"]
     datasets:
       - name: "Karlsruhe Longest Paths (KaLP)"
         url: "https://karlsruhelongestpaths.github.io/"
@@ -197,7 +197,7 @@ problems:
 
   - name: "Chinese Postman Problem"
     aliases: ["CPP", "Mixed Chinese Postman", "MCPP"]
-    pred_names: ["MixedChinesePostman/i32"]
+    pred_names: ["MixedChinesePostman"]
     datasets:
       - name: "Corberan Arc Routing Instances (MCPP)"
         url: "https://www.uv.es/corberan/instancias.htm"
@@ -216,7 +216,7 @@ problems:
 
   - name: "Rural Postman Problem"
     aliases: ["RPP"]
-    pred_names: ["RuralPostman/SimpleGraph/i32"]
+    pred_names: ["RuralPostman"]
     datasets:
       - name: "Corberan Arc Routing Instances (RPP)"
         url: "https://www.uv.es/corberan/instancias.htm"

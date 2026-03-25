@@ -58,7 +58,7 @@ problems:
 
   - name: "3-SAT"
     aliases: ["3-Satisfiability", "Random 3-SAT"]
-    pred_names: ["KSatisfiability/K3"]
+    pred_names: ["KSatisfiability"]
     datasets:
       - name: "SATLIB Uniform Random 3-SAT"
         url: "https://www.cs.ubc.ca/~hoos/SATLIB/Benchmarks/SAT/RND3SAT/descr.html"
@@ -91,7 +91,7 @@ problems:
 
   - name: "k-SAT"
     aliases: ["k-Satisfiability"]
-    pred_names: ["KSatisfiability/KN"]
+    pred_names: ["KSatisfiability"]
     datasets:
       - name: "SATLIB Random k-SAT Instances"
         url: "https://www.cs.ubc.ca/~hoos/SATLIB/benchm.html"
