@@ -1,4 +1,5 @@
 category: "network-flow"
+title: "Network Flow"
 description: "Network flow problems with integrality and routing constraints"
 problems:
   - name: "Two-Commodity Integral Flow (Directed)"

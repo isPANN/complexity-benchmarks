@@ -35,7 +35,7 @@ def format_scale(scale):
 def generate_category_page(reg):
     """Generate a markdown page for one category."""
     lines = []
-    cat_title = reg.get("description", reg.get("category", "Unknown"))
+    cat_title = reg.get("title", reg.get("description", reg.get("category", "Unknown")))
     lines.append(f"# {cat_title}\n")
 
     problems = reg.get("problems", [])
@@ -151,11 +151,11 @@ def generate_index(registries):
         fname = reg["_filename"]
         # Extract number prefix for display
         num = fname.split("-")[0]
-        cat_desc = reg.get("description", reg.get("category", "Unknown"))
+        cat_title = reg.get("title", reg.get("category", "Unknown"))
         n_prob = len(reg.get("problems", []))
         n_ds = sum(len(p.get("datasets", [])) for p in reg.get("problems", []))
         slug = fname
-        lines.append(f"| {num} | [{cat_desc}]({slug}.md) | {n_prob} | {n_ds} |")
+        lines.append(f"| {num} | [{cat_title}]({slug}.md) | {n_prob} | {n_ds} |")
 
     lines.append("")
 
@@ -165,14 +165,14 @@ def generate_index(registries):
     lines.append("|----------|---------|---------|-----|")
 
     for reg in registries:
-        cat = reg.get("description", reg.get("category", ""))
+        cat_title = reg.get("title", reg.get("category", ""))
         fname = reg["_filename"]
         for prob in reg.get("problems", []):
             for ds in prob.get("datasets", []):
                 url = ds.get("url", "")
                 link = f"[link]({url})" if url else "-"
                 lines.append(
-                    f"| [{cat}]({fname}.md) | {prob['name']} | {ds['name']} | {link} |"
+                    f"| [{cat_title}]({fname}.md) | {prob['name']} | {ds['name']} | {link} |"
                 )
 
     lines.append("")
@@ -204,8 +204,8 @@ def main():
         fname = reg["_filename"]
         page_content = generate_category_page(reg)
         (DOCS_DIR / f"{fname}.md").write_text(page_content)
-        cat_desc = reg.get("description", reg.get("category", ""))
-        categories.append({cat_desc: f"{fname}.md"})
+        cat_title = reg.get("title", reg.get("category", ""))
+        categories.append({cat_title: f"{fname}.md"})
 
     nav_items.append({"Categories": categories})
 

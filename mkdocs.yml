@@ -37,20 +37,20 @@ markdown_extensions:
 nav:
 - Home: index.md
 - Categories:
-  - Boolean satisfiability and related constraint satisfaction problems: 01-satisfiability.md
-  - Graph problems involving vertex and edge selection: 02-graph-vertex-edge.md
-  - 'Graph problems involving paths and circuits: TSP variants, Hamiltonian cycles/paths, longest paths, and postman problems': 03-graph-path-circuit.md
-  - Graph problems involving connectivity, cuts, and feedback sets: 04-graph-connectivity-cut.md
-  - Graph isomorphism, subgraph matching, and graph similarity problems: 05-graph-matching.md
-  - Network flow problems with integrality and routing constraints: 06-network-flow.md
-  - Packing, partitioning, and subset selection problems: 07-knapsack-partition.md
-  - Machine scheduling and sequencing problems: 08-scheduling.md
-  - Set covering, packing, and selection problems: 09-set-problems.md
-  - Sequence and string optimization problems: 10-sequence-string.md
-  - Integer and combinatorial optimization formulations: 11-mathematical-programming.md
-  - Lattice problems and number-theoretic hard problems: 12-lattice-number-theory.md
-  - Database design and query optimization problems: 13-database-relational.md
-  - Statistical mechanics optimization problems: 14-physics-statistical-mechanics.md
-  - Vehicle routing and arc routing problems including capacitated, time-windowed, and pickup-delivery variants: 15-vehicle-routing.md
-  - Facility location and network design problems: 16-facility-location.md
-  - Constraint satisfaction and timetabling problems: 17-constraint-satisfaction.md
+  - Satisfiability: 01-satisfiability.md
+  - 'Graph: Vertex & Edge': 02-graph-vertex-edge.md
+  - 'Graph: Path & Circuit': 03-graph-path-circuit.md
+  - 'Graph: Connectivity & Cut': 04-graph-connectivity-cut.md
+  - 'Graph: Matching & Isomorphism': 05-graph-matching.md
+  - Network Flow: 06-network-flow.md
+  - Knapsack & Partition: 07-knapsack-partition.md
+  - Scheduling: 08-scheduling.md
+  - Set Problems: 09-set-problems.md
+  - Sequence & String: 10-sequence-string.md
+  - Mathematical Programming: 11-mathematical-programming.md
+  - Lattice & Number Theory: 12-lattice-number-theory.md
+  - Database & Relational: 13-database-relational.md
+  - Physics & Stat Mech: 14-physics-statistical-mechanics.md
+  - Vehicle Routing: 15-vehicle-routing.md
+  - Facility Location: 16-facility-location.md
+  - Constraint Satisfaction: 17-constraint-satisfaction.md

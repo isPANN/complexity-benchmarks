@@ -1,4 +1,5 @@
 category: "graph-path-circuit"
+title: "Graph: Path & Circuit"
 description: "Graph problems involving paths and circuits: TSP variants, Hamiltonian cycles/paths, longest paths, and postman problems"
 
 problems:

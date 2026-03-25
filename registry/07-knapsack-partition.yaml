@@ -1,4 +1,5 @@
 category: "knapsack-partition"
+title: "Knapsack & Partition"
 description: "Packing, partitioning, and subset selection problems"
 problems:
   - name: "Knapsack"

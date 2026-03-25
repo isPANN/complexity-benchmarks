@@ -1,4 +1,5 @@
 category: "mathematical-programming"
+title: "Mathematical Programming"
 description: "Integer and combinatorial optimization formulations"
 problems:
   - name: "Integer Linear Programming"
