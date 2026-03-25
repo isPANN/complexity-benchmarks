@@ -223,29 +223,7 @@ def generate_competitions_page(data):
 
     lines.append("")
 
-    # Detailed sections
-    lines.append("## Details\n")
-    for comp in competitions:
-        name = comp["name"]
-        url = comp.get("url", "")
-        years = comp.get("years", "-")
-        freq = comp.get("frequency", "-")
-        problems = comp.get("problems", [])
-        notes = comp.get("notes", "")
-
-        lines.append(f"### {name}\n")
-        if url:
-            lines.append(f"**URL:** [{url}]({url})\n")
-        lines.append(f"**Years:** {years} | **Frequency:** {freq}\n")
-
-        if isinstance(problems, list) and problems:
-            lines.append("**Problems:**\n")
-            for p in problems:
-                lines.append(f"- {p}")
-            lines.append("")
-
-        if notes:
-            lines.append(f"{notes}\n")
+    # No detailed subsections — table is sufficient
 
     return "\n".join(lines)
 
