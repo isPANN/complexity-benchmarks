@@ -57,7 +57,9 @@ problems:
         format: "<file format, e.g. DIMACS CNF, TSPLIB, CSV>"
         instance_count: <approximate number>       # optional
         scale:                                     # optional, keys vary by problem
-          <dimension>: "<range string>"
+          <dimension>: "<range string>"             # e.g. variables: "20-10000" (SAT),
+                                                    #      cities: "14-85900" (TSP),
+                                                    #      items: "50-10000" (Knapsack)
         has_optimal_solution: <true|false>          # optional
         usage: "<where/how this dataset is commonly used>"
         reference: "<citation or author, year>"    # optional
