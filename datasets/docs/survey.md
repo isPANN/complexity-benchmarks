@@ -2,9 +2,9 @@
 
 ## 1. Overview
 
-This survey catalogs publicly available benchmark datasets for computationally hard (typically NP-hard or harder) problems, organized into 13 categories that align with the `pred` reduction framework's classification of 112 problem types connected by 76 known reductions. The goal is practical: to help researchers find the right dataset for evaluating algorithms on specific problem types, and to understand how datasets relate across problem boundaries.
+This survey catalogs publicly available benchmark datasets for computationally hard (typically NP-hard or harder) problems, organized into 17 categories that align with the `pred` reduction framework's classification of 112 problem types connected by 76 known reductions. The goal is practical: to help researchers find the right dataset for evaluating algorithms on specific problem types, and to understand how datasets relate across problem boundaries.
 
-The 13 categories are:
+The 17 categories are:
 
 1. Satisfiability
 2. Graph Vertex and Edge Problems
@@ -19,6 +19,10 @@ The 13 categories are:
 11. Lattice and Number Theory
 12. Database and Relational Problems
 13. Physics and Statistical Mechanics
+14. Vehicle Routing
+15. Facility Location
+16. Constraint Satisfaction
+17. Graph Matching
 
 Each section below provides problem background, commentary on key datasets (not merely a listing), format notes, gaps, and cross-references. A summary table and a discussion of cross-category datasets follow the per-category sections.
 
@@ -80,7 +84,7 @@ DIMACS graph format (.col, .clq) is the traditional standard. PACE uses its own 
 
 ### Notable Gaps
 
-Graph isomorphism, while a famous problem in computational complexity, lacks representation in this registry. Subgraph isomorphism benchmarks exist in the pattern matching literature but are not catalogued here.
+Graph isomorphism and subgraph isomorphism benchmarks are catalogued in Category 17 (Graph Matching).
 
 ### Cross-References
 
@@ -116,7 +120,7 @@ The asymmetric TSP collection in TSPLIB is small (19 instances, max 443 cities) 
 
 ### Cross-References
 
-TSPLIB instances are used across TSP, ATSP, bottleneck TSP, and Hamiltonian cycle/path. The FHCP Challenge Set serves both Hamiltonian cycle and path research. TSP is closely related to the vehicle routing problem (not explicitly covered in this registry).
+TSPLIB instances are used across TSP, ATSP, bottleneck TSP, and Hamiltonian cycle/path. The FHCP Challenge Set serves both Hamiltonian cycle and path research. TSP is closely related to the vehicle routing problem (Category 14).
 
 ---
 
@@ -444,7 +448,137 @@ Max cut (Category 4), QUBO (Category 11), and spin glass are three formulations 
 
 ---
 
-## 15. Summary Table
+## 15. Vehicle Routing
+
+Vehicle routing problems ask how to design a set of routes for a fleet of vehicles to serve a collection of customers while minimizing total cost. These problems generalize TSP to multiple vehicles with capacity, time window, and pickup-delivery constraints, and are central to logistics and supply chain optimization.
+
+### Key Datasets
+
+**CVRPLIB** (hosted at PUC-Rio) is the definitive resource for the Capacitated Vehicle Routing Problem, aggregating multiple benchmark families under one roof. The **Uchoa X Instances** (100 instances, 100--1,000 customers) are the modern standard, systematically varying depot positioning, customer clustering, demand distribution, and route size. The new **XL Instances** (1,000--10,000 customers) extend the same generation principles to large-scale settings, with a Best Known Solution challenge launched in January 2026. CVRPLIB also hosts real-world instances from **Loggi** (Brazilian delivery, 6 instances, 401--1,001 customers) and **ORTEC** (US grocery delivery, 6 instances, 242--701 customers with real driving times), providing practical grounding beyond synthetic benchmarks.
+
+The classic benchmarks remain useful for solver verification. The **Christofides-Mingozzi-Toth (CMT) Instances** (14 instances, 50--199 customers, all solved to optimality) and the **Augerat Instances** (Sets A, B, P; 74 instances, 15--100 customers, mostly solved) are standard reference points. The **Golden-Wasil-Kelly-Chao Instances** (20 instances, 200--480 customers) bridge the gap between classic small-scale and modern large-scale benchmarks.
+
+For the **Vehicle Routing Problem with Time Windows (VRPTW)**, the **Solomon Benchmark** (56 instances, 100 customers each) is foundational, with over 3,000 publications using it. Instances are grouped into random (R), clustered (C), and mixed (RC) types, with narrow (type 1) and wide (type 2) scheduling horizons. The **Gehring-Homberger Benchmark** (300 instances, 200--1,000 customers) extends Solomon to larger scales. Both are maintained at SINTEF TOP with best-known solutions.
+
+The **Pickup and Delivery Problem with Time Windows (PDPTW)** is served by the **Li & Lim Benchmark** (354 instances, 100--1,000 tasks), derived from Solomon instances by pairing locations as pickup-delivery requests. The **Sartori & Buriol** real-world instances complement these with more realistic characteristics.
+
+For **arc routing**, the **Capacitated Arc Routing Problem (CARP)** has several benchmark families: the **GDB Instances** (23 small instances, all solved), the **BCCM/val Instances** (34 instances, all solved), and the **Eglese/Li Winter Gritting Instances** (24 instances derived from real Lancashire road networks). The **BHW Instances** (20 instances) were assembled for the 12th DIMACS Implementation Challenge CARP track.
+
+### Format Notes
+
+VRPLIB format is standard for CVRP. Solomon format is used for VRPTW and PDPTW. CARP instances use their own text format. VRP-REP provides a standardized XML representation for diverse VRP variants.
+
+### Notable Gaps
+
+Multi-depot VRP and heterogeneous fleet VRP have limited dedicated benchmark coverage. Dynamic and stochastic VRP variants, increasingly important in practice, lack consolidated benchmarks.
+
+### Cross-References
+
+TSP (Category 3) is the single-vehicle, unconstrained special case of VRP. TSPLIB instances are sometimes used for VRP by adding depot and capacity data. The DIMACS 12th Implementation Challenge covered CVRP, VRPTW, and CARP tracks, connecting to graph path problems. Facility location (Category 15) shares real-world instances with CVRPLIB's Loggi collection.
+
+---
+
+## 16. Facility Location
+
+Facility location problems ask where to open facilities and how to assign customers to them so as to minimize a combination of fixed opening costs and transportation costs. These problems are fundamental to supply chain design, public service planning, and network infrastructure placement.
+
+### Key Datasets
+
+**UflLib** (645 instances, 10--750 facilities/customers) is the comprehensive benchmark for Uncapacitated Facility Location (UFL). It aggregates 14 benchmark packages from multiple contributors, including Bilde-Krarup, Euclidean, Galvao-Raggi, and the notoriously difficult **Koerkel-Ghosh instances** (m=n in {250, 500, 750}), which remain partially unsolved and are considered among the hardest UFL benchmarks. A mirror is maintained at Goethe University Frankfurt.
+
+**OR-Library** provides instances for both uncapacitated (15 instances, 16--100 facilities, 50--1,000 customers) and **capacitated facility location** (40 instances, same scale range). The capacitated instances span thirteen problem sets (IV--XIII and A--C) and are also used as warehouse location benchmarks, since the two problems are equivalent in the discrete optimization literature. The **Kochetov Hard UFL Instances** from the Sobolev Institute include classes with large integrality gaps and exponentially many strong local optima, specifically designed to challenge both metaheuristics and exact methods.
+
+For **capacitated facility location (CFLP)**, the **Holmberg SSCFLP Instances** (71 instances, 10--30 facilities, 50--200 customers) are the standard for the single-source variant, with four subsets of varying distributions and sizes. The **CommaLAB CFLP Instances** from the University of Pisa extend to larger-scale settings.
+
+The **p-Median** problem is benchmarked by **OR-Library p-Median Instances** (40 instances, 100--900 vertices), where Floyd's algorithm must be applied to edge costs to obtain the full allocation cost matrix. **TSPLIB-derived instances** (98 instances, up to 3,038 vertices) provide larger-scale benchmarks using Euclidean distances from TSP city coordinates.
+
+The closely related **p-Center** problem reuses the same OR-Library instances (pmed1--pmed40) with a minimax objective; all 40 have been solved to proven optimality. **TSPLIB-derived p-Center instances** complement these for scalability testing.
+
+**Hub location** is served by the **OR-Library AP Dataset** (Australia Post, up to 200 nodes), the **CAB Dataset** (Civil Aeronautics Board, 25 nodes), and the **HLP Survey Benchmark** which standardizes AP, CAB, and Turkish postal network instances in CSV format with over 5,000 optimal solutions across 12 problem variants.
+
+### Format Notes
+
+UflLib uses its own text format specifying facilities, customers, opening costs, and connection costs. OR-Library uses a common text format across its facility location files. Hub location data uses coordinate, flow, and cost matrices. No single universal format exists for the category.
+
+### Notable Gaps
+
+Multi-period and dynamic facility location problems lack dedicated benchmarks. Stochastic facility location, where demand or costs are uncertain, is increasingly important but has no consolidated benchmark suite in this registry.
+
+### Cross-References
+
+OR-Library instances appear across facility location, knapsack (Category 6), set cover (Category 8), and scheduling (Category 7). TSPLIB-derived instances connect to TSP (Category 3) and graph path problems. The p-median problem is structurally related to clustering problems. MIPLIB (Category 10) contains facility location formulations as MIP instances. CVRPLIB's Loggi instances (Category 14) were derived from vehicle routing and facility location data in Brazilian cities.
+
+---
+
+## 17. Constraint Satisfaction
+
+Constraint satisfaction problems (CSPs) require finding assignments of values to variables that satisfy a set of constraints, without necessarily optimizing an objective. This category also covers timetabling and rostering problems, which are among the most practically important CSP applications.
+
+### Key Datasets
+
+**CSPLib** (97 problems) is a reference library of constraint satisfaction test problems across 16 categories, specified in natural language to encourage diverse modeling approaches. It serves as a problem catalog rather than a fixed instance set, with many entries including example models in various constraint languages.
+
+The **XCSP3 Competition Benchmarks** (over 23,000 instances) represent the current scale frontier for CSP benchmarking. Covering both satisfaction (CSP) and optimization (COP) variants, the 2024 competition alone featured 34 problems spanning mathematics, logistics, and scheduling, with 10--15 instances per problem series. All instances are in the standardized XCSP3 XML format.
+
+The **MiniZinc Challenge Benchmarks** (annually since 2008) provide a solver-independent testing ground, with approximately 100 instances across 10--12 models selected each year. Restricted to integer variables, these benchmarks cover the breadth of finite-domain constraint solving. Models and data files are available under the MIT license on GitHub.
+
+For **university course timetabling**, the **ITC 2007 Track 3** (21 real-world instances from the University of Udine) and **ITC 2019** (30 instances from universities across six continents) are the primary benchmarks. ITC 2019 combines student sectioning with time and room assignment, reflecting modern timetabling complexity. The **ITC 2007 Track 2** covers post-enrolment-based timetabling.
+
+**Examination timetabling** is served by the **ITC 2007 Track 1** (12 instances from British universities, 273--1,018 exams, 4,421--16,365 students) and the **University of Nottingham collection**, which aggregates Carter's classic benchmark instances.
+
+**High school timetabling** has the **ITC 2011 XHSTT Archive** (35 instances from 10 countries in the XHSTT XML format), providing international diversity in scheduling constraints and institutional requirements.
+
+**Nurse rostering** is extensively benchmarked. **INRC-I** (69 real-world instances across sprint, medium, and long tracks) and **INRC-II** (multi-stage formulation with rolling-horizon decision making over 4--8 weeks) represent competition-driven benchmarks. **NSPLib** (9,210 instances, 25--150 nurses, 7--28 day periods) is the largest collection. The **KU Leuven benchmarks** provide real Belgian hospital data with normal, overload, and absence scenarios.
+
+**Sports scheduling** is covered by the **RobinX Repository** (real-life instances from different countries and sports in a unified XML format) and the **ITC 2021** competition (45 instances for double round-robin tournaments with 16--20 teams).
+
+### Format Notes
+
+CSP formats are fragmented: XCSP3 (XML), MiniZinc (.mzn/.dzn), and CSPLib (natural language specifications) are the main options. Timetabling uses competition-specific custom text or XML formats. Nurse rostering uses custom text or XML formats. RobinX uses its own XML format for sports scheduling.
+
+### Notable Gaps
+
+General CSP random instance generators exist but lack standardized benchmark suites with documented phase-transition behavior comparable to SAT. Constraint optimization (COP) is covered by XCSP3 and MiniZinc but has less dedicated benchmarking infrastructure than pure satisfaction problems.
+
+### Cross-References
+
+CSP encodings are closely related to SAT (Category 1), as constraint satisfaction problems can be translated to boolean satisfiability. Nurse rostering connects to staff scheduling in the scheduling category (Category 7). Sports scheduling shares structure with graph coloring (Category 2) through tournament design. Timetabling problems can be formulated as ILP instances (Category 10).
+
+---
+
+## 18. Graph Matching
+
+Graph matching encompasses problems of determining structural correspondence between graphs: graph isomorphism, subgraph isomorphism, maximum common subgraph, and graph edit distance. These problems arise in pattern recognition, chemoinformatics, social network analysis, and computer vision.
+
+### Key Datasets
+
+For **subgraph isomorphism**, the **MIVIA ARG Database** (143,600 unlabeled graphs, up to 2,000 nodes) is the standard benchmark, organized into 168 graph types generated from six models (2D/3D/4D regular meshes, bounded valence, random). It was used to evaluate VF2 and VF3, the most widely cited subgraph isomorphism algorithms. The **MIVIA LDGraphs** extension (6,350 instances, 300--10,000 nodes, edge density 0.2--0.4) targets large and dense graphs at scales relevant to bioinformatics and social network analysis.
+
+The **Solnon SIP Benchmarks** (14,621 instances, 10--6,671 nodes) provide a comprehensive evaluation suite aggregating eight benchmark families: real application graphs (images, meshes), Stanford GraphBase (LV, 113 graphs), scale-free networks, MIVIA bounded-valence/mesh instances, and random instances near the phase transition. The **Glasgow Subgraph Solver Test Suite** uses the same Solnon benchmark suite but introduces supplemental implied constraints based on path counting for stronger domain filtering.
+
+For **graph isomorphism**, the **Neuen-Schweitzer Benchmark** (400--4,000 nodes) is specifically designed to challenge state-of-the-art solvers (Nauty, Traces, Bliss, Conauto). These instances are orders of magnitude harder than all previously available benchmarks at comparable sizes -- instances at 1,500 vertices are far more difficult than generic random graphs with tens of thousands of vertices. The MIVIA ARG Database also provides graph-graph isomorphism pairs.
+
+**Maximum common subgraph (MCS)** is benchmarked by labeled graph pairs from the **MIVIA ARG Database** (166,000 labeled graphs with known non-trivial common subgraphs) and the **Dilkas MCS Benchmark** (73 graph pairs aggregated from multiple papers).
+
+**Graph edit distance (GED)** has a rich benchmark ecosystem centered on the **IAM Graph Database** (~7,000 graphs across six sub-datasets: Letter, AIDS, GREC, Fingerprint, Mutagenicity, Protein). The **ICPR 2016 Graph Distance Contest** integrates IAM and GREYC collections across seven datasets with a 30-second time limit per comparison. The **GREYC Chemistry Dataset** provides molecular graphs (Acyclic, Alkane, PAH, MAO) with regression targets for boiling point prediction. The **GEDLIB** C++ library bundles all these datasets with standardized edit cost functions.
+
+The **Stanford GraphBase** (113 graphs, 10--6,671 nodes) and **SNAP Large Network Collection** (~80 networks, up to 226M nodes) serve as target graphs for pattern matching scalability evaluation, particularly in graph database query workloads.
+
+### Format Notes
+
+Formats are diverse. MIVIA uses a custom binary format. Solnon and Glasgow use text adjacency and LAD formats. GED benchmarks predominantly use GXL (Graph Exchange Language). SNAP uses TSV edge lists. Stanford GraphBase has its own text format. Conversion between formats is frequently necessary.
+
+### Notable Gaps
+
+Temporal graph matching and dynamic graph isomorphism lack dedicated benchmarks. Approximate graph matching for large-scale knowledge graphs is increasingly important but has no consolidated benchmark suite. Weighted and attributed graph matching benchmarks beyond molecular graphs are sparse.
+
+### Cross-References
+
+SNAP (Category 2) provides large-scale target graphs for pattern matching evaluation. The Stanford GraphBase connects to subgraph isomorphism benchmarks via the LV benchmark in the Solnon suite. Molecular graph benchmarks (IAM, GREYC) connect to applications in computational chemistry. Graph coloring (Category 2) and graph isomorphism share structural concerns about graph symmetry. GED computation relates to string edit distance (Category 9) through analogous dynamic programming formulations.
+
+---
+
+## 19. Summary Table
 
 The table below maps major problems to their primary benchmark datasets. Entries marked with an asterisk (*) indicate that the dataset is adapted or repurposed rather than purpose-built.
 
@@ -487,10 +621,27 @@ The table below maps major problems to their primary benchmark datasets. Entries
 | Integer Factoring | RSA Challenge, Cunningham | ~54 | up to 617 digits |
 | FD/UCC Discovery | HPI Benchmark Suite | 16 | up to 223 columns |
 | Spin Glass | RL4Ising, Gset, BiqMac | ~190,000 | up to 20K spins |
+| CVRP | CVRPLIB (Uchoa X, XL) | ~206 | up to 10K customers |
+| VRPTW | Solomon, Gehring-Homberger | ~356 | up to 1K customers |
+| PDPTW | Li & Lim | 354 | up to 1K tasks |
+| CARP | GDB, BCCM, Eglese | ~107 | up to 190 edges |
+| Uncapacitated Facility Location | UflLib | 645 | up to 750 facilities |
+| Capacitated Facility Location | OR-Library, Holmberg | ~111 | up to 1K customers |
+| p-Median | OR-Library, TSPLIB* | ~138 | up to 3K vertices |
+| p-Center | OR-Library pmed | 40 | 100--900 vertices |
+| Hub Location | OR-Library AP/CAB, HLP | ~4 | up to 200 nodes |
+| CSP | XCSP3, MiniZinc | ~23,000 | various |
+| Course Timetabling | ITC 2007, ITC 2019 | ~51 | various |
+| Exam Timetabling | ITC 2007 | 12 | 273--1,018 exams |
+| Nurse Rostering | NSPLib, INRC-I/II | ~9,300 | up to 150 nurses |
+| Subgraph Isomorphism | MIVIA ARG, Solnon SIP | ~158,000 | up to 10K nodes |
+| Graph Isomorphism | Neuen-Schweitzer, MIVIA ARG | ~143,600 | up to 4K nodes |
+| Graph Edit Distance | IAM, GEDLIB | ~7,000 | up to 200 nodes |
+| Maximum Common Subgraph | MIVIA ARG, Dilkas | ~166,000 | up to 2K nodes |
 
 ---
 
-## 16. Cross-Category Datasets
+## 20. Cross-Category Datasets
 
 Several dataset repositories appear across multiple categories and deserve special mention as unifying resources.
 
@@ -502,6 +653,7 @@ The DIMACS (Center for Discrete Mathematics and Theoretical Computer Science) ch
 - **2nd Challenge** (1993): Cliques, coloring, and satisfiability (Categories 1, 2)
 - **7th Challenge**: Semidefinite relaxations and max cut (Category 4)
 - **10th Challenge** (2012): Graph partitioning and clustering (Categories 2, 4)
+- **12th Challenge** (2021--2022): Vehicle routing -- CVRP, VRPTW, CARP (Category 14)
 - **13th Challenge** (2025--2027): Network flows 2.0 (Category 5, ongoing)
 
 The DIMACS graph format itself is a de facto standard used across satisfiability, graph optimization, and network flow.
@@ -516,6 +668,7 @@ One of the earliest electronic benchmark repositories, OR-Library provides insta
 - Weighted tardiness (Category 8)
 - Parallel machine scheduling (Category 8)
 - UBQP (Category 11)
+- Facility location -- uncapacitated, capacitated, p-median, p-center, hub location (Category 15)
 
 While no longer actively maintained, it remains cited in hundreds of papers annually.
 
@@ -526,7 +679,8 @@ Mixed-integer programming naturally encodes problems from most categories. MIPLI
 - Set packing and covering (Category 9)
 - Network design and flow (Category 5)
 - Scheduling (Category 8)
-- Facility location and assignment
+- Facility location and assignment (Category 15)
+- Vehicle routing formulations (Category 14)
 
 Researchers can filter MIPLIB instances by structural tags to find specific problem types.
 
@@ -558,17 +712,29 @@ His website at HEIG-VD remains the authoritative source for all four problem typ
 
 ### SNAP and Network Repository
 
-These large-scale network collections (SNAP: ~80 networks; Network Repository: ~6,659 graphs) serve as benchmarks for any graph optimization problem (Categories 2, 4) when researchers need instances at real-world scale. They are essential for evaluating the scalability of heuristic algorithms.
+These large-scale network collections (SNAP: ~80 networks; Network Repository: ~6,659 graphs) serve as benchmarks for any graph optimization problem (Categories 2, 4) and graph matching (Category 17) when researchers need instances at real-world scale. They are essential for evaluating the scalability of heuristic algorithms.
+
+### CVRPLIB
+
+The Capacitated Vehicle Routing Problem Library at PUC-Rio aggregates classic, modern, and real-world CVRP instances (Category 14), including instances from the 12th DIMACS Implementation Challenge. Its Loggi instances share origins with facility location data (Category 15).
+
+### MIVIA ARG Database
+
+The MIVIA ARG Database (143,600 graphs) serves triple duty across subgraph isomorphism, graph isomorphism, and maximum common subgraph (Category 17). Its systematic coverage of graph types makes it a unifying benchmark for the entire graph matching family.
+
+### International Timetabling Competitions (ITC)
+
+The ITC series (2002, 2007, 2011, 2019, 2021) provides benchmarks spanning course timetabling, examination timetabling, high school timetabling, and sports scheduling (Category 16). These competition-driven instances ensure practical relevance and difficulty calibration.
 
 ---
 
-## 17. Concluding Remarks
+## 21. Concluding Remarks
 
-The benchmark landscape for computationally hard problems is uneven. Satisfiability, TSP, and job shop scheduling enjoy decades of benchmark development with active competition ecosystems. At the other extreme, database normal form problems, exact cover by 3-sets, and several network flow variants have minimal dedicated benchmarks.
+The benchmark landscape for computationally hard problems is uneven. Satisfiability, TSP, job shop scheduling, vehicle routing, and constraint satisfaction enjoy decades of benchmark development with active competition ecosystems. At the other extreme, database normal form problems, exact cover by 3-sets, and several network flow variants have minimal dedicated benchmarks.
 
 A few patterns emerge:
 
-1. **Competition-driven categories** (SAT, Max-SAT, QBF, TSP, scheduling, PACE problems) have the richest benchmarks, because annual competitions create demand for fresh, challenging instances.
+1. **Competition-driven categories** (SAT, Max-SAT, QBF, TSP, scheduling, vehicle routing, constraint satisfaction, PACE problems) have the richest benchmarks, because annual competitions create demand for fresh, challenging instances.
 
 2. **Reduction-connected problems** share benchmarks extensively. The MIS/clique/vertex-cover triple uses identical instances via complement. Max cut, QUBO, and spin glass are three views of one problem.
 
